@@ -1,0 +1,123 @@
+.login-section .primary--headline {
+  color: var(--color-black-100);
+  font-family: "Roboto", sans-serif;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 139.394%;
+}
+.login-section .sub--text {
+  margin-top: 13px;
+  color: var(--color-light-100);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.857%;
+}
+.login-section form label {
+  color: var(--color-black-200);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 157.143%;
+}
+.checkbox {
+  padding: 9px !important;
+}
+.login-section input,
+.login-section form select {
+  border-radius: 10px;
+  border: 1px solid var(--color-light-300);
+  background: var(--color-light-900);
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 142.857%;
+  position: relative;
+}
+
+.login-section input::placeholder {
+  color: var(--color-light-200);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.857%;
+}
+.login-section form div {
+  position: relative;
+}
+.login-section form .password-icon::after {
+  content: "";
+  min-width: 20px;
+  min-height: 20px;
+  background: url(../images/icons/Icon-view.svg);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -37px;
+  right: 15px;
+  cursor: pointer;
+}
+.login-section form .calendar-icon::after {
+  content: "";
+  min-width: 20px;
+  min-height: 20px;
+  background: url(../images/icons/calendar-icon.svg);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -37px;
+  right: 15px;
+  cursor: pointer;
+}
+.login-section form .dropdown-icon::after {
+  content: "";
+  min-width: 7px;
+  min-height: 12px;
+  background: url(../images/icons/dropdown.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -35px;
+  right: 20px;
+  cursor: pointer;
+}
+.login-section .have--account,
+.login-section .sign--in {
+  text-align: center;
+  color: var(--color-black-300);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.857%;
+  text-decoration: none;
+  transform: all 0.3s ease;
+}
+.login-section .sign--in {
+  color: var(--primary-color-100);
+}
+.login-section .have--account:hover,
+.login-section .sign--in:hover {
+  text-decoration: underline;
+}
+@media only screen and (max-width: 767px) {
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.sign--in {
+  text-align: center;
+  color: var(--color-black-300);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.857%;
+  text-decoration: none;
+  transform: all 0.3s ease;
+}
+.sign--in {
+  color: var(--primary-color-100);
+}

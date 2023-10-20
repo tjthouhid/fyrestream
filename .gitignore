@@ -1,0 +1,6 @@
+*.sql
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+*.zip
