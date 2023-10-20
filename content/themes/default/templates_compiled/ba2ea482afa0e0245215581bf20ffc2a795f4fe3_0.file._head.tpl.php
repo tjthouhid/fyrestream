@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-20 09:59:32
+/* Smarty version 4.3.2, created on 2023-10-20 13:51:18
   from '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/_head.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65324f843bd7d4_55973935',
+  'unifunc' => 'content_653285d63b74b4_21039916',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba2ea482afa0e0245215581bf20ffc2a795f4fe3' => 
     array (
       0 => '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/_head.tpl',
-      1 => 1697313152,
+      1 => 1697809849,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_head.css.tpl' => 1,
   ),
 ),false)) {
-function content_65324f843bd7d4_55973935 (Smarty_Internal_Template $_smarty_tpl) {
+function content_653285d63b74b4_21039916 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Users/usedupvc/LocalSites/fyrestream/app/public/vendor/smarty/smarty/libs/plugins/modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 ?>
 <!doctype html>
@@ -91,7 +91,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Users/usedupvc/LocalSites/f
   <link rel="stylesheet" type='text/css'
     href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /content/themes/<?php echo $_smarty_tpl->tpl_vars['system']->value['theme'];?>
-/css/style.min.css">
+/css/style.min.css?ver=1.0.0">
   <link rel="stylesheet" type='text/css' href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /content/themes/<?php echo $_smarty_tpl->tpl_vars['system']->value['theme'];?>
 /css/login.css">

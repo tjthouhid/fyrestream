@@ -49,7 +49,7 @@
     {if $system['language']['dir'] == "LTR"}
   <link href="{$system['system_url']}/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type='text/css'
-    href="{$system['system_url']}/content/themes/{$system['theme']}/css/style.min.css">
+    href="{$system['system_url']}/content/themes/{$system['theme']}/css/style.min.css?ver=1.0.0">
   <link rel="stylesheet" type='text/css' href="{$system['system_url']}/content/themes/{$system['theme']}/css/login.css">
   <link rel="stylesheet" type='text/css'
     href="{$system['system_url']}/content/themes/{$system['theme']}/css/style_attached.css">
