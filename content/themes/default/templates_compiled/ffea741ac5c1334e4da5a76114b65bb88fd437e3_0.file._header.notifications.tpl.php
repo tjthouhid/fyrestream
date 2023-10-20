@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-20 10:13:42
+/* Smarty version 4.3.2, created on 2023-10-20 10:41:56
   from '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/_header.notifications.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_653252d64c78e7_53538995',
+  'unifunc' => 'content_6532597461ae35_59459365',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ffea741ac5c1334e4da5a76114b65bb88fd437e3' => 
     array (
       0 => '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/_header.notifications.tpl',
-      1 => 1697796767,
+      1 => 1697798261,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__feeds_notification.tpl' => 1,
   ),
 ),false)) {
-function content_653252d64c78e7_53538995 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6532597461ae35_59459365 (Smarty_Internal_Template $_smarty_tpl) {
 ?><li class="dropdown js_live-notifications">
   <a href="#" data-bs-toggle="dropdown" data-display="static">
     <span class="counter red shadow-sm rounded-pill <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['user_live_notifications_counter'] == 0) {?>d-none<?php }?>">

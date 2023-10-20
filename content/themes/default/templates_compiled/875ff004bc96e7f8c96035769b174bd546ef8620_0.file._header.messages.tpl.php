@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-20 10:14:04
+/* Smarty version 4.3.2, created on 2023-10-20 10:41:56
   from '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/_header.messages.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_653252ec297f65_32284941',
+  'unifunc' => 'content_653259746088f8_94217981',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '875ff004bc96e7f8c96035769b174bd546ef8620' => 
     array (
       0 => '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/_header.messages.tpl',
-      1 => 1697796841,
+      1 => 1697798265,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__feeds_conversation.tpl' => 1,
   ),
 ),false)) {
-function content_653252ec297f65_32284941 (Smarty_Internal_Template $_smarty_tpl) {
+function content_653259746088f8_94217981 (Smarty_Internal_Template $_smarty_tpl) {
 ?><li class="dropdown js_live-messages">
    <a href="#" data-bs-toggle="dropdown" data-display="static">
 

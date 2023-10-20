@@ -1,6 +1,6 @@
 <li class="dropdown js_live-notifications">
   <a href="#" data-bs-toggle="dropdown" data-display="static">
-    <span class="counter red shadow-sm rounded-pill {if $user->_data['user_live_notifications_counter'] == 0}x-hidden{/if}">
+    <span class="counter red shadow-sm rounded-pill {if $user->_data['user_live_notifications_counter'] == 0}d-none{/if}">
       {$user->_data['user_live_notifications_counter']}
     </span>
     <button class="nav-btn-rounded active d-flex align-items-center justify-content-center" type="button">

@@ -1,6 +1,311 @@
 {include file='_head.tpl'}
 {include file='_header.tpl'}
 
+
+<div class="container-fluid g-0 profile-header-container">
+  <div class="profile-header-container-bg" style="background-image: url({$profile['user_cover']});"></div>
+  <div class="{if $system['fluid_design']}container-fluid{else}container{/if} sg-offcanvas old">
+    <div class="row">
+      <div class="col-12 sg-offcanvas-mainbar">
+        <!-- profile-header -->
+        <div class="profile-header">
+          <!-- profile-cover -->
+          <div class="profile-cover-wrapper">
+            {if $profile['user_cover_id']}
+              <!-- full-cover -->
+              <img class="js_position-cover-full x-hidden" src="{$profile['user_cover_full']}">
+              <!-- full-cover -->
+
+              <!-- cropped-cover -->
+              <img class="js_position-cover-cropped {if $user->_logged_in && $profile['user_cover_lightbox']}js_lightbox{/if}" data-init-position="{$profile['user_cover_position']}" data-id="{$profile['user_cover_id']}" data-image="{$profile['user_cover_full']}" data-context="album" src="{$profile['user_cover']}" alt="{$profile['name']}">
+              <!-- cropped-cover -->
+            {/if}
+
+            {if $profile['user_id'] == $user->_data['user_id']}
+              <!-- buttons -->
+              <div class="profile-cover-buttons">
+                <div class="profile-cover-change">
+                  <i class="fa fa-camera" data-bs-toggle="dropdown" data-display="static"></i>
+                  <div class="dropdown-menu action-dropdown-menu">
+                    <!-- upload -->
+                    <div class="dropdown-item pointer js_x-uploader" data-handle="cover-user">
+                      <div class="action">
+                        {include file='__svg_icons.tpl' icon="camera" class="main-icon mr10" width="20px" height="20px"}
+                        {__("Upload Photo")}
+                      </div>
+                      <div class="action-desc">{__("Upload a new photo")}</div>
+                    </div>
+                    <!-- upload -->
+                    <!-- select -->
+                    <div class="dropdown-item pointer" data-toggle="modal" data-url="users/photos.php?filter=cover&type=user&id={$profile['user_id']}">
+                      <div class="action">
+                        {include file='__svg_icons.tpl' icon="photos" class="main-icon mr10" width="20px" height="20px"}
+                        {__("Select Photo")}
+                      </div>
+                      <div class="action-desc">{__("Select a photo")}</div>
+                    </div>
+                    <!-- select -->
+                  </div>
+                </div>
+                <div class="profile-cover-position {if !$profile['user_cover']}x-hidden{/if}">
+                  <input class="js_position-picture-val" type="hidden" name="position-picture-val">
+                  <i class="fa fa-crop-alt js_init-position-picture" data-handle="user" data-id="{$profile['user_id']}"></i>
+                </div>
+                <div class="profile-cover-position-buttons">
+                  <i class="fa fa-check fa-fw js_save-position-picture"></i>
+                </div>
+                <div class="profile-cover-position-buttons">
+                  <i class="fa fa-times fa-fw js_cancel-position-picture"></i>
+                </div>
+                <div class="profile-cover-delete {if !$profile['user_cover']}x-hidden{/if}">
+                  <i class="fa fa-trash js_delete-cover" data-handle="cover-user"></i>
+                </div>
+              </div>
+              <!-- buttons -->
+
+              <!-- loaders -->
+              <div class="profile-cover-change-loader">
+                <div class="progress x-progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="profile-cover-position-loader">
+                <i class="fa fa-arrows-alt mr5"></i>{__("Drag to reposition cover")}
+              </div>
+              <!-- loaders -->
+            {/if}
+          </div>
+          <!-- profile-cover -->
+
+          <!-- profile-avatar -->
+          <div class="profile-avatar-wrapper">
+            <img {if $profile['user_picture_id']} {if $user->_logged_in && $profile['user_picture_lightbox']}class="js_lightbox" {/if} data-id="{$profile['user_picture_id']}" data-context="album" data-image="{$profile['user_picture_full']}" {elseif !$profile['user_picture_default']} class="js_lightbox-nodata" data-image="{$profile['user_picture']}" {/if} src="{$profile['user_picture']}" alt="{$profile['name']}">
+
+            {if $profile['user_id'] == $user->_data['user_id']}
+              <!-- buttons -->
+              <div class="profile-avatar-change">
+                <i class="fa fa-camera" data-bs-toggle="dropdown" data-display="static"></i>
+                <div class="dropdown-menu action-dropdown-menu">
+                  <!-- upload -->
+                  <div class="dropdown-item pointer js_x-uploader" data-handle="picture-user">
+                    <div class="action">
+                      {include file='__svg_icons.tpl' icon="camera" class="main-icon mr10" width="20px" height="20px"}
+                      {__("Upload Photo")}
+                    </div>
+                    <div class="action-desc">{__("Upload a new photo")}</div>
+                  </div>
+                  <!-- upload -->
+                  <!-- select -->
+                  <div class="dropdown-item pointer" data-toggle="modal" data-url="users/photos.php?filter=avatar&type=user&id={$profile['user_id']}">
+                    <div class="action">
+                      {include file='__svg_icons.tpl' icon="photos" class="main-icon mr10" width="20px" height="20px"}
+                      {__("Select Photo")}
+                    </div>
+                    <div class="action-desc">{__("Select a photo")}</div>
+                  </div>
+                  <!-- select -->
+                </div>
+              </div>
+              <div class="profile-avatar-crop {if $profile['user_picture_default'] || !$profile['user_picture_id']}x-hidden{/if}">
+                <i class="fa fa-crop-alt js_init-crop-picture" data-image="{$profile['user_picture_full']}" data-handle="user" data-id="{$profile['user_id']}"></i>
+              </div>
+              <div class="profile-avatar-delete d-none {if $profile['user_picture_default']}d-none{/if}">
+                <i class="fa fa-trash js_delete-picture" data-handle="picture-user"></i>
+              </div>
+              <!-- buttons -->
+              <!-- loaders -->
+              <div class="profile-avatar-change-loader">
+                <div class="progress x-progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- loaders -->
+            {/if}
+          </div>
+          <!-- profile-avatar -->
+
+          <!-- profile-name -->
+          <div class="profile-name-wrapper">
+            <a href="{$system['system_url']}/{$profile['user_name']}">{$profile['name']}</a>
+            {if $profile['user_verified']}
+              <span class="verified-badge" data-bs-toggle="tooltip" title='{__("Verified User")}'>
+                {include file='__svg_icons.tpl' icon="verified_badge" width="45px" height="45px"}
+              </span>
+            {/if}
+            {if $profile['user_subscribed']}
+              <a href="{$system['system_url']}/packages" class="badge bg-danger" data-bs-toggle="tooltip" title="{__($profile['package_name'])} {__('Member')}">{__("PRO")}</a>
+            {/if}
+          </div>
+          <!-- profile-name -->
+
+          <!-- profile-buttons -->
+          <div class="profile-buttons-wrapper">
+            {if $user->_logged_in}
+              {if $user->_data['user_id'] != $profile['user_id']}
+                <!-- add friend -->
+                {if $profile['we_friends']}
+                  <button type="button" class="btn btn-md rounded-pill btn-success btn-delete js_friend-remove" data-uid="{$profile['user_id']}">
+                    <i class="fa fa-check mr5"></i>{__("Friends")}
+                  </button>
+                {elseif $profile['he_request']}
+                  <button type="button" class="btn btn-md rounded-pill btn-primary js_friend-accept" data-uid="{$profile['user_id']}">{__("Confirm")}</button>
+                  <button type="button" class="btn btn-md rounded-pill btn-danger js_friend-decline" data-uid="{$profile['user_id']}">{__("Decline")}</button>
+                {elseif $profile['i_request']}
+                  <button type="button" class="btn btn-md rounded-pill btn-light js_friend-cancel" data-uid="{$profile['user_id']}">
+                    <i class="fa fa-clock mr5"></i>{__("Sent")}
+                  </button>
+                {elseif !$profile['friendship_declined']}
+                  <button type="button" class="btn btn-md rounded-pill btn-success js_friend-add" data-uid="{$profile['user_id']}">
+                    <i class="fa fa-user-plus mr5"></i>{__("Add Friend")}
+                  </button>
+                {/if}
+                <!-- add friend -->
+
+                <!-- follow -->
+                {if $profile['i_follow']}
+                  <button type="button" class="btn btn-md rounded-pill btn-light js_unfollow" data-uid="{$profile['user_id']}">
+                    <i class="fa fa-check mr5"></i>{__("Following")}
+                  </button>
+                {else}
+                  <button type="button" class="btn btn-md rounded-pill btn-light js_follow" data-uid="{$profile['user_id']}">
+                    <i class="fa fa-rss mr5"></i>{__("Follow")}
+                  </button>
+                {/if}
+                <!-- follow -->
+
+                <!-- message -->
+                <button type="button" class="btn btn-icon rounded-pill btn-light mlr5 js_chat-start" data-uid="{$profile['user_id']}" data-name="{$profile['name']}" data-link="{$profile['user_name']}" data-picture="{$profile['user_picture']}">
+                  {include file='__svg_icons.tpl' icon="header-messages" class="main-icon" width="20px" height="20px"}
+                </button>
+                <!-- message -->
+
+                <!-- poke & report & block -->
+                <div class="d-inline-block dropdown">
+                  <button type="button" class="btn btn-icon rounded-pill btn-light" data-bs-toggle="dropdown" data-display="static">
+                    <i class="fa fa-ellipsis-v fa-fw"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end action-dropdown-menu">
+                    <!-- poke -->
+                    {if $system['pokes_enabled'] && !$profile['i_poked']}
+                      {if $profile['user_privacy_poke'] == "public" || ($profile['user_privacy_poke'] == "friends" && $profile['we_friends'])}
+                        <div class="dropdown-item pointer js_poke" data-id="{$profile['user_id']}" data-name="{$profile['name']}">
+                          <div class="action">
+                            {include file='__svg_icons.tpl' icon="poke" class="main-icon mr10" width="20px" height="20px"}
+                            {__("Poke")}
+                          </div>
+                          <div class="action-desc">{__("Let them know you are here")}</div>
+                        </div>
+                      {/if}
+                    {/if}
+                    <!-- poke -->
+                    <!-- report -->
+                    <div class="dropdown-item pointer" data-toggle="modal" data-url="data/report.php?do=create&handle=user&id={$profile['user_id']}">
+                      <div class="action">
+                        {include file='__svg_icons.tpl' icon="report" class="main-icon mr10" width="20px" height="20px"}
+                        {__("Report")}
+                      </div>
+                      <div class="action-desc">{__("Report this to admins")}</div>
+                    </div>
+                    <!-- report -->
+                    <!-- block -->
+                    <div class="dropdown-item pointer js_block-user" data-uid="{$profile['user_id']}">
+                      <div class="action">
+                        {include file='__svg_icons.tpl' icon="block" class="main-icon mr10" width="20px" height="20px"}
+                        {__("Block")}
+                      </div>
+                      <div class="action-desc">{__("This user won't be able to reach you")}</div>
+                    </div>
+                    <!-- block -->
+                    <!-- manage -->
+                    {if $user->_is_admin}
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="{$system['system_url']}/admincp/users/edit/{$profile['user_id']}">
+                        {include file='__svg_icons.tpl' icon="edit_profile" class="main-icon mr10" width="20px" height="20px"}
+                        {__("Edit in Admin Panel")}
+                      </a>
+                    {elseif $user->_is_moderator}
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="{$system['system_url']}/modcp/users/edit/{$profile['user_id']}">
+                        {include file='__svg_icons.tpl' icon="edit_profile" class="main-icon mr10" width="20px" height="20px"}
+                        {__("Edit in Moderator Panel")}
+                      </a>
+                    {/if}
+                    <!-- manage -->
+                  </div>
+                </div>
+                <!-- poke & report & block -->
+              {else}
+                <!-- edit -->
+                <a href="{$system['system_url']}/settings/profile" class="btn btn-icon btn-rounded btn-light">
+                  <i class="fa fa-pencil-alt fa-fw"></i>
+                </a>
+                <!-- edit -->
+              {/if}
+            {/if}
+          </div>
+          <!-- profile-buttons -->
+        </div>
+        <!-- profile-header -->
+
+        <!-- profile-tabs -->
+      
+        <div class="profile-tabs-wrapper ">
+          <div class="row">
+            <div class="col-10 d-flex justify-content-evenly">
+              <a href="{$system['system_url']}/{$profile['user_name']}" {if $view == ""}class="active" {/if}>
+                <span class="ml5 d-none d-xxl-inline-block">{__("Timeline")}</span>
+              </a>
+              {if $system['groups_enabled']}
+                <a href="{$system['system_url']}/{$profile['user_name']}/groups" {if $view == "groups"}class="active" {/if}>
+                  <span class="ml5 d-none d-xxl-inline-block">{__("Groups")}</span>
+                </a>
+              {/if}
+              {if $system['pages_enabled']}
+                <a href="{$system['system_url']}/{$profile['user_name']}/likes" {if $view == "likes"}class="active" {/if}>
+                  <span class="ml5 d-none d-xxl-inline-block">{__("Likes")}</span>
+                </a>
+              {/if}
+              <a href="{$system['system_url']}/{$profile['user_name']}/friends" {if $view == "friends" || $view == "followers" || $view == "followings"}class="active" {/if}>
+                <span class="ml5 d-none d-xxl-inline-block">{__("Friends")}</span>
+              </a>
+              <a href="{$system['system_url']}/{$profile['user_name']}/photos" {if $view == "photos" || $view == "albums" || $view == "album"}class="active" {/if}>
+                <span class="ml5 d-none d-xxl-inline-block">{__("Photos")}</span>
+              </a>
+              <a href="{$system['system_url']}/{$profile['user_name']}/videos" {if $view == "videos"}class="active" {/if}>
+                <span class="ml5 d-none d-xxl-inline-block">{__("Videos")}</span>
+              </a>
+              {if $user->_data['can_sell_products']}
+                <a href="{$system['system_url']}/{$profile['user_name']}/products" {if $view == "products"}class="active" {/if}>
+                  <span class="ml5 d-none d-xxl-inline-block">{__("Products")}</span>
+                </a>
+              {/if}
+             
+             
+              {if $system['events_enabled']}
+                <a href="{$system['system_url']}/{$profile['user_name']}/events" {if $view == "events"}class="active" {/if}>
+                  <span class="ml5 d-none d-xxl-inline-block">{__("Events")}</span>
+                </a>
+              {/if}
+            </div>
+            <div class="col-2 d-flex justify-content-end">
+              <div class="edit-profile-btn">
+                <a href="{$system['system_url']}/settings/profile" {if $view == "photos" || $view == "albums" || $view == "album"}class="active" {/if}>
+                    {include file='__svg_icons.tpl' icon="edit-2" class="" width="22px" height="22px"}
+                    <span class="ml5 d-none d-xxl-inline-block">{__("Edit Profile")}</span>
+                  </a>
+              </div>
+                 
+            </div>
+          </div>
+          
+        </div>
+        <!-- profile-tabs -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- page content -->
 <div class="{if $system['fluid_design']}container-fluid{else}container{/if} sg-offcanvas old">
   <div class="row">
@@ -13,290 +318,9 @@
 
     <!-- content panel -->
     <div class="col-12 sg-offcanvas-mainbar">
-      <!-- profile-header -->
-      <div class="profile-header">
-        <!-- profile-cover -->
-        <div class="profile-cover-wrapper">
-          {if $profile['user_cover_id']}
-            <!-- full-cover -->
-            <img class="js_position-cover-full x-hidden" src="{$profile['user_cover_full']}">
-            <!-- full-cover -->
+      
 
-            <!-- cropped-cover -->
-            <img class="js_position-cover-cropped {if $user->_logged_in && $profile['user_cover_lightbox']}js_lightbox{/if}" data-init-position="{$profile['user_cover_position']}" data-id="{$profile['user_cover_id']}" data-image="{$profile['user_cover_full']}" data-context="album" src="{$profile['user_cover']}" alt="{$profile['name']}">
-            <!-- cropped-cover -->
-          {/if}
-
-          {if $profile['user_id'] == $user->_data['user_id']}
-            <!-- buttons -->
-            <div class="profile-cover-buttons">
-              <div class="profile-cover-change">
-                <i class="fa fa-camera" data-bs-toggle="dropdown" data-display="static"></i>
-                <div class="dropdown-menu action-dropdown-menu">
-                  <!-- upload -->
-                  <div class="dropdown-item pointer js_x-uploader" data-handle="cover-user">
-                    <div class="action">
-                      {include file='__svg_icons.tpl' icon="camera" class="main-icon mr10" width="20px" height="20px"}
-                      {__("Upload Photo")}
-                    </div>
-                    <div class="action-desc">{__("Upload a new photo")}</div>
-                  </div>
-                  <!-- upload -->
-                  <!-- select -->
-                  <div class="dropdown-item pointer" data-toggle="modal" data-url="users/photos.php?filter=cover&type=user&id={$profile['user_id']}">
-                    <div class="action">
-                      {include file='__svg_icons.tpl' icon="photos" class="main-icon mr10" width="20px" height="20px"}
-                      {__("Select Photo")}
-                    </div>
-                    <div class="action-desc">{__("Select a photo")}</div>
-                  </div>
-                  <!-- select -->
-                </div>
-              </div>
-              <div class="profile-cover-position {if !$profile['user_cover']}x-hidden{/if}">
-                <input class="js_position-picture-val" type="hidden" name="position-picture-val">
-                <i class="fa fa-crop-alt js_init-position-picture" data-handle="user" data-id="{$profile['user_id']}"></i>
-              </div>
-              <div class="profile-cover-position-buttons">
-                <i class="fa fa-check fa-fw js_save-position-picture"></i>
-              </div>
-              <div class="profile-cover-position-buttons">
-                <i class="fa fa-times fa-fw js_cancel-position-picture"></i>
-              </div>
-              <div class="profile-cover-delete {if !$profile['user_cover']}x-hidden{/if}">
-                <i class="fa fa-trash js_delete-cover" data-handle="cover-user"></i>
-              </div>
-            </div>
-            <!-- buttons -->
-
-            <!-- loaders -->
-            <div class="profile-cover-change-loader">
-              <div class="progress x-progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            <div class="profile-cover-position-loader">
-              <i class="fa fa-arrows-alt mr5"></i>{__("Drag to reposition cover")}
-            </div>
-            <!-- loaders -->
-          {/if}
-        </div>
-        <!-- profile-cover -->
-
-        <!-- profile-avatar -->
-        <div class="profile-avatar-wrapper">
-          <img {if $profile['user_picture_id']} {if $user->_logged_in && $profile['user_picture_lightbox']}class="js_lightbox" {/if} data-id="{$profile['user_picture_id']}" data-context="album" data-image="{$profile['user_picture_full']}" {elseif !$profile['user_picture_default']} class="js_lightbox-nodata" data-image="{$profile['user_picture']}" {/if} src="{$profile['user_picture']}" alt="{$profile['name']}">
-
-          {if $profile['user_id'] == $user->_data['user_id']}
-            <!-- buttons -->
-            <div class="profile-avatar-change">
-              <i class="fa fa-camera" data-bs-toggle="dropdown" data-display="static"></i>
-              <div class="dropdown-menu action-dropdown-menu">
-                <!-- upload -->
-                <div class="dropdown-item pointer js_x-uploader" data-handle="picture-user">
-                  <div class="action">
-                    {include file='__svg_icons.tpl' icon="camera" class="main-icon mr10" width="20px" height="20px"}
-                    {__("Upload Photo")}
-                  </div>
-                  <div class="action-desc">{__("Upload a new photo")}</div>
-                </div>
-                <!-- upload -->
-                <!-- select -->
-                <div class="dropdown-item pointer" data-toggle="modal" data-url="users/photos.php?filter=avatar&type=user&id={$profile['user_id']}">
-                  <div class="action">
-                    {include file='__svg_icons.tpl' icon="photos" class="main-icon mr10" width="20px" height="20px"}
-                    {__("Select Photo")}
-                  </div>
-                  <div class="action-desc">{__("Select a photo")}</div>
-                </div>
-                <!-- select -->
-              </div>
-            </div>
-            <div class="profile-avatar-crop {if $profile['user_picture_default'] || !$profile['user_picture_id']}x-hidden{/if}">
-              <i class="fa fa-crop-alt js_init-crop-picture" data-image="{$profile['user_picture_full']}" data-handle="user" data-id="{$profile['user_id']}"></i>
-            </div>
-            <div class="profile-avatar-delete {if $profile['user_picture_default']}x-hidden{/if}">
-              <i class="fa fa-trash js_delete-picture" data-handle="picture-user"></i>
-            </div>
-            <!-- buttons -->
-            <!-- loaders -->
-            <div class="profile-avatar-change-loader">
-              <div class="progress x-progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            <!-- loaders -->
-          {/if}
-        </div>
-        <!-- profile-avatar -->
-
-        <!-- profile-name -->
-        <div class="profile-name-wrapper">
-          <a href="{$system['system_url']}/{$profile['user_name']}">{$profile['name']}</a>
-          {if $profile['user_verified']}
-            <span class="verified-badge" data-bs-toggle="tooltip" title='{__("Verified User")}'>
-              {include file='__svg_icons.tpl' icon="verified_badge" width="45px" height="45px"}
-            </span>
-          {/if}
-          {if $profile['user_subscribed']}
-            <a href="{$system['system_url']}/packages" class="badge bg-danger" data-bs-toggle="tooltip" title="{__($profile['package_name'])} {__('Member')}">{__("PRO")}</a>
-          {/if}
-        </div>
-        <!-- profile-name -->
-
-        <!-- profile-buttons -->
-        <div class="profile-buttons-wrapper">
-          {if $user->_logged_in}
-            {if $user->_data['user_id'] != $profile['user_id']}
-              <!-- add friend -->
-              {if $profile['we_friends']}
-                <button type="button" class="btn btn-md rounded-pill btn-success btn-delete js_friend-remove" data-uid="{$profile['user_id']}">
-                  <i class="fa fa-check mr5"></i>{__("Friends")}
-                </button>
-              {elseif $profile['he_request']}
-                <button type="button" class="btn btn-md rounded-pill btn-primary js_friend-accept" data-uid="{$profile['user_id']}">{__("Confirm")}</button>
-                <button type="button" class="btn btn-md rounded-pill btn-danger js_friend-decline" data-uid="{$profile['user_id']}">{__("Decline")}</button>
-              {elseif $profile['i_request']}
-                <button type="button" class="btn btn-md rounded-pill btn-light js_friend-cancel" data-uid="{$profile['user_id']}">
-                  <i class="fa fa-clock mr5"></i>{__("Sent")}
-                </button>
-              {elseif !$profile['friendship_declined']}
-                <button type="button" class="btn btn-md rounded-pill btn-success js_friend-add" data-uid="{$profile['user_id']}">
-                  <i class="fa fa-user-plus mr5"></i>{__("Add Friend")}
-                </button>
-              {/if}
-              <!-- add friend -->
-
-              <!-- follow -->
-              {if $profile['i_follow']}
-                <button type="button" class="btn btn-md rounded-pill btn-light js_unfollow" data-uid="{$profile['user_id']}">
-                  <i class="fa fa-check mr5"></i>{__("Following")}
-                </button>
-              {else}
-                <button type="button" class="btn btn-md rounded-pill btn-light js_follow" data-uid="{$profile['user_id']}">
-                  <i class="fa fa-rss mr5"></i>{__("Follow")}
-                </button>
-              {/if}
-              <!-- follow -->
-
-              <!-- message -->
-              <button type="button" class="btn btn-icon rounded-pill btn-light mlr5 js_chat-start" data-uid="{$profile['user_id']}" data-name="{$profile['name']}" data-link="{$profile['user_name']}" data-picture="{$profile['user_picture']}">
-                {include file='__svg_icons.tpl' icon="header-messages" class="main-icon" width="20px" height="20px"}
-              </button>
-              <!-- message -->
-
-              <!-- poke & report & block -->
-              <div class="d-inline-block dropdown">
-                <button type="button" class="btn btn-icon rounded-pill btn-light" data-bs-toggle="dropdown" data-display="static">
-                  <i class="fa fa-ellipsis-v fa-fw"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-end action-dropdown-menu">
-                  <!-- poke -->
-                  {if $system['pokes_enabled'] && !$profile['i_poked']}
-                    {if $profile['user_privacy_poke'] == "public" || ($profile['user_privacy_poke'] == "friends" && $profile['we_friends'])}
-                      <div class="dropdown-item pointer js_poke" data-id="{$profile['user_id']}" data-name="{$profile['name']}">
-                        <div class="action">
-                          {include file='__svg_icons.tpl' icon="poke" class="main-icon mr10" width="20px" height="20px"}
-                          {__("Poke")}
-                        </div>
-                        <div class="action-desc">{__("Let them know you are here")}</div>
-                      </div>
-                    {/if}
-                  {/if}
-                  <!-- poke -->
-                  <!-- report -->
-                  <div class="dropdown-item pointer" data-toggle="modal" data-url="data/report.php?do=create&handle=user&id={$profile['user_id']}">
-                    <div class="action">
-                      {include file='__svg_icons.tpl' icon="report" class="main-icon mr10" width="20px" height="20px"}
-                      {__("Report")}
-                    </div>
-                    <div class="action-desc">{__("Report this to admins")}</div>
-                  </div>
-                  <!-- report -->
-                  <!-- block -->
-                  <div class="dropdown-item pointer js_block-user" data-uid="{$profile['user_id']}">
-                    <div class="action">
-                      {include file='__svg_icons.tpl' icon="block" class="main-icon mr10" width="20px" height="20px"}
-                      {__("Block")}
-                    </div>
-                    <div class="action-desc">{__("This user won't be able to reach you")}</div>
-                  </div>
-                  <!-- block -->
-                  <!-- manage -->
-                  {if $user->_is_admin}
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{$system['system_url']}/admincp/users/edit/{$profile['user_id']}">
-                      {include file='__svg_icons.tpl' icon="edit_profile" class="main-icon mr10" width="20px" height="20px"}
-                      {__("Edit in Admin Panel")}
-                    </a>
-                  {elseif $user->_is_moderator}
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{$system['system_url']}/modcp/users/edit/{$profile['user_id']}">
-                      {include file='__svg_icons.tpl' icon="edit_profile" class="main-icon mr10" width="20px" height="20px"}
-                      {__("Edit in Moderator Panel")}
-                    </a>
-                  {/if}
-                  <!-- manage -->
-                </div>
-              </div>
-              <!-- poke & report & block -->
-            {else}
-              <!-- edit -->
-              <a href="{$system['system_url']}/settings/profile" class="btn btn-icon btn-rounded btn-light">
-                <i class="fa fa-pencil-alt fa-fw"></i>
-              </a>
-              <!-- edit -->
-            {/if}
-          {/if}
-        </div>
-        <!-- profile-buttons -->
-      </div>
-      <!-- profile-header -->
-
-      <!-- profile-tabs -->
-      <div class="profile-tabs-wrapper d-flex justify-content-evenly">
-        <a href="{$system['system_url']}/{$profile['user_name']}" {if $view == ""}class="active" {/if}>
-          {include file='__svg_icons.tpl' icon="newsfeed" class="main-icon mr5" width="24px" height="24px"}
-          <span class="ml5 d-none d-xxl-inline-block">{__("Timeline")}</span>
-        </a>
-        <a href="{$system['system_url']}/{$profile['user_name']}/friends" {if $view == "friends" || $view == "followers" || $view == "followings"}class="active" {/if}>
-          {include file='__svg_icons.tpl' icon="friends" class="main-icon mr5" width="24px" height="24px"}
-          <span class="ml5 d-none d-xxl-inline-block">{__("Friends")}</span>
-        </a>
-        <a href="{$system['system_url']}/{$profile['user_name']}/photos" {if $view == "photos" || $view == "albums" || $view == "album"}class="active" {/if}>
-          {include file='__svg_icons.tpl' icon="photos" class="main-icon mr5" width="24px" height="24px"}
-          <span class="ml5 d-none d-xxl-inline-block">{__("Photos")}</span>
-        </a>
-        <a href="{$system['system_url']}/{$profile['user_name']}/videos" {if $view == "videos"}class="active" {/if}>
-          {include file='__svg_icons.tpl' icon="videos" class="main-icon mr5" width="24px" height="24px"}
-          <span class="ml5 d-none d-xxl-inline-block">{__("Videos")}</span>
-        </a>
-        {if $user->_data['can_sell_products']}
-          <a href="{$system['system_url']}/{$profile['user_name']}/products" {if $view == "products"}class="active" {/if}>
-            {include file='__svg_icons.tpl' icon="products" class="main-icon mr5" width="24px" height="24px"}
-            <span class="ml5 d-none d-xxl-inline-block">{__("Products")}</span>
-          </a>
-        {/if}
-        {if $system['pages_enabled']}
-          <a href="{$system['system_url']}/{$profile['user_name']}/likes" {if $view == "likes"}class="active" {/if}>
-            {include file='__svg_icons.tpl' icon="pages" class="main-icon mr5" width="24px" height="24px"}
-            <span class="ml5 d-none d-xxl-inline-block">{__("Likes")}</span>
-          </a>
-        {/if}
-        {if $system['groups_enabled']}
-          <a href="{$system['system_url']}/{$profile['user_name']}/groups" {if $view == "groups"}class="active" {/if}>
-            {include file='__svg_icons.tpl' icon="groups" class="main-icon mr5" width="24px" height="24px"}
-            <span class="ml5 d-none d-xxl-inline-block">{__("Groups")}</span>
-          </a>
-        {/if}
-        {if $system['events_enabled']}
-          <a href="{$system['system_url']}/{$profile['user_name']}/events" {if $view == "events"}class="active" {/if}>
-            {include file='__svg_icons.tpl' icon="events" class="main-icon mr5" width="24px" height="24px"}
-            <span class="ml5 d-none d-xxl-inline-block">{__("Events")}</span>
-          </a>
-        {/if}
-      </div>
-      <!-- profile-tabs -->
+     
 
       <!-- profile-content -->
       <div class="row">
@@ -1605,10 +1629,7 @@
   </script>
 {/if}
 <style>
-@media (min-width: 1200px){
-.old{
-  max-width:80%;
-}}
+
 .svg-container svg{
   fill:#fa8622 !important;
 }

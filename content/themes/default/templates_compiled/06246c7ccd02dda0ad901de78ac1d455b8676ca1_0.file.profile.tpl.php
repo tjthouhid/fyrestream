@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-20 10:14:25
+/* Smarty version 4.3.2, created on 2023-10-20 13:39:52
   from '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65325301db20c5_21275215',
+  'unifunc' => 'content_653283288c6af4_36245760',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '06246c7ccd02dda0ad901de78ac1d455b8676ca1' => 
     array (
       0 => '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/profile.tpl',
-      1 => 1697313152,
+      1 => 1697809188,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     'file:_head.tpl' => 1,
     'file:_header.tpl' => 1,
+    'file:__svg_icons.tpl' => 47,
     'file:_sidebar.tpl' => 1,
-    'file:__svg_icons.tpl' => 54,
     'file:__feeds_photo.tpl' => 2,
     'file:_footer_mini.tpl' => 1,
     'file:_need_subscription.tpl' => 6,
@@ -41,11 +41,423 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_65325301db20c5_21275215 (Smarty_Internal_Template $_smarty_tpl) {
+function content_653283288c6af4_36245760 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Users/usedupvc/LocalSites/fyrestream/app/public/vendor/smarty/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+
+
+<div class="container-fluid g-0 profile-header-container">
+  <div class="profile-header-container-bg" style="background-image: url(<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover'];?>
+);"></div>
+  <div class="<?php if ($_smarty_tpl->tpl_vars['system']->value['fluid_design']) {?>container-fluid<?php } else { ?>container<?php }?> sg-offcanvas old">
+    <div class="row">
+      <div class="col-12 sg-offcanvas-mainbar">
+        <!-- profile-header -->
+        <div class="profile-header">
+          <!-- profile-cover -->
+          <div class="profile-cover-wrapper">
+            <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_cover_id']) {?>
+              <!-- full-cover -->
+              <img class="js_position-cover-full x-hidden" src="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover_full'];?>
+">
+              <!-- full-cover -->
+
+              <!-- cropped-cover -->
+              <img class="js_position-cover-cropped <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in && $_smarty_tpl->tpl_vars['profile']->value['user_cover_lightbox']) {?>js_lightbox<?php }?>" data-init-position="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover_position'];?>
+" data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover_id'];?>
+" data-image="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover_full'];?>
+" data-context="album" src="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
+">
+              <!-- cropped-cover -->
+            <?php }?>
+
+            <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id']) {?>
+              <!-- buttons -->
+              <div class="profile-cover-buttons">
+                <div class="profile-cover-change">
+                  <i class="fa fa-camera" data-bs-toggle="dropdown" data-display="static"></i>
+                  <div class="dropdown-menu action-dropdown-menu">
+                    <!-- upload -->
+                    <div class="dropdown-item pointer js_x-uploader" data-handle="cover-user">
+                      <div class="action">
+                        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"camera",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, false);
+?>
+                        <?php echo __("Upload Photo");?>
+
+                      </div>
+                      <div class="action-desc"><?php echo __("Upload a new photo");?>
+</div>
+                    </div>
+                    <!-- upload -->
+                    <!-- select -->
+                    <div class="dropdown-item pointer" data-toggle="modal" data-url="users/photos.php?filter=cover&type=user&id=<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                      <div class="action">
+                        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
+?>
+                        <?php echo __("Select Photo");?>
+
+                      </div>
+                      <div class="action-desc"><?php echo __("Select a photo");?>
+</div>
+                    </div>
+                    <!-- select -->
+                  </div>
+                </div>
+                <div class="profile-cover-position <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_cover']) {?>x-hidden<?php }?>">
+                  <input class="js_position-picture-val" type="hidden" name="position-picture-val">
+                  <i class="fa fa-crop-alt js_init-position-picture" data-handle="user" data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+"></i>
+                </div>
+                <div class="profile-cover-position-buttons">
+                  <i class="fa fa-check fa-fw js_save-position-picture"></i>
+                </div>
+                <div class="profile-cover-position-buttons">
+                  <i class="fa fa-times fa-fw js_cancel-position-picture"></i>
+                </div>
+                <div class="profile-cover-delete <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_cover']) {?>x-hidden<?php }?>">
+                  <i class="fa fa-trash js_delete-cover" data-handle="cover-user"></i>
+                </div>
+              </div>
+              <!-- buttons -->
+
+              <!-- loaders -->
+              <div class="profile-cover-change-loader">
+                <div class="progress x-progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="profile-cover-position-loader">
+                <i class="fa fa-arrows-alt mr5"></i><?php echo __("Drag to reposition cover");?>
+
+              </div>
+              <!-- loaders -->
+            <?php }?>
+          </div>
+          <!-- profile-cover -->
+
+          <!-- profile-avatar -->
+          <div class="profile-avatar-wrapper">
+            <img <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_picture_id']) {?> <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in && $_smarty_tpl->tpl_vars['profile']->value['user_picture_lightbox']) {?>class="js_lightbox" <?php }?> data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture_id'];?>
+" data-context="album" data-image="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture_full'];?>
+" <?php } elseif (!$_smarty_tpl->tpl_vars['profile']->value['user_picture_default']) {?> class="js_lightbox-nodata" data-image="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture'];?>
+" <?php }?> src="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
+">
+
+            <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id']) {?>
+              <!-- buttons -->
+              <div class="profile-avatar-change">
+                <i class="fa fa-camera" data-bs-toggle="dropdown" data-display="static"></i>
+                <div class="dropdown-menu action-dropdown-menu">
+                  <!-- upload -->
+                  <div class="dropdown-item pointer js_x-uploader" data-handle="picture-user">
+                    <div class="action">
+                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"camera",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
+?>
+                      <?php echo __("Upload Photo");?>
+
+                    </div>
+                    <div class="action-desc"><?php echo __("Upload a new photo");?>
+</div>
+                  </div>
+                  <!-- upload -->
+                  <!-- select -->
+                  <div class="dropdown-item pointer" data-toggle="modal" data-url="users/photos.php?filter=avatar&type=user&id=<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                    <div class="action">
+                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
+?>
+                      <?php echo __("Select Photo");?>
+
+                    </div>
+                    <div class="action-desc"><?php echo __("Select a photo");?>
+</div>
+                  </div>
+                  <!-- select -->
+                </div>
+              </div>
+              <div class="profile-avatar-crop <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_picture_default'] || !$_smarty_tpl->tpl_vars['profile']->value['user_picture_id']) {?>x-hidden<?php }?>">
+                <i class="fa fa-crop-alt js_init-crop-picture" data-image="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture_full'];?>
+" data-handle="user" data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+"></i>
+              </div>
+              <div class="profile-avatar-delete d-none <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_picture_default']) {?>d-none<?php }?>">
+                <i class="fa fa-trash js_delete-picture" data-handle="picture-user"></i>
+              </div>
+              <!-- buttons -->
+              <!-- loaders -->
+              <div class="profile-avatar-change-loader">
+                <div class="progress x-progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- loaders -->
+            <?php }?>
+          </div>
+          <!-- profile-avatar -->
+
+          <!-- profile-name -->
+          <div class="profile-name-wrapper">
+            <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+"><?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
+</a>
+            <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_verified']) {?>
+              <span class="verified-badge" data-bs-toggle="tooltip" title='<?php echo __("Verified User");?>
+'>
+                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"verified_badge",'width'=>"45px",'height'=>"45px"), 0, true);
+?>
+              </span>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_subscribed']) {?>
+              <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/packages" class="badge bg-danger" data-bs-toggle="tooltip" title="<?php echo __($_smarty_tpl->tpl_vars['profile']->value['package_name']);?>
+ <?php echo __('Member');?>
+"><?php echo __("PRO");?>
+</a>
+            <?php }?>
+          </div>
+          <!-- profile-name -->
+
+          <!-- profile-buttons -->
+          <div class="profile-buttons-wrapper">
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in) {?>
+              <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['user_id'] != $_smarty_tpl->tpl_vars['profile']->value['user_id']) {?>
+                <!-- add friend -->
+                <?php if ($_smarty_tpl->tpl_vars['profile']->value['we_friends']) {?>
+                  <button type="button" class="btn btn-md rounded-pill btn-success btn-delete js_friend-remove" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                    <i class="fa fa-check mr5"></i><?php echo __("Friends");?>
+
+                  </button>
+                <?php } elseif ($_smarty_tpl->tpl_vars['profile']->value['he_request']) {?>
+                  <button type="button" class="btn btn-md rounded-pill btn-primary js_friend-accept" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+"><?php echo __("Confirm");?>
+</button>
+                  <button type="button" class="btn btn-md rounded-pill btn-danger js_friend-decline" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+"><?php echo __("Decline");?>
+</button>
+                <?php } elseif ($_smarty_tpl->tpl_vars['profile']->value['i_request']) {?>
+                  <button type="button" class="btn btn-md rounded-pill btn-light js_friend-cancel" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                    <i class="fa fa-clock mr5"></i><?php echo __("Sent");?>
+
+                  </button>
+                <?php } elseif (!$_smarty_tpl->tpl_vars['profile']->value['friendship_declined']) {?>
+                  <button type="button" class="btn btn-md rounded-pill btn-success js_friend-add" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                    <i class="fa fa-user-plus mr5"></i><?php echo __("Add Friend");?>
+
+                  </button>
+                <?php }?>
+                <!-- add friend -->
+
+                <!-- follow -->
+                <?php if ($_smarty_tpl->tpl_vars['profile']->value['i_follow']) {?>
+                  <button type="button" class="btn btn-md rounded-pill btn-light js_unfollow" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                    <i class="fa fa-check mr5"></i><?php echo __("Following");?>
+
+                  </button>
+                <?php } else { ?>
+                  <button type="button" class="btn btn-md rounded-pill btn-light js_follow" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                    <i class="fa fa-rss mr5"></i><?php echo __("Follow");?>
+
+                  </button>
+                <?php }?>
+                <!-- follow -->
+
+                <!-- message -->
+                <button type="button" class="btn btn-icon rounded-pill btn-light mlr5 js_chat-start" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+" data-name="<?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
+" data-link="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+" data-picture="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture'];?>
+">
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"header-messages",'class'=>"main-icon",'width'=>"20px",'height'=>"20px"), 0, true);
+?>
+                </button>
+                <!-- message -->
+
+                <!-- poke & report & block -->
+                <div class="d-inline-block dropdown">
+                  <button type="button" class="btn btn-icon rounded-pill btn-light" data-bs-toggle="dropdown" data-display="static">
+                    <i class="fa fa-ellipsis-v fa-fw"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end action-dropdown-menu">
+                    <!-- poke -->
+                    <?php if ($_smarty_tpl->tpl_vars['system']->value['pokes_enabled'] && !$_smarty_tpl->tpl_vars['profile']->value['i_poked']) {?>
+                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_poke'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_poke'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
+                        <div class="dropdown-item pointer js_poke" data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+" data-name="<?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
+">
+                          <div class="action">
+                            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"poke",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
+?>
+                            <?php echo __("Poke");?>
+
+                          </div>
+                          <div class="action-desc"><?php echo __("Let them know you are here");?>
+</div>
+                        </div>
+                      <?php }?>
+                    <?php }?>
+                    <!-- poke -->
+                    <!-- report -->
+                    <div class="dropdown-item pointer" data-toggle="modal" data-url="data/report.php?do=create&handle=user&id=<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                      <div class="action">
+                        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"report",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
+?>
+                        <?php echo __("Report");?>
+
+                      </div>
+                      <div class="action-desc"><?php echo __("Report this to admins");?>
+</div>
+                    </div>
+                    <!-- report -->
+                    <!-- block -->
+                    <div class="dropdown-item pointer js_block-user" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                      <div class="action">
+                        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"block",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
+?>
+                        <?php echo __("Block");?>
+
+                      </div>
+                      <div class="action-desc"><?php echo __("This user won't be able to reach you");?>
+</div>
+                    </div>
+                    <!-- block -->
+                    <!-- manage -->
+                    <?php if ($_smarty_tpl->tpl_vars['user']->value->_is_admin) {?>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/admincp/users/edit/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"edit_profile",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
+?>
+                        <?php echo __("Edit in Admin Panel");?>
+
+                      </a>
+                    <?php } elseif ($_smarty_tpl->tpl_vars['user']->value->_is_moderator) {?>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/modcp/users/edit/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
+">
+                        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"edit_profile",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
+?>
+                        <?php echo __("Edit in Moderator Panel");?>
+
+                      </a>
+                    <?php }?>
+                    <!-- manage -->
+                  </div>
+                </div>
+                <!-- poke & report & block -->
+              <?php } else { ?>
+                <!-- edit -->
+                <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/settings/profile" class="btn btn-icon btn-rounded btn-light">
+                  <i class="fa fa-pencil-alt fa-fw"></i>
+                </a>
+                <!-- edit -->
+              <?php }?>
+            <?php }?>
+          </div>
+          <!-- profile-buttons -->
+        </div>
+        <!-- profile-header -->
+
+        <!-- profile-tabs -->
+      
+        <div class="profile-tabs-wrapper ">
+          <div class="row">
+            <div class="col-10 d-flex justify-content-evenly">
+              <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+" <?php if ($_smarty_tpl->tpl_vars['view']->value == '') {?>class="active" <?php }?>>
+                <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Timeline");?>
+</span>
+              </a>
+              <?php if ($_smarty_tpl->tpl_vars['system']->value['groups_enabled']) {?>
+                <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+/groups" <?php if ($_smarty_tpl->tpl_vars['view']->value == "groups") {?>class="active" <?php }?>>
+                  <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Groups");?>
+</span>
+                </a>
+              <?php }?>
+              <?php if ($_smarty_tpl->tpl_vars['system']->value['pages_enabled']) {?>
+                <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+/likes" <?php if ($_smarty_tpl->tpl_vars['view']->value == "likes") {?>class="active" <?php }?>>
+                  <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Likes");?>
+</span>
+                </a>
+              <?php }?>
+              <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+/friends" <?php if ($_smarty_tpl->tpl_vars['view']->value == "friends" || $_smarty_tpl->tpl_vars['view']->value == "followers" || $_smarty_tpl->tpl_vars['view']->value == "followings") {?>class="active" <?php }?>>
+                <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Friends");?>
+</span>
+              </a>
+              <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+/photos" <?php if ($_smarty_tpl->tpl_vars['view']->value == "photos" || $_smarty_tpl->tpl_vars['view']->value == "albums" || $_smarty_tpl->tpl_vars['view']->value == "album") {?>class="active" <?php }?>>
+                <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Photos");?>
+</span>
+              </a>
+              <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+/videos" <?php if ($_smarty_tpl->tpl_vars['view']->value == "videos") {?>class="active" <?php }?>>
+                <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Videos");?>
+</span>
+              </a>
+              <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_sell_products']) {?>
+                <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+/products" <?php if ($_smarty_tpl->tpl_vars['view']->value == "products") {?>class="active" <?php }?>>
+                  <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Products");?>
+</span>
+                </a>
+              <?php }?>
+             
+             
+              <?php if ($_smarty_tpl->tpl_vars['system']->value['events_enabled']) {?>
+                <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+/events" <?php if ($_smarty_tpl->tpl_vars['view']->value == "events") {?>class="active" <?php }?>>
+                  <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Events");?>
+</span>
+                </a>
+              <?php }?>
+            </div>
+            <div class="col-2 d-flex justify-content-end">
+              <div class="edit-profile-btn">
+                <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/settings/profile" <?php if ($_smarty_tpl->tpl_vars['view']->value == "photos" || $_smarty_tpl->tpl_vars['view']->value == "albums" || $_smarty_tpl->tpl_vars['view']->value == "album") {?>class="active" <?php }?>>
+                    <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"edit-2",'class'=>'','width'=>"22px",'height'=>"22px"), 0, true);
+?>
+                    <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Edit Profile");?>
+</span>
+                  </a>
+              </div>
+                 
+            </div>
+          </div>
+          
+        </div>
+        <!-- profile-tabs -->
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- page content -->
 <div class="<?php if ($_smarty_tpl->tpl_vars['system']->value['fluid_design']) {?>container-fluid<?php } else { ?>container<?php }?> sg-offcanvas old">
@@ -60,401 +472,9 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
 
     <!-- content panel -->
     <div class="col-12 sg-offcanvas-mainbar">
-      <!-- profile-header -->
-      <div class="profile-header">
-        <!-- profile-cover -->
-        <div class="profile-cover-wrapper">
-          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_cover_id']) {?>
-            <!-- full-cover -->
-            <img class="js_position-cover-full x-hidden" src="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover_full'];?>
-">
-            <!-- full-cover -->
+      
 
-            <!-- cropped-cover -->
-            <img class="js_position-cover-cropped <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in && $_smarty_tpl->tpl_vars['profile']->value['user_cover_lightbox']) {?>js_lightbox<?php }?>" data-init-position="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover_position'];?>
-" data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover_id'];?>
-" data-image="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover_full'];?>
-" data-context="album" src="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover'];?>
-" alt="<?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
-">
-            <!-- cropped-cover -->
-          <?php }?>
-
-          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id']) {?>
-            <!-- buttons -->
-            <div class="profile-cover-buttons">
-              <div class="profile-cover-change">
-                <i class="fa fa-camera" data-bs-toggle="dropdown" data-display="static"></i>
-                <div class="dropdown-menu action-dropdown-menu">
-                  <!-- upload -->
-                  <div class="dropdown-item pointer js_x-uploader" data-handle="cover-user">
-                    <div class="action">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"camera",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, false);
-?>
-                      <?php echo __("Upload Photo");?>
-
-                    </div>
-                    <div class="action-desc"><?php echo __("Upload a new photo");?>
-</div>
-                  </div>
-                  <!-- upload -->
-                  <!-- select -->
-                  <div class="dropdown-item pointer" data-toggle="modal" data-url="users/photos.php?filter=cover&type=user&id=<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                    <div class="action">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
-?>
-                      <?php echo __("Select Photo");?>
-
-                    </div>
-                    <div class="action-desc"><?php echo __("Select a photo");?>
-</div>
-                  </div>
-                  <!-- select -->
-                </div>
-              </div>
-              <div class="profile-cover-position <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_cover']) {?>x-hidden<?php }?>">
-                <input class="js_position-picture-val" type="hidden" name="position-picture-val">
-                <i class="fa fa-crop-alt js_init-position-picture" data-handle="user" data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-"></i>
-              </div>
-              <div class="profile-cover-position-buttons">
-                <i class="fa fa-check fa-fw js_save-position-picture"></i>
-              </div>
-              <div class="profile-cover-position-buttons">
-                <i class="fa fa-times fa-fw js_cancel-position-picture"></i>
-              </div>
-              <div class="profile-cover-delete <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_cover']) {?>x-hidden<?php }?>">
-                <i class="fa fa-trash js_delete-cover" data-handle="cover-user"></i>
-              </div>
-            </div>
-            <!-- buttons -->
-
-            <!-- loaders -->
-            <div class="profile-cover-change-loader">
-              <div class="progress x-progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            <div class="profile-cover-position-loader">
-              <i class="fa fa-arrows-alt mr5"></i><?php echo __("Drag to reposition cover");?>
-
-            </div>
-            <!-- loaders -->
-          <?php }?>
-        </div>
-        <!-- profile-cover -->
-
-        <!-- profile-avatar -->
-        <div class="profile-avatar-wrapper">
-          <img <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_picture_id']) {?> <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in && $_smarty_tpl->tpl_vars['profile']->value['user_picture_lightbox']) {?>class="js_lightbox" <?php }?> data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture_id'];?>
-" data-context="album" data-image="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture_full'];?>
-" <?php } elseif (!$_smarty_tpl->tpl_vars['profile']->value['user_picture_default']) {?> class="js_lightbox-nodata" data-image="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture'];?>
-" <?php }?> src="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture'];?>
-" alt="<?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
-">
-
-          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id']) {?>
-            <!-- buttons -->
-            <div class="profile-avatar-change">
-              <i class="fa fa-camera" data-bs-toggle="dropdown" data-display="static"></i>
-              <div class="dropdown-menu action-dropdown-menu">
-                <!-- upload -->
-                <div class="dropdown-item pointer js_x-uploader" data-handle="picture-user">
-                  <div class="action">
-                    <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"camera",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
-?>
-                    <?php echo __("Upload Photo");?>
-
-                  </div>
-                  <div class="action-desc"><?php echo __("Upload a new photo");?>
-</div>
-                </div>
-                <!-- upload -->
-                <!-- select -->
-                <div class="dropdown-item pointer" data-toggle="modal" data-url="users/photos.php?filter=avatar&type=user&id=<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                  <div class="action">
-                    <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
-?>
-                    <?php echo __("Select Photo");?>
-
-                  </div>
-                  <div class="action-desc"><?php echo __("Select a photo");?>
-</div>
-                </div>
-                <!-- select -->
-              </div>
-            </div>
-            <div class="profile-avatar-crop <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_picture_default'] || !$_smarty_tpl->tpl_vars['profile']->value['user_picture_id']) {?>x-hidden<?php }?>">
-              <i class="fa fa-crop-alt js_init-crop-picture" data-image="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture_full'];?>
-" data-handle="user" data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-"></i>
-            </div>
-            <div class="profile-avatar-delete <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_picture_default']) {?>x-hidden<?php }?>">
-              <i class="fa fa-trash js_delete-picture" data-handle="picture-user"></i>
-            </div>
-            <!-- buttons -->
-            <!-- loaders -->
-            <div class="profile-avatar-change-loader">
-              <div class="progress x-progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            <!-- loaders -->
-          <?php }?>
-        </div>
-        <!-- profile-avatar -->
-
-        <!-- profile-name -->
-        <div class="profile-name-wrapper">
-          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-"><?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
-</a>
-          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_verified']) {?>
-            <span class="verified-badge" data-bs-toggle="tooltip" title='<?php echo __("Verified User");?>
-'>
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"verified_badge",'width'=>"45px",'height'=>"45px"), 0, true);
-?>
-            </span>
-          <?php }?>
-          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_subscribed']) {?>
-            <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/packages" class="badge bg-danger" data-bs-toggle="tooltip" title="<?php echo __($_smarty_tpl->tpl_vars['profile']->value['package_name']);?>
- <?php echo __('Member');?>
-"><?php echo __("PRO");?>
-</a>
-          <?php }?>
-        </div>
-        <!-- profile-name -->
-
-        <!-- profile-buttons -->
-        <div class="profile-buttons-wrapper">
-          <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in) {?>
-            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['user_id'] != $_smarty_tpl->tpl_vars['profile']->value['user_id']) {?>
-              <!-- add friend -->
-              <?php if ($_smarty_tpl->tpl_vars['profile']->value['we_friends']) {?>
-                <button type="button" class="btn btn-md rounded-pill btn-success btn-delete js_friend-remove" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                  <i class="fa fa-check mr5"></i><?php echo __("Friends");?>
-
-                </button>
-              <?php } elseif ($_smarty_tpl->tpl_vars['profile']->value['he_request']) {?>
-                <button type="button" class="btn btn-md rounded-pill btn-primary js_friend-accept" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-"><?php echo __("Confirm");?>
-</button>
-                <button type="button" class="btn btn-md rounded-pill btn-danger js_friend-decline" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-"><?php echo __("Decline");?>
-</button>
-              <?php } elseif ($_smarty_tpl->tpl_vars['profile']->value['i_request']) {?>
-                <button type="button" class="btn btn-md rounded-pill btn-light js_friend-cancel" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                  <i class="fa fa-clock mr5"></i><?php echo __("Sent");?>
-
-                </button>
-              <?php } elseif (!$_smarty_tpl->tpl_vars['profile']->value['friendship_declined']) {?>
-                <button type="button" class="btn btn-md rounded-pill btn-success js_friend-add" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                  <i class="fa fa-user-plus mr5"></i><?php echo __("Add Friend");?>
-
-                </button>
-              <?php }?>
-              <!-- add friend -->
-
-              <!-- follow -->
-              <?php if ($_smarty_tpl->tpl_vars['profile']->value['i_follow']) {?>
-                <button type="button" class="btn btn-md rounded-pill btn-light js_unfollow" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                  <i class="fa fa-check mr5"></i><?php echo __("Following");?>
-
-                </button>
-              <?php } else { ?>
-                <button type="button" class="btn btn-md rounded-pill btn-light js_follow" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                  <i class="fa fa-rss mr5"></i><?php echo __("Follow");?>
-
-                </button>
-              <?php }?>
-              <!-- follow -->
-
-              <!-- message -->
-              <button type="button" class="btn btn-icon rounded-pill btn-light mlr5 js_chat-start" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-" data-name="<?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
-" data-link="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-" data-picture="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_picture'];?>
-">
-                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"header-messages",'class'=>"main-icon",'width'=>"20px",'height'=>"20px"), 0, true);
-?>
-              </button>
-              <!-- message -->
-
-              <!-- poke & report & block -->
-              <div class="d-inline-block dropdown">
-                <button type="button" class="btn btn-icon rounded-pill btn-light" data-bs-toggle="dropdown" data-display="static">
-                  <i class="fa fa-ellipsis-v fa-fw"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-end action-dropdown-menu">
-                  <!-- poke -->
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['pokes_enabled'] && !$_smarty_tpl->tpl_vars['profile']->value['i_poked']) {?>
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_poke'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_poke'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
-                      <div class="dropdown-item pointer js_poke" data-id="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-" data-name="<?php echo $_smarty_tpl->tpl_vars['profile']->value['name'];?>
-">
-                        <div class="action">
-                          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"poke",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
-?>
-                          <?php echo __("Poke");?>
-
-                        </div>
-                        <div class="action-desc"><?php echo __("Let them know you are here");?>
-</div>
-                      </div>
-                    <?php }?>
-                  <?php }?>
-                  <!-- poke -->
-                  <!-- report -->
-                  <div class="dropdown-item pointer" data-toggle="modal" data-url="data/report.php?do=create&handle=user&id=<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                    <div class="action">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"report",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
-?>
-                      <?php echo __("Report");?>
-
-                    </div>
-                    <div class="action-desc"><?php echo __("Report this to admins");?>
-</div>
-                  </div>
-                  <!-- report -->
-                  <!-- block -->
-                  <div class="dropdown-item pointer js_block-user" data-uid="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                    <div class="action">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"block",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
-?>
-                      <?php echo __("Block");?>
-
-                    </div>
-                    <div class="action-desc"><?php echo __("This user won't be able to reach you");?>
-</div>
-                  </div>
-                  <!-- block -->
-                  <!-- manage -->
-                  <?php if ($_smarty_tpl->tpl_vars['user']->value->_is_admin) {?>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/admincp/users/edit/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"edit_profile",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
-?>
-                      <?php echo __("Edit in Admin Panel");?>
-
-                    </a>
-                  <?php } elseif ($_smarty_tpl->tpl_vars['user']->value->_is_moderator) {?>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/modcp/users/edit/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_id'];?>
-">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"edit_profile",'class'=>"main-icon mr10",'width'=>"20px",'height'=>"20px"), 0, true);
-?>
-                      <?php echo __("Edit in Moderator Panel");?>
-
-                    </a>
-                  <?php }?>
-                  <!-- manage -->
-                </div>
-              </div>
-              <!-- poke & report & block -->
-            <?php } else { ?>
-              <!-- edit -->
-              <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/settings/profile" class="btn btn-icon btn-rounded btn-light">
-                <i class="fa fa-pencil-alt fa-fw"></i>
-              </a>
-              <!-- edit -->
-            <?php }?>
-          <?php }?>
-        </div>
-        <!-- profile-buttons -->
-      </div>
-      <!-- profile-header -->
-
-      <!-- profile-tabs -->
-      <div class="profile-tabs-wrapper d-flex justify-content-evenly">
-        <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-" <?php if ($_smarty_tpl->tpl_vars['view']->value == '') {?>class="active" <?php }?>>
-          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"newsfeed",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-          <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Timeline");?>
-</span>
-        </a>
-        <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-/friends" <?php if ($_smarty_tpl->tpl_vars['view']->value == "friends" || $_smarty_tpl->tpl_vars['view']->value == "followers" || $_smarty_tpl->tpl_vars['view']->value == "followings") {?>class="active" <?php }?>>
-          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"friends",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-          <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Friends");?>
-</span>
-        </a>
-        <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-/photos" <?php if ($_smarty_tpl->tpl_vars['view']->value == "photos" || $_smarty_tpl->tpl_vars['view']->value == "albums" || $_smarty_tpl->tpl_vars['view']->value == "album") {?>class="active" <?php }?>>
-          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-          <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Photos");?>
-</span>
-        </a>
-        <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-/videos" <?php if ($_smarty_tpl->tpl_vars['view']->value == "videos") {?>class="active" <?php }?>>
-          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"videos",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-          <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Videos");?>
-</span>
-        </a>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_sell_products']) {?>
-          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-/products" <?php if ($_smarty_tpl->tpl_vars['view']->value == "products") {?>class="active" <?php }?>>
-            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"products",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-            <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Products");?>
-</span>
-          </a>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['system']->value['pages_enabled']) {?>
-          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-/likes" <?php if ($_smarty_tpl->tpl_vars['view']->value == "likes") {?>class="active" <?php }?>>
-            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"pages",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-            <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Likes");?>
-</span>
-          </a>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['system']->value['groups_enabled']) {?>
-          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-/groups" <?php if ($_smarty_tpl->tpl_vars['view']->value == "groups") {?>class="active" <?php }?>>
-            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"groups",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-            <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Groups");?>
-</span>
-          </a>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['system']->value['events_enabled']) {?>
-          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-/events" <?php if ($_smarty_tpl->tpl_vars['view']->value == "events") {?>class="active" <?php }?>>
-            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"events",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-            <span class="ml5 d-none d-xxl-inline-block"><?php echo __("Events");?>
-</span>
-          </a>
-        <?php }?>
-      </div>
-      <!-- profile-tabs -->
+     
 
       <!-- profile-content -->
       <div class="row">
@@ -2270,10 +2290,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 >
 <?php }?>
 <style>
-@media (min-width: 1200px){
-.old{
-  max-width:80%;
-}}
+
 .svg-container svg{
   fill:#fa8622 !important;
 }

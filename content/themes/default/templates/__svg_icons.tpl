@@ -876,6 +876,10 @@
 
     {include file='../images/svg/login.svg'}
 
+  {elseif $icon == "edit-2"}
+
+    {include file='../images/svg/edit-2.svg'}
+
   {elseif $icon == "fluid"}
 
     {include file='../images/svg/fluid.svg'}

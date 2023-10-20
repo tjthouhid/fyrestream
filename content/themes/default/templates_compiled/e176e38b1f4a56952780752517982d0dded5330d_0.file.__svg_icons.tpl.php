@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-20 09:59:32
+/* Smarty version 4.3.2, created on 2023-10-20 13:19:39
   from '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/__svg_icons.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65324f8471f8e0_99147039',
+  'unifunc' => 'content_65327e6bb88d38_81241392',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e176e38b1f4a56952780752517982d0dded5330d' => 
     array (
       0 => '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/__svg_icons.tpl',
-      1 => 1697313152,
+      1 => 1697807950,
       2 => 'file',
     ),
   ),
@@ -235,10 +235,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../images/svg/upload.svg' => 1,
     'file:../images/svg/camera.svg' => 1,
     'file:../images/svg/login.svg' => 1,
+    'file:../images/svg/edit-2.svg' => 1,
     'file:../images/svg/fluid.svg' => 1,
   ),
 ),false)) {
-function content_65324f8471f8e0_99147039 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65327e6bb88d38_81241392 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="svg-container <?php if ((isset($_smarty_tpl->tpl_vars['class']->value))) {
 echo $_smarty_tpl->tpl_vars['class']->value;
 }?>" style="<?php if ((isset($_smarty_tpl->tpl_vars['width']->value))) {?>width:<?php echo $_smarty_tpl->tpl_vars['width']->value;?>
@@ -1340,6 +1341,11 @@ echo $_smarty_tpl->tpl_vars['style']->value;
   <?php } elseif ($_smarty_tpl->tpl_vars['icon']->value == "login") {?>
 
     <?php $_smarty_tpl->_subTemplateRender('file:../images/svg/login.svg', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+  <?php } elseif ($_smarty_tpl->tpl_vars['icon']->value == "edit-2") {?>
+
+    <?php $_smarty_tpl->_subTemplateRender('file:../images/svg/edit-2.svg', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
   <?php } elseif ($_smarty_tpl->tpl_vars['icon']->value == "fluid") {?>

@@ -6477,7 +6477,7 @@ body.night-mode .profile-header {
 }
 @media (min-width: 992px) {
   .profile-header {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
   }
 }
 .profile-cover-wrapper {
@@ -6623,9 +6623,10 @@ body.night-mode .profile-avatar-wrapper {
   }
   .profile-avatar-wrapper:not(.static) {
     bottom: -25px;
-    left: 43%;
     top: auto;
-    transform: none;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
   }
 }
 .profile-avatar-wrapper img {
@@ -6655,26 +6656,45 @@ body.night-mode .profile-avatar-wrapper {
     width: 160px;
   }
 }
+.profile-header-container{
+  background-color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+}
+.profile-header-container-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+  filter: blur(100px);
+}
 .profile-avatar-change,
 .profile-avatar-crop,
 .profile-avatar-delete {
-  background: rgba(0, 0, 0, 0.1);
+  background: #E4E6EA;
   border-radius: 50%;
-  bottom: 5px;
-  color: #fff;
-  display: block;
-  font-size: 12px;
-  opacity: 0.4;
-  padding: 4px 8px;
+  color: #000;
   position: absolute;
-  right: 5px;
   text-align: center;
   transition: all 0.5s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  transition: all 0.5s;
+  bottom: -10px;
 }
 .profile-avatar-change:hover,
 .profile-avatar-crop:hover,
 .profile-avatar-delete:hover {
-  background: rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
 .profile-avatar-crop {
@@ -6695,16 +6715,16 @@ body.night-mode .profile-avatar-wrapper {
   }
 }
 @media (min-width: 768px) {
-  .profile-avatar-change,
-  .profile-avatar-crop,
-  .profile-avatar-delete {
-    bottom: 10px;
-    font-size: 16px;
-    right: 10px;
+  .profile-avatar-change
+  {
+    bottom: -10px;
+    left: 20%;
+    right: initial;
   }
   .profile-avatar-crop {
-    bottom: 45px;
-    right: -10px;
+    bottom: -10px;
+    right: 20%;
+    left: initial;
   }
   .profile-avatar-delete {
     bottom: 85px;
@@ -6745,15 +6765,14 @@ body.night-mode .profile-name-wrapper {
 @media (min-width: 992px) {
   .profile-name-wrapper {
     background: transparent!important;
-    bottom: 20px;
     font-size: 1.9em;
-    left: 43%;
-    top: 384px;
+    left: 50%;
+    transform: translateX(-50%);
     padding-bottom: 0;
     padding-top: 0;
     position: absolute;
-    right: auto;
     text-align: left;
+    margin-top: 50px;
   }
   .no-avatar .profile-name-wrapper {
     bottom: 40px;
@@ -6769,11 +6788,34 @@ body.night-mode .profile-name-wrapper a {
 }
 @media (min-width: 992px) {
   .profile-name-wrapper a {
-    color: #fff;
+    color: #333;
   }
   .profile-name-wrapper a.badge {
     font-size: 14px;
   }
+}
+.edit-profile-btn a{
+  background-color: #E6E8EE;
+  color: #605D62;
+  margin-bottom: 20px;
+  padding: 10px 18px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.edit-profile-btn a svg{
+      fill: #E6E8EE !important;
+}
+.edit-profile-btn a:hover{
+  color: #fa8622;
+
+}
+.edit-profile-btn a:hover svg{
+  /*fill: #fa8622 !important;
+*/}
+.edit-profile-btn a:hover svg path{
+  stroke: #fa8622;
 }
 .profle-date-wrapper {
   background: rgba(0, 0, 0, 0.1);
@@ -6860,24 +6902,24 @@ body.night-mode .profile-buttons-wrapper {
 }
 .profile-tabs-wrapper {
   background: #fff;
-  border-radius: 16px;
-  margin-bottom: 20px;
-  padding: 0 10px;
+  padding: 10px 10px 0px;
+  border-top: 2px solid #E6E8EE;
 }
 body.night-mode .profile-tabs-wrapper {
   background: var(--card-dark-color);
 }
 .profile-tabs-wrapper a {
-  color: #666;
+  color: #605D62;
   display: block;
   font-weight: 600;
+  font-size: 14px;
   line-height: 20px;
   padding: 10px 5px;
   transition: all 0.2s ease;
 }
 @media (min-width: 992px) {
   .profile-tabs-wrapper a {
-    padding: 20px 25px;
+    padding: 15px 25px;
   }
 }
 body.night-mode .profile-tabs-wrapper a {

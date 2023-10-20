@@ -1,7 +1,7 @@
 <li class="dropdown js_live-requests">
    <a href="#" data-bs-toggle="dropdown" data-display="static">
 
-    <span class="counter red shadow-sm rounded-pill {if $user->_data['user_live_requests_counter'] == 0}x-hidden{/if}">
+    <span class="counter red shadow-sm rounded-pill {if $user->_data['user_live_requests_counter'] == 0}d-none{/if}">
       {$user->_data['user_live_requests_counter']}
     </span>
     <button class="nav-btn-rounded d-flex align-items-center justify-content-center" type="button">

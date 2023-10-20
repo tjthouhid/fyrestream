@@ -354,10 +354,7 @@
    .mt5{
    margin-top:5px;
    }
-   @media (min-width: 1200px){
-   .old{
-   max-width: 1140px !important;
-   }}
+
    @media (max-width:765px){
    .col-md-4{
    margin-top: 20px;

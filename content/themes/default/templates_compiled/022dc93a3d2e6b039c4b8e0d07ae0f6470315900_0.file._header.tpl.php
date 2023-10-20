@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-20 10:01:54
+/* Smarty version 4.3.2, created on 2023-10-20 13:04:21
   from '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/_header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65325012915260_19527578',
+  'unifunc' => 'content_65327ad530b199_22792407',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '022dc93a3d2e6b039c4b8e0d07ae0f6470315900' => 
     array (
       0 => '/Users/usedupvc/Local Sites/fyrestream/app/public/content/themes/default/templates/_header.tpl',
-      1 => 1697320699,
+      1 => 1697807057,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_ads.tpl' => 1,
   ),
 ),false)) {
-function content_65325012915260_19527578 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65327ad530b199_22792407 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Users/usedupvc/LocalSites/fyrestream/app/public/vendor/smarty/smarty/libs/plugins/modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 if (!$_smarty_tpl->tpl_vars['user']->value->_logged_in) {?>
 <body class="<?php if ($_smarty_tpl->tpl_vars['system']->value['theme_mode_night']) {?>night-mode<?php }?> visitor n_chat <?php if ($_smarty_tpl->tpl_vars['page']->value == 'index' && !$_smarty_tpl->tpl_vars['system']->value['newsfeed_public']) {?>index-body<?php }?>" <?php if ($_smarty_tpl->tpl_vars['page']->value == 'profile' && $_smarty_tpl->tpl_vars['system']->value['system_profile_background_enabled'] && $_smarty_tpl->tpl_vars['profile']->value['user_profile_background']) {?>style="background: url(<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_profile_background'];?>
@@ -541,10 +541,7 @@ echo __("Moderator Panel");?>
 ?>
 <!-- ads -->
 <style>
-   @media (min-width: 1200px){
-   .container, .container-lg, .container-md, .container-sm, .container-xl {
-   max-width: 100%;
-   }}
+
    .main-header .logo{
    display:flex;
    }
@@ -584,7 +581,7 @@ echo __("Moderator Panel");?>
    color: #ff7600 !important;
    }
    a {
-   color: black !important;
+   color: black;
    }
    .text-primary {
    --bs-text-opacity: 1;

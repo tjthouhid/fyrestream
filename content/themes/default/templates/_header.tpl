@@ -381,10 +381,7 @@
 {include file='_ads.tpl' _ads=$ads_master['header'] _master=true}
 <!-- ads -->
 <style>
-   @media (min-width: 1200px){
-   .container, .container-lg, .container-md, .container-sm, .container-xl {
-   max-width: 100%;
-   }}
+
    .main-header .logo{
    display:flex;
    }
@@ -424,7 +421,7 @@
    color: #ff7600 !important;
    }
    a {
-   color: black !important;
+   color: black;
    }
    .text-primary {
    --bs-text-opacity: 1;
