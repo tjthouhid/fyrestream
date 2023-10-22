@@ -235,10 +235,8 @@
                 </div>
                 <!-- poke & report & block -->
               {else}
-                <!-- edit -->
-                <a href="{$system['system_url']}/settings/profile" class="btn btn-icon btn-rounded btn-light">
-                  <i class="fa fa-pencil-alt fa-fw"></i>
-                </a>
+                <!-- edit -- >
+                
                 <!-- edit -->
               {/if}
             {/if}

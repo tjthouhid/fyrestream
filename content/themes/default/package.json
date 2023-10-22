@@ -1,0 +1,38 @@
+{
+  "name": "fyrestream",
+  "version": "1.0.1",
+  "description": "social template scss to css",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjthouhid/fyrestream"
+  },
+  "keywords": [],
+  "author": "Tj Thouhid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjthouhid/fyrestream/issues"
+  },
+  "homepage": "https://github.com/tjthouhid/fyrestream#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "merge-stream": "^1.0.1",
+    "sass": "^1.49.0",
+    "webpack-stream": "^7.0.0"
+  }
+}

@@ -288,47 +288,6 @@ body {
   transform: translate3d(-1px, 42px, 0px);
 }
 
-.nav-btn-rounded {
-  border: 0px;
-  background: #f3f5f8;
-  width: 45px;
-  height: 45px;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-}
-
-.nav-btn-rounded:hover {
-  opacity: 0.7;
-}
-.nav-btn.active {
-  border-bottom: 3px solid #fa8622;
-}
-
-.nav-btn {
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 20px;
-  background: transparent;
-  border: 0px;
-  transition: all 0.3s ease;
-}
-.nav-btn:hover {
-  opacity: 0.8;
-}
-.nav-btn:last-of-type {
-  margin-right: 0px;
-}
-
-.nav-btn.active svg {
-  fill: #fa8622;
-}
-.nav-btn-rounded.active svg circle {
-  fill: #fa8622;
-}
-
 .header svg {
   fill: #1c1b1f;
 }

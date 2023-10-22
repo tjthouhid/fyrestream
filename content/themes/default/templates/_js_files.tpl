@@ -790,3 +790,12 @@
   <!-- OneSignal Notifications -->
 
 {/strip}
+
+<script>
+jQuery(function($){
+   $(".top-nav-right .dropdown").on("mouseover",function(){
+    
+    
+   });
+});
+</script>

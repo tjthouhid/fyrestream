@@ -4,7 +4,7 @@
   --body-bg-color-dark: #1e252b;
   --body-color: #111;
   --body-color-dark: #c1d4e3;
-  --link-color: #FA8622;
+  --link-color: #fa8622;
   --header-bg-color: #fff;
   --header-bg-color-dark: #262d34;
   --card-dark-color: #262d34;
@@ -14,7 +14,7 @@
   --card-dark-input-color: #eaeaea;
 }
 body {
-background-color: #f0f2f5;
+  background-color: #f0f2f5;
   color: var(--body-color);
   font-family: var(--body-font-family);
   font-size: 15px;
@@ -29,6 +29,7 @@ body.n_activated,
 body.n_live {
   padding-top: 120px;
 }
+
 ul {
   list-style: none;
   margin: 0;
@@ -55,11 +56,7 @@ body.night-mode pre {
   border-color: var(--card-dark-divider);
   color: var(--body-color-dark);
 }
-.header-icon,
-.header-icon * {
-  fill: #111 !important;
-  color: #111 !important;
-}
+
 body.night-mode .header-icon,
 body.night-mode .header-icon * {
   fill: #c1d4e3 !important;
@@ -74,7 +71,7 @@ body.night-mode .x-form-tools {
   /* fill: #fa8622 !important;
   color: #fa8622 !important; */
 }
-.main-icon svg{
+.main-icon svg {
   fill: rgb(255, 118, 0);
   color: rgb(255, 118, 0);
 }
@@ -1493,21 +1490,7 @@ body.n_activated .main-header,
 body.n_live .main-header {
   top: 50px;
 }
-.main-header .logo-wrapper {
-  height: 70px;
-  overflow: hidden;
-  padding-left: 15px;
-  padding-right: 52px;
-  position: relative;
-  word-break: break-all;
-}
-.main-header .logo {
-  display: block;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 70px;
-  opacity: 1;
-}
+
 .main-header img.logo-light {
   display: inline-block;
 }
@@ -1597,27 +1580,6 @@ body.night-mode .main-header .search-wrapper .form-control:-moz-placeholder {
   color: #72879a;
   opacity: 1;
 }
-.navbar-wrapper > ul {
-  display: flex;
-}
-.navbar-wrapper > ul > li {
-  flex: 1;
-  margin: 0 2px;
-  text-align: center;
-}
-.navbar-wrapper > ul > li.mini-search {
-  flex: 4;
-}
-.navbar-wrapper > ul > li > a {
-  border-radius: 4px;
-  display: block;
-  height: 50px;
-  line-height: 50px;
-  margin-top: 10px;
-  padding: 0 10px;
-  position: relative;
-  text-align: center;
-}
 
 body.night-mode .navbar-wrapper > ul > li > a:hover {
   background-color: hsla(0, 0%, 92%, 0.1);
@@ -1627,55 +1589,6 @@ body.night-mode .navbar-wrapper > ul > li > a:hover {
 }
 body.night-mode .navbar-wrapper > ul > li.dropdown.show > a {
   background-color: #494c62;
-}
-.navbar-wrapper .counter {
-  border-radius: 100% !important;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 14px;
-  position: absolute;
-  right: 6px;
-  top: 0px;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-}
-.navbar-wrapper .counter.red {
-  background: #ff5e3a;
-}
-.navbar-wrapper .counter.blue {
-  background: #38a9ff;
-}
-.navbar-wrapper .counter.purple {
-  background: #7c5ac2;
-}
-.navbar-wrapper .user-menu > img {
-  border-radius: 50%;
-  display: inline-block;
-  height: 20px;
-  margin-top: -5px;
-  width: 20px;
-}
-@media (min-width: 768px) {
-  .navbar-wrapper .user-menu > img {
-    height: 25px;
-    width: 25px;
-  }
-}
-.navbar-wrapper > ul > li.dropdown {
-  position: static;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media (min-width: 768px) {
-  .navbar-wrapper > ul > li.dropdown {
-    position: relative;
-  }
 }
 .dropdown-widget {
   padding-bottom: 0;
@@ -2681,8 +2594,8 @@ body.night-mode .x-image {
     padding: 6px 12px;
   }
 }
-js_view-staging-posts{
-    display:none;
+js_view-staging-posts {
+  display: none;
 }
 .trending-item {
   display: block;
@@ -5683,7 +5596,7 @@ body.night-mode .reactions-container {
   }
 }
 .page-header {
-  Background: linear-gradient(90deg, #FD9346,#FF6200,#FD7F2C,#FD9346);
+  background: linear-gradient(90deg, #fd9346, #ff6200, #fd7f2c, #fd9346);
   color: #fff;
   overflow: hidden;
   padding: 70px 15px;
@@ -6656,7 +6569,7 @@ body.night-mode .profile-avatar-wrapper {
     width: 160px;
   }
 }
-.profile-header-container{
+.profile-header-container {
   background-color: #fff;
   margin-bottom: 20px;
   position: relative;
@@ -6677,7 +6590,7 @@ body.night-mode .profile-avatar-wrapper {
 .profile-avatar-change,
 .profile-avatar-crop,
 .profile-avatar-delete {
-  background: #E4E6EA;
+  background: #e4e6ea;
   border-radius: 50%;
   color: #000;
   position: absolute;
@@ -6715,8 +6628,7 @@ body.night-mode .profile-avatar-wrapper {
   }
 }
 @media (min-width: 768px) {
-  .profile-avatar-change
-  {
+  .profile-avatar-change {
     bottom: -10px;
     left: 20%;
     right: initial;
@@ -6764,7 +6676,7 @@ body.night-mode .profile-name-wrapper {
 }
 @media (min-width: 992px) {
   .profile-name-wrapper {
-    background: transparent!important;
+    background: transparent !important;
     font-size: 1.9em;
     left: 50%;
     transform: translateX(-50%);
@@ -6794,9 +6706,9 @@ body.night-mode .profile-name-wrapper a {
     font-size: 14px;
   }
 }
-.edit-profile-btn a{
-  background-color: #E6E8EE;
-  color: #605D62;
+.edit-profile-btn a {
+  background-color: #e6e8ee;
+  color: #605d62;
   margin-bottom: 20px;
   padding: 10px 18px !important;
   display: flex;
@@ -6804,17 +6716,17 @@ body.night-mode .profile-name-wrapper a {
   align-items: center;
   border-radius: 10px;
 }
-.edit-profile-btn a svg{
-      fill: #E6E8EE !important;
+.edit-profile-btn a svg {
+  fill: #e6e8ee !important;
 }
-.edit-profile-btn a:hover{
+.edit-profile-btn a:hover {
   color: #fa8622;
-
 }
-.edit-profile-btn a:hover svg{
+.edit-profile-btn a:hover svg {
   /*fill: #fa8622 !important;
-*/}
-.edit-profile-btn a:hover svg path{
+*/
+}
+.edit-profile-btn a:hover svg path {
   stroke: #fa8622;
 }
 .profle-date-wrapper {
@@ -6903,13 +6815,13 @@ body.night-mode .profile-buttons-wrapper {
 .profile-tabs-wrapper {
   background: #fff;
   padding: 10px 10px 0px;
-  border-top: 2px solid #E6E8EE;
+  border-top: 2px solid #e6e8ee;
 }
 body.night-mode .profile-tabs-wrapper {
   background: var(--card-dark-color);
 }
 .profile-tabs-wrapper a {
-  color: #605D62;
+  color: #605d62;
   display: block;
   font-weight: 600;
   font-size: 14px;
@@ -9151,3 +9063,7 @@ fieldset[disabled] .btn-whatsapp:hover {
     left: 100%;
   }
 }
+
+/* Top Bar css Start */
+
+/* Top Bar css End*/
