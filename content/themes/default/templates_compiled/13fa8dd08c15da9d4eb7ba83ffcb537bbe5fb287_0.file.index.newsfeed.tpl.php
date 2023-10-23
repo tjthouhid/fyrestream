@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-21 19:16:19
+/* Smarty version 4.3.2, created on 2023-10-23 22:52:12
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/index.newsfeed.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6534238388ce45_53514851',
+  'unifunc' => 'content_6536f91cf23913_54093402',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '13fa8dd08c15da9d4eb7ba83ffcb537bbe5fb287' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/index.newsfeed.tpl',
-      1 => 1697889526,
+      1 => 1698101530,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_head.tpl' => 1,
     'file:_header.tpl' => 1,
     'file:_sidebar.tpl' => 1,
-    'file:_announcements.tpl' => 1,
     'file:__svg_icons.tpl' => 7,
+    'file:_announcements.tpl' => 1,
     'file:_publisher.tpl' => 1,
     'file:_boosted_post.tpl' => 1,
     'file:_posts.tpl' => 10,
@@ -38,7 +38,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_6534238388ce45_53514851 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6536f91cf23913_54093402 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -55,6 +55,48 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
 
     <!-- content panel -->
     <div class="col-md-8 col-lg-9 sg-offcanvas-mainbar">
+      <?php if ($_smarty_tpl->tpl_vars['view']->value == '') {?>
+        <div class="row">
+            <div class="col-md-12">
+              <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in) {?>
+                <!-- stories -->
+                <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_stories'] || ($_smarty_tpl->tpl_vars['system']->value['stories_enabled'] && !empty($_smarty_tpl->tpl_vars['stories']->value['array']))) {?>
+                  <div class="card">
+                    <div class="card-header bg-transparent border-bottom-0">
+                      <strong class="text-muted"><?php echo __("Moments");?>
+</strong>
+                      <?php if ($_smarty_tpl->tpl_vars['has_story']->value) {?>
+                        <div class="float-end">
+                          <button data-bs-toggle="tooltip" title='<?php echo __("Delete Your Moments");?>
+' class="btn btn-sm btn-icon btn-rounded btn-danger js_story-deleter">
+                            <i class="fa fa-trash-alt"></i>
+                          </button>
+                        </div>
+                      <?php }?>
+                    </div>
+                    <div class="card-body pt5 stories-wrapper">
+                      <div id="stories" data-json='<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['stories']->value["json"],ENT_QUOTES,'UTF-8');?>
+'>
+                        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_stories']) {?>
+                          <div class="add-story" data-toggle="modal" data-url="posts/story.php?do=create">
+                            <div class="img" style="background-image:url(<?php echo $_smarty_tpl->tpl_vars['user']->value->_data['user_picture'];?>
+);">
+                            </div>
+                            <div class="add">
+                              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"add",'class'=>"main-icon",'width'=>"18px",'height'=>"18px"), 0, false);
+?>
+                            </div>
+                          </div>
+                        <?php }?>
+                      </div>
+                    </div>
+                  </div>
+                <?php }?>
+                <!-- stories -->
+              <?php }?>
+          </div>
+        </div>
+      <?php }?>
       <div class="row">
         <!-- center panel -->
         <div class="col-lg-8">
@@ -67,148 +109,115 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
           <?php if ($_smarty_tpl->tpl_vars['view']->value == '') {?>
 
             <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in) {?>
-              <!-- stories -->
-              <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_stories'] || ($_smarty_tpl->tpl_vars['system']->value['stories_enabled'] && !empty($_smarty_tpl->tpl_vars['stories']->value['array']))) {?>
-                <div class="card">
-                  <div class="card-header bg-transparent border-bottom-0">
-                    <strong class="text-muted"><?php echo __("Moments");?>
-</strong>
-                    <?php if ($_smarty_tpl->tpl_vars['has_story']->value) {?>
-                      <div class="float-end">
-                        <button data-bs-toggle="tooltip" title='<?php echo __("Delete Your Moments");?>
-' class="btn btn-sm btn-icon btn-rounded btn-danger js_story-deleter">
-                          <i class="fa fa-trash-alt"></i>
-                        </button>
-                      </div>
-                    <?php }?>
-                  </div>
-                  <div class="card-body pt5 stories-wrapper">
-                    <div id="stories" data-json='<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['stories']->value["json"],ENT_QUOTES,'UTF-8');?>
-'>
-                      <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_stories']) {?>
-                        <div class="add-story" data-toggle="modal" data-url="posts/story.php?do=create">
-                          <div class="img" style="background-image:url(<?php echo $_smarty_tpl->tpl_vars['user']->value->_data['user_picture'];?>
-);">
-                          </div>
-                          <div class="add">
-                            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"add",'class'=>"main-icon",'width'=>"18px",'height'=>"18px"), 0, false);
-?>
-                          </div>
-                        </div>
-                      <?php }?>
-                    </div>
-                  </div>
-                </div>
-              <?php }?>
-              <!-- stories -->
+                
 
-              <!-- publisher -->
-              <?php $_smarty_tpl->_subTemplateRender('file:_publisher.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('_handle'=>"me",'_privacy'=>true), 0, false);
+                <!-- publisher -->
+                <?php $_smarty_tpl->_subTemplateRender('file:_publisher.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('_handle'=>"me",'_privacy'=>true), 0, false);
 ?>
-              <!-- publisher -->
+                <!-- publisher -->
 
-              <!-- pro users -->
-              <?php if ($_smarty_tpl->tpl_vars['pro_members']->value) {?>
-                <div class="d-block d-lg-none">
-                  <div class="card bg-indigo border-0">
-                    <div class="card-header ptb20 bg-transparent border-bottom-0">
-                      <?php if ($_smarty_tpl->tpl_vars['system']->value['packages_enabled'] && !$_smarty_tpl->tpl_vars['user']->value->_data['user_subscribed']) {?>
-                        <div class="float-end">
-                          <small><a class="text-white text-underline" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+                <!-- pro users -->
+                <?php if ($_smarty_tpl->tpl_vars['pro_members']->value) {?>
+                  <div class="d-block d-lg-none">
+                    <div class="card bg-indigo border-0">
+                      <div class="card-header ptb20 bg-transparent border-bottom-0">
+                        <?php if ($_smarty_tpl->tpl_vars['system']->value['packages_enabled'] && !$_smarty_tpl->tpl_vars['user']->value->_data['user_subscribed']) {?>
+                          <div class="float-end">
+                            <small><a class="text-white text-underline" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /packages"><?php echo __("Upgrade");?>
 </a></small>
-                        </div>
-                      <?php }?>
-                      <h6 class="pb0">
-                        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"pro",'class'=>"mr5",'width'=>"20px",'height'=>"20px",'style'=>"fill: #fff;"), 0, true);
+                          </div>
+                        <?php }?>
+                        <h6 class="pb0">
+                          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"pro",'class'=>"mr5",'width'=>"20px",'height'=>"20px",'style'=>"fill: #fff;"), 0, true);
 ?>
-                        <?php echo __("Pro Users");?>
+                          <?php echo __("Pro Users");?>
 
-                      </h6>
-                    </div>
-                    <div class="card-body pt0 plr5">
-                      <div class="pro-box-wrapper <?php if (count($_smarty_tpl->tpl_vars['pro_members']->value) > 3) {?>js_slick<?php } else { ?>full-opacity<?php }?>">
-                        <?php
+                        </h6>
+                      </div>
+                      <div class="card-body pt0 plr5">
+                        <div class="pro-box-wrapper <?php if (count($_smarty_tpl->tpl_vars['pro_members']->value) > 3) {?>js_slick<?php } else { ?>full-opacity<?php }?>">
+                          <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['pro_members']->value, '_member');
 $_smarty_tpl->tpl_vars['_member']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['_member']->value) {
 $_smarty_tpl->tpl_vars['_member']->do_else = false;
 ?>
-                          <a class="user-box text-white" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+                            <a class="user-box text-white" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /<?php echo $_smarty_tpl->tpl_vars['_member']->value['user_name'];?>
 ">
-                            <img alt="" src="<?php echo $_smarty_tpl->tpl_vars['_member']->value['user_picture'];?>
+                              <img alt="" src="<?php echo $_smarty_tpl->tpl_vars['_member']->value['user_picture'];?>
 " />
-                            <div class="name">
-                              <?php if ($_smarty_tpl->tpl_vars['system']->value['show_usernames_enabled']) {?>
-                                <?php echo $_smarty_tpl->tpl_vars['_member']->value['user_name'];?>
+                              <div class="name">
+                                <?php if ($_smarty_tpl->tpl_vars['system']->value['show_usernames_enabled']) {?>
+                                  <?php echo $_smarty_tpl->tpl_vars['_member']->value['user_name'];?>
 
-                              <?php } else { ?>
-                                <?php echo $_smarty_tpl->tpl_vars['_member']->value['user_firstname'];?>
+                                <?php } else { ?>
+                                  <?php echo $_smarty_tpl->tpl_vars['_member']->value['user_firstname'];?>
  <?php echo $_smarty_tpl->tpl_vars['_member']->value['user_lastname'];?>
 
-                              <?php }?>
-                            </div>
-                          </a>
-                        <?php
+                                <?php }?>
+                              </div>
+                            </a>
+                          <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              <?php }?>
-              <!-- pro users -->
+                <?php }?>
+                <!-- pro users -->
 
-              <!-- pro pages -->
-              <?php if ($_smarty_tpl->tpl_vars['promoted_pages']->value) {?>
-                <div class="d-block d-lg-none">
-                  <div class="card bg-teal border-0">
-                    <div class="card-header ptb20 bg-transparent border-bottom-0">
-                      <?php if ($_smarty_tpl->tpl_vars['system']->value['packages_enabled'] && !$_smarty_tpl->tpl_vars['user']->value->_data['user_subscribed']) {?>
-                        <div class="float-end">
-                          <small><a class="text-white text-underline" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+                <!-- pro pages -->
+                <?php if ($_smarty_tpl->tpl_vars['promoted_pages']->value) {?>
+                  <div class="d-block d-lg-none">
+                    <div class="card bg-teal border-0">
+                      <div class="card-header ptb20 bg-transparent border-bottom-0">
+                        <?php if ($_smarty_tpl->tpl_vars['system']->value['packages_enabled'] && !$_smarty_tpl->tpl_vars['user']->value->_data['user_subscribed']) {?>
+                          <div class="float-end">
+                            <small><a class="text-white text-underline" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /packages"><?php echo __("Upgrade");?>
 </a></small>
-                        </div>
-                      <?php }?>
-                      <h6 class="pb0">
-                        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"pro",'class'=>"mr5",'width'=>"20px",'height'=>"20px",'style'=>"fill: #fff;"), 0, true);
+                          </div>
+                        <?php }?>
+                        <h6 class="pb0">
+                          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"pro",'class'=>"mr5",'width'=>"20px",'height'=>"20px",'style'=>"fill: #fff;"), 0, true);
 ?>
-                        <?php echo __("Pro Pages");?>
+                          <?php echo __("Pro Pages");?>
 
-                      </h6>
-                    </div>
-                    <div class="card-body pt0 plr5">
-                      <div class="pro-box-wrapper <?php if (count($_smarty_tpl->tpl_vars['promoted_pages']->value) > 3) {?>js_slick<?php } else { ?>full-opacity<?php }?>">
-                        <?php
+                        </h6>
+                      </div>
+                      <div class="card-body pt0 plr5">
+                        <div class="pro-box-wrapper <?php if (count($_smarty_tpl->tpl_vars['promoted_pages']->value) > 3) {?>js_slick<?php } else { ?>full-opacity<?php }?>">
+                          <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promoted_pages']->value, '_page');
 $_smarty_tpl->tpl_vars['_page']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['_page']->value) {
 $_smarty_tpl->tpl_vars['_page']->do_else = false;
 ?>
-                          <a class="user-box text-white" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+                            <a class="user-box text-white" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /pages/<?php echo $_smarty_tpl->tpl_vars['_page']->value['page_name'];?>
 ">
-                            <img alt="<?php echo $_smarty_tpl->tpl_vars['_page']->value['page_title'];?>
+                              <img alt="<?php echo $_smarty_tpl->tpl_vars['_page']->value['page_title'];?>
 " src="<?php echo $_smarty_tpl->tpl_vars['_page']->value['page_picture'];?>
 " />
-                            <div class="name" title="<?php echo $_smarty_tpl->tpl_vars['_page']->value['page_title'];?>
+                              <div class="name" title="<?php echo $_smarty_tpl->tpl_vars['_page']->value['page_title'];?>
 ">
-                              <?php echo $_smarty_tpl->tpl_vars['_page']->value['page_title'];?>
+                                <?php echo $_smarty_tpl->tpl_vars['_page']->value['page_title'];?>
 
-                            </div>
-                          </a>
-                        <?php
+                              </div>
+                            </a>
+                          <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                <?php }?>
+                <!-- pro pages -->
               <?php }?>
-              <!-- pro pages -->
-            <?php }?>
 
             <!-- boosted post -->
             <?php if ($_smarty_tpl->tpl_vars['boosted_post']->value) {?>
@@ -689,6 +698,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 <style>
 .usser{
           height: 50px;
+          width:50px;
     border-radius: 100%;
     border: 1px solid white;
 

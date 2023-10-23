@@ -9,6 +9,83 @@
   <!-- publisher loader -->
 
   <!-- publisher-message -->
+  <div class="publisher-head">
+      <div class="publisher-head--title js_publisher-btn js_publisher">
+        <span class="icon">{include file='__svg_icons.tpl' icon="edit-2" class="" width="22px" height="22px"}</span> Create a Post
+      </div>
+      <div class="publisher-head--privacy">
+        {if $_privacy}
+          {if $system['newsfeed_source'] == "default"}
+            <!-- privacy -->
+            {if $system['default_privacy'] == "me"}
+              <div class="btn-group js_publisher-privacy" data-value="me">
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
+                  <i class="btn-group-icon fa fa-lock mr10"></i><span class="btn-group-text">{__("Only Me")}</span>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item pointer" data-value="public">
+                    <i class="fa fa-globe mr5"></i>{__("Public")}
+                  </div>
+                  <div class="dropdown-item pointer" data-value="friends">
+                    <i class="fa fa-users mr5"></i>{__("Friends")}
+                  </div>
+                  {if $_handle == 'me'}
+                    <div class="dropdown-item pointer" data-value="me">
+                      <i class="fa fa-lock mr5"></i>{__("Only Me")}
+                    </div>
+                  {/if}
+                </div>
+              </div>
+            {elseif $system['default_privacy'] == "friends"}
+              <div class="btn-group js_publisher-privacy" data-value="friends">
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
+                  <i class="btn-group-icon fa fa-users mr10"></i><span class="btn-group-text">{__("Friends")}</span>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item pointer" data-value="public">
+                    <i class="fa fa-globe mr5"></i>{__("Public")}
+                  </div>
+                  <div class="dropdown-item pointer" data-value="friends">
+                    <i class="fa fa-users mr5"></i>{__("Friends")}
+                  </div>
+                  {if $_handle == 'me'}
+                    <div class="dropdown-item pointer" data-value="me">
+                      <i class="fa fa-lock mr5"></i>{__("Only Me")}
+                    </div>
+                  {/if}
+                </div>
+              </div>
+            {else}
+              <div class="btn-group js_publisher-privacy" data-value="public">
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
+                  <i class="btn-group-icon fa fa-globe mr10"></i><span class="btn-group-text">{__("Public")}</span>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item pointer" data-value="public">
+                    <i class="fa fa-globe mr5"></i>{__("Public")}
+                  </div>
+                  <div class="dropdown-item pointer" data-value="friends">
+                    <i class="fa fa-users mr5"></i>{__("Friends")}
+                  </div>
+                  {if $_handle == 'me'}
+                    <div class="dropdown-item pointer" data-value="me">
+                      <i class="fa fa-lock mr5"></i>{__("Only Me")}
+                    </div>
+                  {/if}
+                </div>
+              </div>
+            {/if}
+
+            {if $system['anonymous_mode'] && $_handle == "me"}
+              <button disabled="disabled" type="button" class="btn btn-light x-hidden js_publisher-privacy-public">
+                <i class="btn-group-icon fa fa-globe mr10"></i><span class="btn-group-text">{__("Public")}</span>
+              </button>
+            {/if}
+            <!-- privacy -->
+          {/if}
+        {/if}
+      </div>
+  </div>
   <div class="publisher-message">
     {if $_handle == "page"}
       <img class="publisher-avatar" src="{$spage['page_picture']}">
@@ -232,19 +309,10 @@
         </ul>
         <div class="divider"></div>
       {/if}
-      <ul class="row">
-        {if $user->_data['can_go_live']}
-          <li class="col-md-6">
-            <a class="publisher-tools-tab link js_publisher-tab" data-tab="live" href="{$system['system_url']}/live{if $_handle == "page"}?page_id={$_id}{/if}{if $_handle == "group"}?group_id={$_id}{/if}{if $_handle == "event"}?event_id={$_id}{/if}">
-              {include file='__svg_icons.tpl' icon="live" class="main-icon mr5" width="24px" height="24px"}
-              {__("Go Live")}
-              <div class="spinner-grow text-danger ml5" style="width: 10px; height: 10px;">
-              </div>
-            </a>
-          </li>
-        {/if}
+      <ul class="post-type-extra">
+        
         {if $system['photos_enabled']}
-          <li class="col-md-6">
+          <li class="post-type-extra--col">
             <div class="publisher-tools-tab attach js_publisher-tab" data-tab="photos">
               <span class="js_x-uploader" data-handle="publisher" data-multiple="true">
                 {include file='__svg_icons.tpl' icon="camera" class="main-icon mr5" width="24px" height="24px"}
@@ -252,115 +320,137 @@
               {__("Upload Photos")}
             </div>
           </li>
-          <li class="col-md-6">
+          <li class="post-type-extra--col">
             <div class="publisher-tools-tab js_publisher-tab" data-tab="album">
               {include file='__svg_icons.tpl' icon="photos" class="main-icon mr5" width="24px" height="24px"}
               {__("Create Album")}
             </div>
           </li>
         {/if}
-        {if $user->_data['can_add_activity_posts']}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-feelings">
-              {include file='__svg_icons.tpl' icon="smile" class="main-icon mr5" width="24px" height="24px"}
-              {__("Feelings/Activity")}
-            </div>
-          </li>
-        {/if}
-        {if $user->_data['can_add_geolocation_posts']}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-tab" data-tab="location">
-              {include file='__svg_icons.tpl' icon="map" class="main-icon mr5" width="24px" height="24px"}
-              {__("Check In")}
-            </div>
-          </li>
-        {/if}
         {if $user->_data['can_add_colored_posts']}
-          <li class="col-md-6">
+          <li class="post-type-extra--col">
             <div class="publisher-tools-tab js_publisher-tab" data-tab="colored">
               {include file='__svg_icons.tpl' icon="posts_colored" class="main-icon mr5" width="24px" height="24px"}
               {__("Colored Posts")}
             </div>
           </li>
         {/if}
-        {if $system['voice_notes_posts_enabled']}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-tab" data-tab="voice_notes">
-              {include file='__svg_icons.tpl' icon="voice_notes" class="main-icon mr5" width="24px" height="24px"}
-              {__("Voice Notes")}
+        <div class="post-type-extra--morebox">
+          <li class="post-type-extra--more">
+            <div class="publisher-tools-tab js_publisher-tab" data-tab="colored">
+            {__("More")}
             </div>
           </li>
-        {/if}
-        {if $user->_data['can_add_gif_posts']}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-tab" data-tab="gif">
-              {include file='__svg_icons.tpl' icon="gif" class="main-icon mr5" width="24px" height="24px"}
-              {__("GIF")}
-            </div>
-          </li>
-        {/if}
-        {if $user->_data['can_write_articles']}
-          <li class="col-md-6">
-            <a class="publisher-tools-tab link js_publisher-tab" data-tab="article" href='{$system['system_url']}/blogs/new{if $_handle == "page"}?page={$_id}{/if}{if $_handle == "group"}?group={$_id}{/if}{if $_handle == "event"}?event={$_id}{/if}'>
-              {include file='__svg_icons.tpl' icon="articles" class="main-icon mr5" width="24px" height="24px"}
-              {__("Write Article")}
-            </a>
-          </li>
-        {/if}
-        {if $user->_data['can_sell_products'] && $_handle != "page" && $_handle != "group" && $_handle != "event"}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab link js_publisher-tab" data-tab="product" data-toggle="modal" data-url="posts/product.php?do=create">
-              {include file='__svg_icons.tpl' icon="products" class="main-icon mr5" width="24px" height="24px"}
-              {__("Sell Something")}
-            </div>
-          </li>
-        {/if}
-        {if $user->_data['can_raise_funding'] && $_handle != "page" && $_handle != "group" && $_handle != "event"}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab link js_publisher-tab" data-tab="funding" data-toggle="modal" data-url="posts/funding.php?do=create">
-              {include file='__svg_icons.tpl' icon="funding" class="main-icon mr5" width="24px" height="24px"}
-              {__("Raise Funding")}
-            </div>
-          </li>
-        {/if}
-        {if $user->_data['can_add_polls_posts']}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-tab" data-tab="poll">
-              {include file='__svg_icons.tpl' icon="polls" class="main-icon mr5" width="24px" height="24px"}
-              {__("Create Poll")}
-            </div>
-          </li>
-        {/if}
-        {if $user->_data['can_upload_videos']}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab attach js_publisher-tab" data-tab="video">
-              <span class="js_x-uploader" data-handle="publisher" data-type="video">
-                {include file='__svg_icons.tpl' icon="videos" class="main-icon mr5" width="24px" height="24px"}
-              </span>
-              {__("Upload Video")}
-            </div>
-          </li>
-        {/if}
-        {if $user->_data['can_upload_audios']}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab attach js_publisher-tab" data-tab="audio">
-              <span class="js_x-uploader" data-handle="publisher" data-type="audio">
-                {include file='__svg_icons.tpl' icon="audios" class="main-icon mr5" width="24px" height="24px"}
-              </span>
-              {__("Upload Audio")}
-            </div>
-          </li>
-        {/if}
-        {if $user->_data['can_upload_files']}
-          <li class="col-md-6">
-            <div class="publisher-tools-tab attach js_publisher-tab" data-tab="file">
-              <span class="js_x-uploader" data-handle="publisher" data-type="file">
-                {include file='__svg_icons.tpl' icon="files" class="main-icon mr5" width="24px" height="24px"}
-              </span>
-              {__("Upload File")}
-            </div>
-          </li>
-        {/if}
+          <div class="post-type-extra--more-list shadow">
+
+            {if $user->_data['can_go_live']}
+              <li>
+                <a class="publisher-tools-tab link js_publisher-tab" data-tab="live" href="{$system['system_url']}/live{if $_handle == "page"}?page_id={$_id}{/if}{if $_handle == "group"}?group_id={$_id}{/if}{if $_handle == "event"}?event_id={$_id}{/if}">
+                  {include file='__svg_icons.tpl' icon="live" class="main-icon mr5" width="24px" height="24px"}
+                  {__("Go Live")}
+                  <div class="spinner-grow text-danger ml5" style="width: 10px; height: 10px;">
+                  </div>
+                </a>
+              </li>
+            {/if}
+            {if $user->_data['can_add_activity_posts']}
+              <li>
+                <div class="publisher-tools-tab js_publisher-feelings">
+                  {include file='__svg_icons.tpl' icon="smile" class="main-icon mr5" width="24px" height="24px"}
+                  {__("Feelings/Activity")}
+                </div>
+              </li>
+            {/if}
+            {if $user->_data['can_add_geolocation_posts']}
+              <li>
+                <div class="publisher-tools-tab js_publisher-tab" data-tab="location">
+                  {include file='__svg_icons.tpl' icon="map" class="main-icon mr5" width="24px" height="24px"}
+                  {__("Check In")}
+                </div>
+              </li>
+            {/if}
+            
+            {if $system['voice_notes_posts_enabled']}
+              <li>
+                <div class="publisher-tools-tab js_publisher-tab" data-tab="voice_notes">
+                  {include file='__svg_icons.tpl' icon="voice_notes" class="main-icon mr5" width="24px" height="24px"}
+                  {__("Voice Notes")}
+                </div>
+              </li>
+            {/if}
+            {if $user->_data['can_add_gif_posts']}
+              <li>
+                <div class="publisher-tools-tab js_publisher-tab" data-tab="gif">
+                  {include file='__svg_icons.tpl' icon="gif" class="main-icon mr5" width="24px" height="24px"}
+                  {__("GIF")}
+                </div>
+              </li>
+            {/if}
+            {if $user->_data['can_write_articles']}
+              <li>
+                <a class="publisher-tools-tab link js_publisher-tab" data-tab="article" href='{$system['system_url']}/blogs/new{if $_handle == "page"}?page={$_id}{/if}{if $_handle == "group"}?group={$_id}{/if}{if $_handle == "event"}?event={$_id}{/if}'>
+                  {include file='__svg_icons.tpl' icon="articles" class="main-icon mr5" width="24px" height="24px"}
+                  {__("Write Article")}
+                </a>
+              </li>
+            {/if}
+            {if $user->_data['can_sell_products'] && $_handle != "page" && $_handle != "group" && $_handle != "event"}
+              <li>
+                <div class="publisher-tools-tab link js_publisher-tab" data-tab="product" data-toggle="modal" data-url="posts/product.php?do=create">
+                  {include file='__svg_icons.tpl' icon="products" class="main-icon mr5" width="24px" height="24px"}
+                  {__("Sell Something")}
+                </div>
+              </li>
+            {/if}
+            {if $user->_data['can_raise_funding'] && $_handle != "page" && $_handle != "group" && $_handle != "event"}
+              <li>
+                <div class="publisher-tools-tab link js_publisher-tab" data-tab="funding" data-toggle="modal" data-url="posts/funding.php?do=create">
+                  {include file='__svg_icons.tpl' icon="funding" class="main-icon mr5" width="24px" height="24px"}
+                  {__("Raise Funding")}
+                </div>
+              </li>
+            {/if}
+            {if $user->_data['can_add_polls_posts']}
+              <li>
+                <div class="publisher-tools-tab js_publisher-tab" data-tab="poll">
+                  {include file='__svg_icons.tpl' icon="polls" class="main-icon mr5" width="24px" height="24px"}
+                  {__("Create Poll")}
+                </div>
+              </li>
+            {/if}
+            {if $user->_data['can_upload_videos']}
+              <li>
+                <div class="publisher-tools-tab attach js_publisher-tab" data-tab="video">
+                  <span class="js_x-uploader" data-handle="publisher" data-type="video">
+                    {include file='__svg_icons.tpl' icon="videos" class="main-icon mr5" width="24px" height="24px"}
+                  </span>
+                  {__("Upload Video")}
+                </div>
+              </li>
+            {/if}
+            {if $user->_data['can_upload_audios']}
+              <li>
+                <div class="publisher-tools-tab attach js_publisher-tab" data-tab="audio">
+                  <span class="js_x-uploader" data-handle="publisher" data-type="audio">
+                    {include file='__svg_icons.tpl' icon="audios" class="main-icon mr5" width="24px" height="24px"}
+                  </span>
+                  {__("Upload Audio")}
+                </div>
+              </li>
+            {/if}
+            {if $user->_data['can_upload_files']}
+              <li>
+                <div class="publisher-tools-tab attach js_publisher-tab" data-tab="file">
+                  <span class="js_x-uploader" data-handle="publisher" data-type="file">
+                    {include file='__svg_icons.tpl' icon="files" class="main-icon mr5" width="24px" height="24px"}
+                  </span>
+                  {__("Upload File")}
+                </div>
+              </li>
+            {/if}
+          </div>
+        </div>
+        
       </ul>
     </div>
     <!-- publisher-tools-tabs -->
@@ -397,83 +487,7 @@
       {/if}
       <!-- publisher-options -->
 
-      <!-- publisher-buttons -->
-      <div class="publisher-footer-buttons">
-        {if $_privacy}
-          {if $system['newsfeed_source'] == "default"}
-            <!-- privacy -->
-            {if $system['default_privacy'] == "me"}
-              <div class="btn-group js_publisher-privacy" data-value="me">
-                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
-                  <i class="btn-group-icon fa fa-lock mr10"></i><span class="btn-group-text">{__("Only Me")}</span>
-                </button>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item pointer" data-value="public">
-                    <i class="fa fa-globe mr5"></i>{__("Public")}
-                  </div>
-                  <div class="dropdown-item pointer" data-value="friends">
-                    <i class="fa fa-users mr5"></i>{__("Friends")}
-                  </div>
-                  {if $_handle == 'me'}
-                    <div class="dropdown-item pointer" data-value="me">
-                      <i class="fa fa-lock mr5"></i>{__("Only Me")}
-                    </div>
-                  {/if}
-                </div>
-              </div>
-            {elseif $system['default_privacy'] == "friends"}
-              <div class="btn-group js_publisher-privacy" data-value="friends">
-                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
-                  <i class="btn-group-icon fa fa-users mr10"></i><span class="btn-group-text">{__("Friends")}</span>
-                </button>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item pointer" data-value="public">
-                    <i class="fa fa-globe mr5"></i>{__("Public")}
-                  </div>
-                  <div class="dropdown-item pointer" data-value="friends">
-                    <i class="fa fa-users mr5"></i>{__("Friends")}
-                  </div>
-                  {if $_handle == 'me'}
-                    <div class="dropdown-item pointer" data-value="me">
-                      <i class="fa fa-lock mr5"></i>{__("Only Me")}
-                    </div>
-                  {/if}
-                </div>
-              </div>
-            {else}
-              <div class="btn-group js_publisher-privacy" data-value="public">
-                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
-                  <i class="btn-group-icon fa fa-globe mr10"></i><span class="btn-group-text">{__("Public")}</span>
-                </button>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item pointer" data-value="public">
-                    <i class="fa fa-globe mr5"></i>{__("Public")}
-                  </div>
-                  <div class="dropdown-item pointer" data-value="friends">
-                    <i class="fa fa-users mr5"></i>{__("Friends")}
-                  </div>
-                  {if $_handle == 'me'}
-                    <div class="dropdown-item pointer" data-value="me">
-                      <i class="fa fa-lock mr5"></i>{__("Only Me")}
-                    </div>
-                  {/if}
-                </div>
-              </div>
-            {/if}
-
-            {if $system['anonymous_mode'] && $_handle == "me"}
-              <button disabled="disabled" type="button" class="btn btn-light x-hidden js_publisher-privacy-public">
-                <i class="btn-group-icon fa fa-globe mr10"></i><span class="btn-group-text">{__("Public")}</span>
-              </button>
-            {/if}
-            <!-- privacy -->
-          {/if}
-        {/if}
-        <div class="d-grid">
-          <button type="button" class="btn btn-primary ml5 js_publisher-btn js_publisher">{__("Post")}</button>
-        </div>
-        <!-- publisher-buttons -->
-      </div>
+      
     </div>
     <!-- publisher-footer -->
   </div>

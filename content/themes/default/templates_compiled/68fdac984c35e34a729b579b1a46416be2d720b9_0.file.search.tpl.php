@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-21 19:37:10
+/* Smarty version 4.3.2, created on 2023-10-23 23:15:29
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/search.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65342866206cf9_16482116',
+  'unifunc' => 'content_6536fe914c33f3_58996321',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '68fdac984c35e34a729b579b1a46416be2d720b9' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/search.tpl',
-      1 => 1697889526,
+      1 => 1698102928,
       2 => 'file',
     ),
   ),
@@ -33,18 +33,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_65342866206cf9_16482116 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6536fe914c33f3_58996321 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <!-- page header -->
 <div class="page-header">
-  <img class="floating-img d-none d-md-block" src="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/content/themes/<?php echo $_smarty_tpl->tpl_vars['system']->value['theme'];?>
-/images/headers/undraw_file_searching_duff.svg">
-  <div class="circle-2"></div>
-  <div class="circle-3"></div>
+  
   <div class="inner">
     <h2><?php echo __("Search");?>
 </h2>
@@ -68,7 +64,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
     <!-- content panel -->
     <div class="col-12 sg-offcanvas-mainbar">
       <!-- search form -->
-      <div class="card">
+      <div class="card shadow-lg mt-3">
         <div class="card-body">
           <form class="js_search-form" <?php if ($_smarty_tpl->tpl_vars['tab']->value) {?> data-filter="<?php echo $_smarty_tpl->tpl_vars['tab']->value;?>
 " <?php }?>>

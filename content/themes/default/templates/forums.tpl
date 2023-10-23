@@ -3,9 +3,6 @@
 
 <!-- page header -->
 <div class="page-header">
-  <img class="floating-img d-none d-md-block" src="{$system['system_url']}/content/themes/{$system['theme']}/images/headers/undraw_elements_cipa.svg">
-  <div class="circle-2"></div>
-  <div class="circle-3"></div>
   <div class="inner">
     <h2>{__("Forums")}</h2>
     <p class="text-xlg">{__($system['system_description_forums'])}</p>
@@ -26,7 +23,7 @@
     <!-- content panel -->
     <div class="col-12 sg-offcanvas-mainbar">
 
-      <div class="position-relative">
+      <div class="position-relative shadow">
         <!-- tabs -->
         <div class="content-tabs rounded-sm shadow-sm clearfix">
           <ul>

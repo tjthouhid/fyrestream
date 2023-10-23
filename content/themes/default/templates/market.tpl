@@ -3,13 +3,11 @@
 
 <!-- page header -->
 <div class="page-header">
-  <img class="floating-img d-none d-md-block" src="{$system['system_url']}/content/themes/{$system['theme']}/images/headers/undraw_online_shopping_ga73.svg">
-  <div class="circle-2"></div>
-  <div class="circle-3"></div>
+  
   <div class="{if $system['fluid_design']}container-fluid{else}container{/if}">
     <h2>{__("Marketplace")}</h2>
     <p class="text-xlg">{__($system['system_description_marketplace'])}</p>
-    <div class="row mt20">
+    <!-- <div class="row mt20">
       <div class="col-sm-9 col-lg-6 mx-sm-auto">
         <form class="js_search-form" data-handle="market">
           <div class="input-group">
@@ -17,7 +15,7 @@
             <button type="submit" class="btn btn-light">{__("Search")}</button>
           </div>
         </form>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -26,7 +24,7 @@
 <!-- page content -->
 <div class="{if $system['fluid_design']}container-fluid{else}container{/if} sg-offcanvas" style="margin-top: -25px;">
 
-  <div class="position-relative">
+  <div class="position-relative shadow">
     <!-- tabs -->
     <div class="content-tabs rounded-sm shadow-sm clearfix">
       <ul>

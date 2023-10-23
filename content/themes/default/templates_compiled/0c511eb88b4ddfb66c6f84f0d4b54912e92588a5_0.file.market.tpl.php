@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-21 19:30:52
+/* Smarty version 4.3.2, created on 2023-10-23 23:11:49
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/market.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_653426ec42a370_57320835',
+  'unifunc' => 'content_6536fdb5ee4d18_12415506',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c511eb88b4ddfb66c6f84f0d4b54912e92588a5' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/market.tpl',
-      1 => 1697889526,
+      1 => 1698102709,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_653426ec42a370_57320835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6536fdb5ee4d18_12415506 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Users/tjthouhid/Desktop/Wplocal/app/public/vendor/smarty/smarty/libs/plugins/modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -37,17 +37,13 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
 
 <!-- page header -->
 <div class="page-header">
-  <img class="floating-img d-none d-md-block" src="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/content/themes/<?php echo $_smarty_tpl->tpl_vars['system']->value['theme'];?>
-/images/headers/undraw_online_shopping_ga73.svg">
-  <div class="circle-2"></div>
-  <div class="circle-3"></div>
+  
   <div class="<?php if ($_smarty_tpl->tpl_vars['system']->value['fluid_design']) {?>container-fluid<?php } else { ?>container<?php }?>">
     <h2><?php echo __("Marketplace");?>
 </h2>
     <p class="text-xlg"><?php echo __($_smarty_tpl->tpl_vars['system']->value['system_description_marketplace']);?>
 </p>
-    <div class="row mt20">
+    <!-- <div class="row mt20">
       <div class="col-sm-9 col-lg-6 mx-sm-auto">
         <form class="js_search-form" data-handle="market">
           <div class="input-group">
@@ -57,7 +53,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
 </button>
           </div>
         </form>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -66,7 +62,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
 <!-- page content -->
 <div class="<?php if ($_smarty_tpl->tpl_vars['system']->value['fluid_design']) {?>container-fluid<?php } else { ?>container<?php }?> sg-offcanvas" style="margin-top: -25px;">
 
-  <div class="position-relative">
+  <div class="position-relative shadow">
     <!-- tabs -->
     <div class="content-tabs rounded-sm shadow-sm clearfix">
       <ul>

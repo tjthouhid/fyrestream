@@ -1,28 +1,28 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-21 19:16:19
+/* Smarty version 4.3.2, created on 2023-10-23 22:27:35
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/_publisher.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_653423839ff518_26933798',
+  'unifunc' => 'content_6536f35724f762_08796799',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7432d2e058b3eeba0dffdea20e4630210dc0a6a0' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/_publisher.tpl',
-      1 => 1697889526,
+      1 => 1698100054,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:__svg_icons.tpl' => 29,
+    'file:__svg_icons.tpl' => 30,
     'file:__categories.recursive_options.tpl' => 1,
   ),
 ),false)) {
-function content_653423839ff518_26933798 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6536f35724f762_08796799 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="publisher-overlay"></div>
 
 <div class="x-form publisher" data-handle="<?php echo $_smarty_tpl->tpl_vars['_handle']->value;?>
@@ -36,6 +36,97 @@ function content_653423839ff518_26933798 (Smarty_Internal_Template $_smarty_tpl)
   <!-- publisher loader -->
 
   <!-- publisher-message -->
+  <div class="publisher-head">
+      <div class="publisher-head--title js_publisher-btn js_publisher">
+        <span class="icon"><?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"edit-2",'class'=>'','width'=>"22px",'height'=>"22px"), 0, false);
+?></span> Create a Post
+      </div>
+      <div class="publisher-head--privacy">
+        <?php if ($_smarty_tpl->tpl_vars['_privacy']->value) {?>
+          <?php if ($_smarty_tpl->tpl_vars['system']->value['newsfeed_source'] == "default") {?>
+            <!-- privacy -->
+            <?php if ($_smarty_tpl->tpl_vars['system']->value['default_privacy'] == "me") {?>
+              <div class="btn-group js_publisher-privacy" data-value="me">
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
+                  <i class="btn-group-icon fa fa-lock mr10"></i><span class="btn-group-text"><?php echo __("Only Me");?>
+</span>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item pointer" data-value="public">
+                    <i class="fa fa-globe mr5"></i><?php echo __("Public");?>
+
+                  </div>
+                  <div class="dropdown-item pointer" data-value="friends">
+                    <i class="fa fa-users mr5"></i><?php echo __("Friends");?>
+
+                  </div>
+                  <?php if ($_smarty_tpl->tpl_vars['_handle']->value == 'me') {?>
+                    <div class="dropdown-item pointer" data-value="me">
+                      <i class="fa fa-lock mr5"></i><?php echo __("Only Me");?>
+
+                    </div>
+                  <?php }?>
+                </div>
+              </div>
+            <?php } elseif ($_smarty_tpl->tpl_vars['system']->value['default_privacy'] == "friends") {?>
+              <div class="btn-group js_publisher-privacy" data-value="friends">
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
+                  <i class="btn-group-icon fa fa-users mr10"></i><span class="btn-group-text"><?php echo __("Friends");?>
+</span>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item pointer" data-value="public">
+                    <i class="fa fa-globe mr5"></i><?php echo __("Public");?>
+
+                  </div>
+                  <div class="dropdown-item pointer" data-value="friends">
+                    <i class="fa fa-users mr5"></i><?php echo __("Friends");?>
+
+                  </div>
+                  <?php if ($_smarty_tpl->tpl_vars['_handle']->value == 'me') {?>
+                    <div class="dropdown-item pointer" data-value="me">
+                      <i class="fa fa-lock mr5"></i><?php echo __("Only Me");?>
+
+                    </div>
+                  <?php }?>
+                </div>
+              </div>
+            <?php } else { ?>
+              <div class="btn-group js_publisher-privacy" data-value="public">
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
+                  <i class="btn-group-icon fa fa-globe mr10"></i><span class="btn-group-text"><?php echo __("Public");?>
+</span>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item pointer" data-value="public">
+                    <i class="fa fa-globe mr5"></i><?php echo __("Public");?>
+
+                  </div>
+                  <div class="dropdown-item pointer" data-value="friends">
+                    <i class="fa fa-users mr5"></i><?php echo __("Friends");?>
+
+                  </div>
+                  <?php if ($_smarty_tpl->tpl_vars['_handle']->value == 'me') {?>
+                    <div class="dropdown-item pointer" data-value="me">
+                      <i class="fa fa-lock mr5"></i><?php echo __("Only Me");?>
+
+                    </div>
+                  <?php }?>
+                </div>
+              </div>
+            <?php }?>
+
+            <?php if ($_smarty_tpl->tpl_vars['system']->value['anonymous_mode'] && $_smarty_tpl->tpl_vars['_handle']->value == "me") {?>
+              <button disabled="disabled" type="button" class="btn btn-light x-hidden js_publisher-privacy-public">
+                <i class="btn-group-icon fa fa-globe mr10"></i><span class="btn-group-text"><?php echo __("Public");?>
+</span>
+              </button>
+            <?php }?>
+            <!-- privacy -->
+          <?php }?>
+        <?php }?>
+      </div>
+  </div>
   <div class="publisher-message">
     <?php if ($_smarty_tpl->tpl_vars['_handle']->value == "page") {?>
       <img class="publisher-avatar" src="<?php echo $_smarty_tpl->tpl_vars['spage']->value['page_picture'];?>
@@ -72,7 +163,7 @@ echo $_smarty_tpl->tpl_vars['url']->value;
 
     <!-- post album -->
     <div class="publisher-meta" data-meta="album">
-      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon",'width'=>"16px",'height'=>"16px"), 0, false);
+      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon",'width'=>"16px",'height'=>"16px"), 0, true);
 ?>
       <input type="text" placeholder='<?php echo __("Album title");?>
 '>
@@ -345,27 +436,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </ul>
         <div class="divider"></div>
       <?php }?>
-      <ul class="row">
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_go_live']) {?>
-          <li class="col-md-6">
-            <a class="publisher-tools-tab link js_publisher-tab" data-tab="live" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/live<?php if ($_smarty_tpl->tpl_vars['_handle']->value == "page") {?>?page_id=<?php echo $_smarty_tpl->tpl_vars['_id']->value;
-}
-if ($_smarty_tpl->tpl_vars['_handle']->value == "group") {?>?group_id=<?php echo $_smarty_tpl->tpl_vars['_id']->value;
-}
-if ($_smarty_tpl->tpl_vars['_handle']->value == "event") {?>?event_id=<?php echo $_smarty_tpl->tpl_vars['_id']->value;
-}?>">
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"live",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-              <?php echo __("Go Live");?>
-
-              <div class="spinner-grow text-danger ml5" style="width: 10px; height: 10px;">
-              </div>
-            </a>
-          </li>
-        <?php }?>
+      <ul class="post-type-extra">
+        
         <?php if ($_smarty_tpl->tpl_vars['system']->value['photos_enabled']) {?>
-          <li class="col-md-6">
+          <li class="post-type-extra--col">
             <div class="publisher-tools-tab attach js_publisher-tab" data-tab="photos">
               <span class="js_x-uploader" data-handle="publisher" data-multiple="true">
                 <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"camera",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
@@ -375,7 +449,7 @@ if ($_smarty_tpl->tpl_vars['_handle']->value == "event") {?>?event_id=<?php echo
 
             </div>
           </li>
-          <li class="col-md-6">
+          <li class="post-type-extra--col">
             <div class="publisher-tools-tab js_publisher-tab" data-tab="album">
               <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
@@ -384,28 +458,8 @@ if ($_smarty_tpl->tpl_vars['_handle']->value == "event") {?>?event_id=<?php echo
             </div>
           </li>
         <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_activity_posts']) {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-feelings">
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"smile",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-              <?php echo __("Feelings/Activity");?>
-
-            </div>
-          </li>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_geolocation_posts']) {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-tab" data-tab="location">
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"map",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-              <?php echo __("Check In");?>
-
-            </div>
-          </li>
-        <?php }?>
         <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_colored_posts']) {?>
-          <li class="col-md-6">
+          <li class="post-type-extra--col">
             <div class="publisher-tools-tab js_publisher-tab" data-tab="colored">
               <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"posts_colored",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
@@ -414,108 +468,159 @@ if ($_smarty_tpl->tpl_vars['_handle']->value == "event") {?>?event_id=<?php echo
             </div>
           </li>
         <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['system']->value['voice_notes_posts_enabled']) {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-tab" data-tab="voice_notes">
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"voice_notes",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-              <?php echo __("Voice Notes");?>
+        <div class="post-type-extra--morebox">
+          <li class="post-type-extra--more">
+            <div class="publisher-tools-tab js_publisher-tab" data-tab="colored">
+            <?php echo __("More");?>
 
             </div>
           </li>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_gif_posts']) {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-tab" data-tab="gif">
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"gif",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-              <?php echo __("GIF");?>
+          <div class="post-type-extra--more-list shadow">
 
-            </div>
-          </li>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_write_articles']) {?>
-          <li class="col-md-6">
-            <a class="publisher-tools-tab link js_publisher-tab" data-tab="article" href='<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_go_live']) {?>
+              <li>
+                <a class="publisher-tools-tab link js_publisher-tab" data-tab="live" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/live<?php if ($_smarty_tpl->tpl_vars['_handle']->value == "page") {?>?page_id=<?php echo $_smarty_tpl->tpl_vars['_id']->value;
+}
+if ($_smarty_tpl->tpl_vars['_handle']->value == "group") {?>?group_id=<?php echo $_smarty_tpl->tpl_vars['_id']->value;
+}
+if ($_smarty_tpl->tpl_vars['_handle']->value == "event") {?>?event_id=<?php echo $_smarty_tpl->tpl_vars['_id']->value;
+}?>">
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"live",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                  <?php echo __("Go Live");?>
+
+                  <div class="spinner-grow text-danger ml5" style="width: 10px; height: 10px;">
+                  </div>
+                </a>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_activity_posts']) {?>
+              <li>
+                <div class="publisher-tools-tab js_publisher-feelings">
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"smile",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                  <?php echo __("Feelings/Activity");?>
+
+                </div>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_geolocation_posts']) {?>
+              <li>
+                <div class="publisher-tools-tab js_publisher-tab" data-tab="location">
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"map",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                  <?php echo __("Check In");?>
+
+                </div>
+              </li>
+            <?php }?>
+            
+            <?php if ($_smarty_tpl->tpl_vars['system']->value['voice_notes_posts_enabled']) {?>
+              <li>
+                <div class="publisher-tools-tab js_publisher-tab" data-tab="voice_notes">
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"voice_notes",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                  <?php echo __("Voice Notes");?>
+
+                </div>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_gif_posts']) {?>
+              <li>
+                <div class="publisher-tools-tab js_publisher-tab" data-tab="gif">
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"gif",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                  <?php echo __("GIF");?>
+
+                </div>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_write_articles']) {?>
+              <li>
+                <a class="publisher-tools-tab link js_publisher-tab" data-tab="article" href='<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /blogs/new<?php if ($_smarty_tpl->tpl_vars['_handle']->value == "page") {?>?page=<?php echo $_smarty_tpl->tpl_vars['_id']->value;
 }
 if ($_smarty_tpl->tpl_vars['_handle']->value == "group") {?>?group=<?php echo $_smarty_tpl->tpl_vars['_id']->value;
 }
 if ($_smarty_tpl->tpl_vars['_handle']->value == "event") {?>?event=<?php echo $_smarty_tpl->tpl_vars['_id']->value;
 }?>'>
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"articles",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"articles",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
-              <?php echo __("Write Article");?>
+                  <?php echo __("Write Article");?>
 
-            </a>
-          </li>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_sell_products'] && $_smarty_tpl->tpl_vars['_handle']->value != "page" && $_smarty_tpl->tpl_vars['_handle']->value != "group" && $_smarty_tpl->tpl_vars['_handle']->value != "event") {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab link js_publisher-tab" data-tab="product" data-toggle="modal" data-url="posts/product.php?do=create">
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"products",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+                </a>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_sell_products'] && $_smarty_tpl->tpl_vars['_handle']->value != "page" && $_smarty_tpl->tpl_vars['_handle']->value != "group" && $_smarty_tpl->tpl_vars['_handle']->value != "event") {?>
+              <li>
+                <div class="publisher-tools-tab link js_publisher-tab" data-tab="product" data-toggle="modal" data-url="posts/product.php?do=create">
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"products",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
-              <?php echo __("Sell Something");?>
+                  <?php echo __("Sell Something");?>
 
-            </div>
-          </li>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_raise_funding'] && $_smarty_tpl->tpl_vars['_handle']->value != "page" && $_smarty_tpl->tpl_vars['_handle']->value != "group" && $_smarty_tpl->tpl_vars['_handle']->value != "event") {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab link js_publisher-tab" data-tab="funding" data-toggle="modal" data-url="posts/funding.php?do=create">
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"funding",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+                </div>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_raise_funding'] && $_smarty_tpl->tpl_vars['_handle']->value != "page" && $_smarty_tpl->tpl_vars['_handle']->value != "group" && $_smarty_tpl->tpl_vars['_handle']->value != "event") {?>
+              <li>
+                <div class="publisher-tools-tab link js_publisher-tab" data-tab="funding" data-toggle="modal" data-url="posts/funding.php?do=create">
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"funding",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
-              <?php echo __("Raise Funding");?>
+                  <?php echo __("Raise Funding");?>
 
-            </div>
-          </li>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_polls_posts']) {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab js_publisher-tab" data-tab="poll">
-              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"polls",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+                </div>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_polls_posts']) {?>
+              <li>
+                <div class="publisher-tools-tab js_publisher-tab" data-tab="poll">
+                  <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"polls",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
-              <?php echo __("Create Poll");?>
+                  <?php echo __("Create Poll");?>
 
-            </div>
-          </li>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_upload_videos']) {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab attach js_publisher-tab" data-tab="video">
-              <span class="js_x-uploader" data-handle="publisher" data-type="video">
-                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"videos",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+                </div>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_upload_videos']) {?>
+              <li>
+                <div class="publisher-tools-tab attach js_publisher-tab" data-tab="video">
+                  <span class="js_x-uploader" data-handle="publisher" data-type="video">
+                    <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"videos",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
-              </span>
-              <?php echo __("Upload Video");?>
+                  </span>
+                  <?php echo __("Upload Video");?>
 
-            </div>
-          </li>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_upload_audios']) {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab attach js_publisher-tab" data-tab="audio">
-              <span class="js_x-uploader" data-handle="publisher" data-type="audio">
-                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"audios",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+                </div>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_upload_audios']) {?>
+              <li>
+                <div class="publisher-tools-tab attach js_publisher-tab" data-tab="audio">
+                  <span class="js_x-uploader" data-handle="publisher" data-type="audio">
+                    <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"audios",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
-              </span>
-              <?php echo __("Upload Audio");?>
+                  </span>
+                  <?php echo __("Upload Audio");?>
 
-            </div>
-          </li>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_upload_files']) {?>
-          <li class="col-md-6">
-            <div class="publisher-tools-tab attach js_publisher-tab" data-tab="file">
-              <span class="js_x-uploader" data-handle="publisher" data-type="file">
-                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"files",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+                </div>
+              </li>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_upload_files']) {?>
+              <li>
+                <div class="publisher-tools-tab attach js_publisher-tab" data-tab="file">
+                  <span class="js_x-uploader" data-handle="publisher" data-type="file">
+                    <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"files",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
-              </span>
-              <?php echo __("Upload File");?>
+                  </span>
+                  <?php echo __("Upload File");?>
 
-            </div>
-          </li>
-        <?php }?>
+                </div>
+              </li>
+            <?php }?>
+          </div>
+        </div>
+        
       </ul>
     </div>
     <!-- publisher-tools-tabs -->
@@ -556,97 +661,7 @@ if ($_smarty_tpl->tpl_vars['_handle']->value == "event") {?>?event=<?php echo $_
       <?php }?>
       <!-- publisher-options -->
 
-      <!-- publisher-buttons -->
-      <div class="publisher-footer-buttons">
-        <?php if ($_smarty_tpl->tpl_vars['_privacy']->value) {?>
-          <?php if ($_smarty_tpl->tpl_vars['system']->value['newsfeed_source'] == "default") {?>
-            <!-- privacy -->
-            <?php if ($_smarty_tpl->tpl_vars['system']->value['default_privacy'] == "me") {?>
-              <div class="btn-group js_publisher-privacy" data-value="me">
-                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
-                  <i class="btn-group-icon fa fa-lock mr10"></i><span class="btn-group-text"><?php echo __("Only Me");?>
-</span>
-                </button>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item pointer" data-value="public">
-                    <i class="fa fa-globe mr5"></i><?php echo __("Public");?>
-
-                  </div>
-                  <div class="dropdown-item pointer" data-value="friends">
-                    <i class="fa fa-users mr5"></i><?php echo __("Friends");?>
-
-                  </div>
-                  <?php if ($_smarty_tpl->tpl_vars['_handle']->value == 'me') {?>
-                    <div class="dropdown-item pointer" data-value="me">
-                      <i class="fa fa-lock mr5"></i><?php echo __("Only Me");?>
-
-                    </div>
-                  <?php }?>
-                </div>
-              </div>
-            <?php } elseif ($_smarty_tpl->tpl_vars['system']->value['default_privacy'] == "friends") {?>
-              <div class="btn-group js_publisher-privacy" data-value="friends">
-                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
-                  <i class="btn-group-icon fa fa-users mr10"></i><span class="btn-group-text"><?php echo __("Friends");?>
-</span>
-                </button>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item pointer" data-value="public">
-                    <i class="fa fa-globe mr5"></i><?php echo __("Public");?>
-
-                  </div>
-                  <div class="dropdown-item pointer" data-value="friends">
-                    <i class="fa fa-users mr5"></i><?php echo __("Friends");?>
-
-                  </div>
-                  <?php if ($_smarty_tpl->tpl_vars['_handle']->value == 'me') {?>
-                    <div class="dropdown-item pointer" data-value="me">
-                      <i class="fa fa-lock mr5"></i><?php echo __("Only Me");?>
-
-                    </div>
-                  <?php }?>
-                </div>
-              </div>
-            <?php } else { ?>
-              <div class="btn-group js_publisher-privacy" data-value="public">
-                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-display="static">
-                  <i class="btn-group-icon fa fa-globe mr10"></i><span class="btn-group-text"><?php echo __("Public");?>
-</span>
-                </button>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item pointer" data-value="public">
-                    <i class="fa fa-globe mr5"></i><?php echo __("Public");?>
-
-                  </div>
-                  <div class="dropdown-item pointer" data-value="friends">
-                    <i class="fa fa-users mr5"></i><?php echo __("Friends");?>
-
-                  </div>
-                  <?php if ($_smarty_tpl->tpl_vars['_handle']->value == 'me') {?>
-                    <div class="dropdown-item pointer" data-value="me">
-                      <i class="fa fa-lock mr5"></i><?php echo __("Only Me");?>
-
-                    </div>
-                  <?php }?>
-                </div>
-              </div>
-            <?php }?>
-
-            <?php if ($_smarty_tpl->tpl_vars['system']->value['anonymous_mode'] && $_smarty_tpl->tpl_vars['_handle']->value == "me") {?>
-              <button disabled="disabled" type="button" class="btn btn-light x-hidden js_publisher-privacy-public">
-                <i class="btn-group-icon fa fa-globe mr10"></i><span class="btn-group-text"><?php echo __("Public");?>
-</span>
-              </button>
-            <?php }?>
-            <!-- privacy -->
-          <?php }?>
-        <?php }?>
-        <div class="d-grid">
-          <button type="button" class="btn btn-primary ml5 js_publisher-btn js_publisher"><?php echo __("Post");?>
-</button>
-        </div>
-        <!-- publisher-buttons -->
-      </div>
+      
     </div>
     <!-- publisher-footer -->
   </div>

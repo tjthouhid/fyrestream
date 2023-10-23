@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-21 19:16:19
+/* Smarty version 4.3.2, created on 2023-10-23 22:50:29
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/_sidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_653423839b1984_66505455',
+  'unifunc' => 'content_6536f8b5ce6946_72745704',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f83c96d8272c3ed42883ff8707135cda8dca35d7' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/_sidebar.tpl',
-      1 => 1697889526,
+      1 => 1698101265,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__svg_icons.tpl' => 10,
   ),
 ),false)) {
-function content_653423839b1984_66505455 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6536f8b5ce6946_72745704 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="left-sidebar h-100 d-none d-lg-block">
     <ul class="main-side-nav navbar-nav left-menu">
       <!-- favorites -->

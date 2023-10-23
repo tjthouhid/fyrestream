@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-21 19:33:25
+/* Smarty version 4.3.2, created on 2023-10-23 23:06:53
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/groups.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65342785177148_77951603',
+  'unifunc' => 'content_6536fc8de1b647_85854294',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b8d1e2c39a0682ff831f13309b8e441783892c9' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/groups.tpl',
-      1 => 1697889526,
+      1 => 1698102412,
       2 => 'file',
     ),
   ),
@@ -26,24 +26,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_65342785177148_77951603 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6536fc8de1b647_85854294 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <!-- page header -->
 <div class="page-header">
-  <img class="floating-img d-none d-md-block" src="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+  <!--<img class="floating-img d-none d-md-block" src="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /content/themes/<?php echo $_smarty_tpl->tpl_vars['system']->value['theme'];?>
 /images/headers/undraw_community_re_cyrm.svg">
   <div class="circle-2"></div>
-  <div class="circle-3"></div>
+  <div class="circle-3"></div>-->
   <div class="<?php if ($_smarty_tpl->tpl_vars['system']->value['fluid_design']) {?>container-fluid<?php } else { ?>container<?php }?>">
     <h2><?php echo __("Groups");?>
 </h2>
     <p class="text-xlg"><?php echo __($_smarty_tpl->tpl_vars['system']->value['system_description_groups']);?>
 </p>
-    <div class="row mt20">
+    <!--<div class="row mt20">
       <div class="col-sm-9 col-lg-6 mx-sm-auto">
         <form class="js_search-form" data-filter="groups">
           <div class="input-group">
@@ -54,7 +54,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
           </div>
         </form>
       </div>
-    </div>
+    </div>-->
   </div>
 </div>
 <!-- page header -->
@@ -62,7 +62,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
 <!-- page content -->
 <div class="<?php if ($_smarty_tpl->tpl_vars['system']->value['fluid_design']) {?>container-fluid<?php } else { ?>container<?php }?> sg-offcanvas" style="margin-top: -25px;">
 
-  <div class="position-relative">
+  <div class="position-relative shadow">
     <!-- tabs -->
     <div class="content-tabs rounded-sm shadow-sm clearfix">
       <ul>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-23 23:13:05
-  from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/pages.tpl' */
+/* Smarty version 4.3.2, created on 2023-10-23 23:09:41
+  from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/events.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6536fe011a20e6_87236612',
+  'unifunc' => 'content_6536fd35398312_92832696',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '6194a13c8f8a6b1d570caddc75ddfb9a37e3f41f' => 
+    '298f453c13817b393d2651da6eb31cc9b2b88355' => 
     array (
-      0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/pages.tpl',
-      1 => 1698102784,
+      0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/events.tpl',
+      1 => 1698102579,
       2 => 'file',
     ),
   ),
@@ -21,12 +21,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_head.tpl' => 1,
     'file:_header.tpl' => 1,
     'file:_sidebar.tpl' => 1,
-    'file:__feeds_page.tpl' => 1,
+    'file:__feeds_event.tpl' => 1,
     'file:_no_data.tpl' => 1,
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_6536fe011a20e6_87236612 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6536fd35398312_92832696 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -35,15 +35,15 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
 <div class="page-header">
   
   <div class="<?php if ($_smarty_tpl->tpl_vars['system']->value['fluid_design']) {?>container-fluid<?php } else { ?>container<?php }?>">
-    <h2><?php echo __("Pages");?>
+    <h2><?php echo __("Events");?>
 </h2>
-    <p class="text-xlg"><?php echo __($_smarty_tpl->tpl_vars['system']->value['system_description_pages']);?>
+    <p class="text-xlg"><?php echo __($_smarty_tpl->tpl_vars['system']->value['system_description_events']);?>
 </p>
-    <!-- <div class="row mt20">
+    <!--<div class="row mt20">
       <div class="col-sm-9 col-lg-6 mx-sm-auto">
-        <form class="js_search-form" data-filter="pages">
+        <form class="js_search-form" data-filter="events">
           <div class="input-group">
-            <input type="text" class="form-control" name="query" placeholder='<?php echo __("Search for pages");?>
+            <input type="text" class="form-control" name="query" placeholder='<?php echo __("Search for events");?>
 '>
             <button type="submit" class="btn btn-light"><?php echo __("Search");?>
 </button>
@@ -64,29 +64,39 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
       <ul>
         <li <?php if ($_smarty_tpl->tpl_vars['view']->value == '' || $_smarty_tpl->tpl_vars['view']->value == "category") {?>class="active" <?php }?>>
           <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/pages"><?php echo __("Discover");?>
+/events"><?php echo __("Discover");?>
 </a>
         </li>
         <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in) {?>
-          <li <?php if ($_smarty_tpl->tpl_vars['view']->value == "liked") {?>class="active" <?php }?>>
+          <li <?php if ($_smarty_tpl->tpl_vars['view']->value == "going") {?>class="active" <?php }?>>
             <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/pages/liked"><?php echo __("Liked Pages");?>
+/events/going"><?php echo __("Going");?>
+</a>
+          </li>
+          <li <?php if ($_smarty_tpl->tpl_vars['view']->value == "interested") {?>class="active" <?php }?>>
+            <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/events/interested"><?php echo __("Interested");?>
+</a>
+          </li>
+          <li <?php if ($_smarty_tpl->tpl_vars['view']->value == "invited") {?>class="active" <?php }?>>
+            <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/events/invited"><?php echo __("Invited");?>
 </a>
           </li>
           <li <?php if ($_smarty_tpl->tpl_vars['view']->value == "manage") {?>class="active" <?php }?>>
             <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/pages/manage"><?php echo __("My Pages");?>
+/events/manage"><?php echo __("My Events");?>
 </a>
           </li>
         <?php }?>
       </ul>
-      <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_create_pages']) {?>
+      <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_create_events']) {?>
         <div class="mt10 float-end">
-          <button class="btn btn-md btn-primary d-none d-lg-block" data-toggle="modal" data-url="pages_groups_events/add.php?type=page">
-            <i class="fa fa-plus-circle mr5"></i><?php echo __("Create Page");?>
+          <button class="btn btn-md btn-primary d-none d-lg-block" data-toggle="modal" data-url="pages_groups_events/add.php?type=event">
+            <i class="fa fa-plus-circle mr5"></i><?php echo __("Create Event");?>
 
           </button>
-          <button class="btn btn-sm btn-icon btn-primary d-block d-lg-none" data-toggle="modal" data-url="pages_groups_events/add.php?type=page">
+          <button class="btn btn-sm btn-icon btn-success d-block d-lg-none" data-toggle="modal" data-url="pages_groups_events/add.php?type=event">
             <i class="fa fa-plus-circle"></i>
           </button>
         </div>
@@ -107,7 +117,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
               <?php if ($_smarty_tpl->tpl_vars['view']->value != "category") {?>
                 <li class="active">
                   <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/pages">
+/events">
                     <?php echo __("All");?>
 
                   </a>
@@ -116,7 +126,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
                 <li>
                   <?php if ($_smarty_tpl->tpl_vars['current_category']->value['parent']) {?>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/pages/category/<?php echo $_smarty_tpl->tpl_vars['current_category']->value['parent']['category_id'];?>
+/events/category/<?php echo $_smarty_tpl->tpl_vars['current_category']->value['parent']['category_id'];?>
 /<?php echo $_smarty_tpl->tpl_vars['current_category']->value['parent']['category_url'];?>
 ">
                       <i class="fas fa-arrow-alt-circle-left mr5"></i><?php echo __($_smarty_tpl->tpl_vars['current_category']->value['parent']['category_name']);?>
@@ -124,7 +134,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
                     </a>
                   <?php } else { ?>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/pages">
+/events">
                       <?php if ($_smarty_tpl->tpl_vars['current_category']->value['sub_categories']) {?><i class="fas fa-arrow-alt-circle-left mr5"></i><?php }
 echo __("All");?>
 
@@ -140,7 +150,7 @@ $_smarty_tpl->tpl_vars['category']->do_else = false;
 ?>
                 <li <?php if ($_smarty_tpl->tpl_vars['view']->value == "category" && $_smarty_tpl->tpl_vars['current_category']->value['category_id'] == $_smarty_tpl->tpl_vars['category']->value['category_id']) {?>class="active" <?php }?>>
                   <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/pages/category/<?php echo $_smarty_tpl->tpl_vars['category']->value['category_id'];?>
+/events/category/<?php echo $_smarty_tpl->tpl_vars['category']->value['category_id'];?>
 /<?php echo $_smarty_tpl->tpl_vars['category']->value['category_url'];?>
 ">
                     <?php echo __($_smarty_tpl->tpl_vars['category']->value['category_name']);?>
@@ -161,7 +171,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <!-- left panel -->
     <?php } else { ?>
       <!-- side panel -->
-      <div class="col-12 d-block d-md-none sg-offcanvas-sidebar mt40">
+      <div class="col-12 d-block d-md-none sg-offcanvas-sidebar">
         <?php $_smarty_tpl->_subTemplateRender('file:_sidebar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
       </div>
@@ -172,15 +182,15 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php if ($_smarty_tpl->tpl_vars['view']->value == '' || $_smarty_tpl->tpl_vars['view']->value == "category") {?><div class="col-md-8 col-lg-9 sg-offcanvas-mainbar"><?php } else { ?><div class="col-12 sg-offcanvas-mainbar"><?php }?>
         <!-- content -->
         <div>
-          <?php if ($_smarty_tpl->tpl_vars['pages']->value) {?>
+          <?php if ($_smarty_tpl->tpl_vars['events']->value) {?>
             <ul class="row">
               <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['pages']->value, '_page');
-$_smarty_tpl->tpl_vars['_page']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['_page']->value) {
-$_smarty_tpl->tpl_vars['_page']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['events']->value, '_event');
+$_smarty_tpl->tpl_vars['_event']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['_event']->value) {
+$_smarty_tpl->tpl_vars['_event']->do_else = false;
 ?>
-                <?php $_smarty_tpl->_subTemplateRender('file:__feeds_page.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('_tpl'=>'box'), 0, true);
+                <?php $_smarty_tpl->_subTemplateRender('file:__feeds_event.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('_tpl'=>'box'), 0, true);
 ?>
               <?php
 }
@@ -188,10 +198,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </ul>
 
             <!-- see-more -->
-            <?php if (count($_smarty_tpl->tpl_vars['pages']->value) >= $_smarty_tpl->tpl_vars['system']->value['pages_results']) {?>
+            <?php if (count($_smarty_tpl->tpl_vars['events']->value) >= $_smarty_tpl->tpl_vars['system']->value['events_results']) {?>
               <div class="alert alert-post see-more js_see-more" data-get="<?php echo $_smarty_tpl->tpl_vars['get']->value;?>
 " <?php if ($_smarty_tpl->tpl_vars['view']->value == "category") {?>data-id="<?php echo $_smarty_tpl->tpl_vars['current_category']->value['category_id'];?>
-" <?php }?> <?php if ($_smarty_tpl->tpl_vars['view']->value == "liked" || $_smarty_tpl->tpl_vars['view']->value == "manage") {?>data-uid="<?php echo $_smarty_tpl->tpl_vars['user']->value->_data['user_id'];?>
+" <?php }?> <?php if ($_smarty_tpl->tpl_vars['view']->value == "going" || $_smarty_tpl->tpl_vars['view']->value == "interested" || $_smarty_tpl->tpl_vars['view']->value == "invited" || $_smarty_tpl->tpl_vars['view']->value == "manage") {?>data-uid="<?php echo $_smarty_tpl->tpl_vars['user']->value->_data['user_id'];?>
 " <?php }?>>
                 <span><?php echo __("See More");?>
 </span>

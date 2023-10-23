@@ -3,9 +3,7 @@
 
 <!-- page header -->
 <div class="page-header">
-  <img class="floating-img d-none d-md-block" src="{$system['system_url']}/content/themes/{$system['theme']}/images/headers/undraw_file_searching_duff.svg">
-  <div class="circle-2"></div>
-  <div class="circle-3"></div>
+  
   <div class="inner">
     <h2>{__("Search")}</h2>
     <p class="text-xlg">{__("Discover new people, create new connections and make new friends")}</p>
@@ -26,7 +24,7 @@
     <!-- content panel -->
     <div class="col-12 sg-offcanvas-mainbar">
       <!-- search form -->
-      <div class="card">
+      <div class="card shadow-lg mt-3">
         <div class="card-body">
           <form class="js_search-form" {if $tab} data-filter="{$tab}" {/if}>
             <div class="form-group mb0">

@@ -12,6 +12,43 @@
 
     <!-- content panel -->
     <div class="col-md-8 col-lg-9 sg-offcanvas-mainbar">
+      {if $view == ""}
+        <div class="row">
+            <div class="col-md-12">
+              {if $user->_logged_in}
+                <!-- stories -->
+                {if $user->_data['can_add_stories'] || ($system['stories_enabled'] && !empty($stories['array']))}
+                  <div class="card">
+                    <div class="card-header bg-transparent border-bottom-0">
+                      <strong class="text-muted">{__("Moments")}</strong>
+                      {if $has_story}
+                        <div class="float-end">
+                          <button data-bs-toggle="tooltip" title='{__("Delete Your Moments")}' class="btn btn-sm btn-icon btn-rounded btn-danger js_story-deleter">
+                            <i class="fa fa-trash-alt"></i>
+                          </button>
+                        </div>
+                      {/if}
+                    </div>
+                    <div class="card-body pt5 stories-wrapper">
+                      <div id="stories" data-json='{htmlspecialchars($stories["json"], ENT_QUOTES, 'UTF-8')}'>
+                        {if $user->_data['can_add_stories']}
+                          <div class="add-story" data-toggle="modal" data-url="posts/story.php?do=create">
+                            <div class="img" style="background-image:url({$user->_data['user_picture']});">
+                            </div>
+                            <div class="add">
+                              {include file='__svg_icons.tpl' icon="add" class="main-icon" width="18px" height="18px"}
+                            </div>
+                          </div>
+                        {/if}
+                      </div>
+                    </div>
+                  </div>
+                {/if}
+                <!-- stories -->
+              {/if}
+          </div>
+        </div>
+      {/if}
       <div class="row">
         <!-- center panel -->
         <div class="col-lg-8">
@@ -23,108 +60,80 @@
           {if $view == ""}
 
             {if $user->_logged_in}
-              <!-- stories -->
-              {if $user->_data['can_add_stories'] || ($system['stories_enabled'] && !empty($stories['array']))}
-                <div class="card">
-                  <div class="card-header bg-transparent border-bottom-0">
-                    <strong class="text-muted">{__("Moments")}</strong>
-                    {if $has_story}
-                      <div class="float-end">
-                        <button data-bs-toggle="tooltip" title='{__("Delete Your Moments")}' class="btn btn-sm btn-icon btn-rounded btn-danger js_story-deleter">
-                          <i class="fa fa-trash-alt"></i>
-                        </button>
-                      </div>
-                    {/if}
-                  </div>
-                  <div class="card-body pt5 stories-wrapper">
-                    <div id="stories" data-json='{htmlspecialchars($stories["json"], ENT_QUOTES, 'UTF-8')}'>
-                      {if $user->_data['can_add_stories']}
-                        <div class="add-story" data-toggle="modal" data-url="posts/story.php?do=create">
-                          <div class="img" style="background-image:url({$user->_data['user_picture']});">
+                
+
+                <!-- publisher -->
+                {include file='_publisher.tpl' _handle="me" _privacy=true}
+                <!-- publisher -->
+
+                <!-- pro users -->
+                {if $pro_members}
+                  <div class="d-block d-lg-none">
+                    <div class="card bg-indigo border-0">
+                      <div class="card-header ptb20 bg-transparent border-bottom-0">
+                        {if $system['packages_enabled'] && !$user->_data['user_subscribed']}
+                          <div class="float-end">
+                            <small><a class="text-white text-underline" href="{$system['system_url']}/packages">{__("Upgrade")}</a></small>
                           </div>
-                          <div class="add">
-                            {include file='__svg_icons.tpl' icon="add" class="main-icon" width="18px" height="18px"}
+                        {/if}
+                        <h6 class="pb0">
+                          {include file='__svg_icons.tpl' icon="pro" class="mr5" width="20px" height="20px" style="fill: #fff;"}
+                          {__("Pro Users")}
+                        </h6>
+                      </div>
+                      <div class="card-body pt0 plr5">
+                        <div class="pro-box-wrapper {if count($pro_members) > 3}js_slick{else}full-opacity{/if}">
+                          {foreach $pro_members as $_member}
+                            <a class="user-box text-white" href="{$system['system_url']}/{$_member['user_name']}">
+                              <img alt="" src="{$_member['user_picture']}" />
+                              <div class="name">
+                                {if $system['show_usernames_enabled']}
+                                  {$_member['user_name']}
+                                {else}
+                                  {$_member['user_firstname']} {$_member['user_lastname']}
+                                {/if}
+                              </div>
+                            </a>
+                          {/foreach}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {/if}
+                <!-- pro users -->
+
+                <!-- pro pages -->
+                {if $promoted_pages}
+                  <div class="d-block d-lg-none">
+                    <div class="card bg-teal border-0">
+                      <div class="card-header ptb20 bg-transparent border-bottom-0">
+                        {if $system['packages_enabled'] && !$user->_data['user_subscribed']}
+                          <div class="float-end">
+                            <small><a class="text-white text-underline" href="{$system['system_url']}/packages">{__("Upgrade")}</a></small>
                           </div>
+                        {/if}
+                        <h6 class="pb0">
+                          {include file='__svg_icons.tpl' icon="pro" class="mr5" width="20px" height="20px" style="fill: #fff;"}
+                          {__("Pro Pages")}
+                        </h6>
+                      </div>
+                      <div class="card-body pt0 plr5">
+                        <div class="pro-box-wrapper {if count($promoted_pages) > 3}js_slick{else}full-opacity{/if}">
+                          {foreach $promoted_pages as $_page}
+                            <a class="user-box text-white" href="{$system['system_url']}/pages/{$_page['page_name']}">
+                              <img alt="{$_page['page_title']}" src="{$_page['page_picture']}" />
+                              <div class="name" title="{$_page['page_title']}">
+                                {$_page['page_title']}
+                              </div>
+                            </a>
+                          {/foreach}
                         </div>
-                      {/if}
-                    </div>
-                  </div>
-                </div>
-              {/if}
-              <!-- stories -->
-
-              <!-- publisher -->
-              {include file='_publisher.tpl' _handle="me" _privacy=true}
-              <!-- publisher -->
-
-              <!-- pro users -->
-              {if $pro_members}
-                <div class="d-block d-lg-none">
-                  <div class="card bg-indigo border-0">
-                    <div class="card-header ptb20 bg-transparent border-bottom-0">
-                      {if $system['packages_enabled'] && !$user->_data['user_subscribed']}
-                        <div class="float-end">
-                          <small><a class="text-white text-underline" href="{$system['system_url']}/packages">{__("Upgrade")}</a></small>
-                        </div>
-                      {/if}
-                      <h6 class="pb0">
-                        {include file='__svg_icons.tpl' icon="pro" class="mr5" width="20px" height="20px" style="fill: #fff;"}
-                        {__("Pro Users")}
-                      </h6>
-                    </div>
-                    <div class="card-body pt0 plr5">
-                      <div class="pro-box-wrapper {if count($pro_members) > 3}js_slick{else}full-opacity{/if}">
-                        {foreach $pro_members as $_member}
-                          <a class="user-box text-white" href="{$system['system_url']}/{$_member['user_name']}">
-                            <img alt="" src="{$_member['user_picture']}" />
-                            <div class="name">
-                              {if $system['show_usernames_enabled']}
-                                {$_member['user_name']}
-                              {else}
-                                {$_member['user_firstname']} {$_member['user_lastname']}
-                              {/if}
-                            </div>
-                          </a>
-                        {/foreach}
                       </div>
                     </div>
                   </div>
-                </div>
+                {/if}
+                <!-- pro pages -->
               {/if}
-              <!-- pro users -->
-
-              <!-- pro pages -->
-              {if $promoted_pages}
-                <div class="d-block d-lg-none">
-                  <div class="card bg-teal border-0">
-                    <div class="card-header ptb20 bg-transparent border-bottom-0">
-                      {if $system['packages_enabled'] && !$user->_data['user_subscribed']}
-                        <div class="float-end">
-                          <small><a class="text-white text-underline" href="{$system['system_url']}/packages">{__("Upgrade")}</a></small>
-                        </div>
-                      {/if}
-                      <h6 class="pb0">
-                        {include file='__svg_icons.tpl' icon="pro" class="mr5" width="20px" height="20px" style="fill: #fff;"}
-                        {__("Pro Pages")}
-                      </h6>
-                    </div>
-                    <div class="card-body pt0 plr5">
-                      <div class="pro-box-wrapper {if count($promoted_pages) > 3}js_slick{else}full-opacity{/if}">
-                        {foreach $promoted_pages as $_page}
-                          <a class="user-box text-white" href="{$system['system_url']}/pages/{$_page['page_name']}">
-                            <img alt="{$_page['page_title']}" src="{$_page['page_picture']}" />
-                            <div class="name" title="{$_page['page_title']}">
-                              {$_page['page_title']}
-                            </div>
-                          </a>
-                        {/foreach}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {/if}
-              <!-- pro pages -->
-            {/if}
 
             <!-- boosted post -->
             {if $boosted_post}
@@ -467,6 +476,7 @@
 <style>
 .usser{
           height: 50px;
+          width:50px;
     border-radius: 100%;
     border: 1px solid white;
 

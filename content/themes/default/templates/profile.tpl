@@ -350,6 +350,10 @@
             {if isset($profile['profile_completion']) && $profile['profile_completion'] < 100}
               <div class="card">
                 <div class="card-header bg-transparent">
+                  <strong>{__("Intro")}</strong>
+                  <div class="intro-profile-pic">
+                    <img src="{$profile['user_cover']}" alt="Cover Picture" />
+                  </div>
                   <span class="float-end">{$profile['profile_completion']}%</span>
                   <strong>{__("Profile Completion")}</strong>
                   <div class="progress mt5">
@@ -358,95 +362,252 @@
                 </div>
                 <div class="card-body">
                   <div class="mb5">
-                    {if $profile['user_picture_default']}
-                      <span class="text-link js_profile-image-trigger">
-                        <i class="fas fa-plus-circle mr5"></i>{__("Add your profile picture")}
-                        </a>
-                      {else}
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span>{__("Add your profile picture")}</span>
+                    <ul class="about-list">
+                      <!-- posts -->
+                      <li>
+                        <div class="about-list-item">
+                          {include file='__svg_icons.tpl' icon="newsfeed" class="main-icon" width="24px" height="24px"}
+                          {__($profile['posts_count'])} {__("Posts")}
+                        </div>
+                      </li>
+                      <!-- posts -->
+
+                      <!-- photos -->
+                      <li>
+                        <div class="about-list-item">
+                          {include file='__svg_icons.tpl' icon="photos" class="main-icon" width="24px" height="24px"}
+                          {__($profile['photos_count'])} {__("Photos")}
+                        </div>
+                      </li>
+                      <!-- photos -->
+
+                      <!-- videos -->
+                      <li>
+                        <div class="about-list-item">
+                          {include file='__svg_icons.tpl' icon="videos" class="main-icon" width="24px" height="24px"}
+                          {__($profile['videos_count'])} {__("Videos")}
+                        </div>
+                      </li>
+                      <!-- videos -->
+
+                      <!-- info -->
+                      {if $system['work_info_enabled']}
+                        {if $profile['user_work_title']}
+                          {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_work'] == "public" || ($profile['user_privacy_work'] == "friends" && $profile['we_friends'])}
+                            <li>
+                              <div class="about-list-item">
+                                {include file='__svg_icons.tpl' icon="jobs" class="main-icon" width="24px" height="24px"}
+                                {$profile['user_work_title']}
+                                {if $profile['user_work_place']}
+                                  {__("at")}
+                                  {if $profile['user_work_url']}
+                                    <a target="_blank" href="{$profile['user_work_url']}">{$profile['user_work_place']}</a>
+                                  {else}
+                                    <span>{$profile['user_work_place']}</span>
+                                  {/if}
+                                {/if}
+                              </div>
+                            </li>
+                          {/if}
+                        {/if}
                       {/if}
-                  </div>
-                  <div class="mb5">
-                    {if $profile['user_cover_default']}
-                      <span class="text-link js_profile-cover-trigger">
-                        <i class="fas fa-plus-circle mr5"></i>{__("Add your profile cover")}
-                        </a>
-                      {else}
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span>{__("Add your profile cover")}</span>
+
+                      {if $system['location_info_enabled']}
+                        {if $profile['user_current_city']}
+                          {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_location'] == "public" || ($profile['user_privacy_location'] == "friends" && $profile['we_friends'])}
+                            <li>
+                              <div class="about-list-item">
+                                {include file='__svg_icons.tpl' icon="home" class="main-icon" width="24px" height="24px"}
+                                {__("Lives in")} <span class="text-info">{$profile['user_current_city']}</span>
+                              </div>
+                            </li>
+                          {/if}
+                        {/if}
+
+                        {if $profile['user_hometown']}
+                          {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_location'] == "public" || ($profile['user_privacy_location'] == "friends" && $profile['we_friends'])}
+                            <li>
+                              <div class="about-list-item">
+                                {include file='__svg_icons.tpl' icon="map" class="main-icon" width="24px" height="24px"}
+                                {__("From")} <span class="text-info">{$profile['user_hometown']}</span>
+                              </div>
+                            </li>
+                          {/if}
+                        {/if}
                       {/if}
+
+                      {if $system['education_info_enabled']}
+                        {if $profile['user_edu_major']}
+                          {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_education'] == "public" || ($profile['user_privacy_education'] == "friends" && $profile['we_friends'])}
+                            <li>
+                              <div class="about-list-item">
+                                {include file='__svg_icons.tpl' icon="education" class="main-icon" width="24px" height="24px"}
+                                {__("Studied")} {$profile['user_edu_major']}
+                                {__("at")} <span class="text-info">{$profile['user_edu_school']}</span>
+                                {if $profile['user_edu_class']}
+                                  <div class="details">
+                                    {__("Class of")} {$profile['user_edu_class']}
+                                  </div>
+                                {/if}
+                              </div>
+                            </li>
+                          {/if}
+                        {/if}
+                      {/if}
+
+                      {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_gender'] == "public" || ($profile['user_privacy_gender'] == "friends" && $profile['we_friends'])}
+                        <li>
+                          <div class="about-list-item">
+                            {include file='__svg_icons.tpl' icon="genders" class="main-icon" width="24px" height="24px"}
+                            {$profile['user_gender']}
+                          </div>
+                        </li>
+                      {/if}
+
+                      {if $system['relationship_info_enabled']}
+                        {if $profile['user_relationship']}
+                          {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_relationship'] == "public" || ($profile['user_privacy_relationship'] == "friends" && $profile['we_friends'])}
+                            <li>
+                              <div class="about-list-item">
+                                {include file='__svg_icons.tpl' icon="relationship" class="main-icon" width="24px" height="24px"}
+                                {if $profile['user_relationship'] == "relationship"}
+                                  {__("In a relationship")}
+                                {elseif $profile['user_relationship'] == "complicated"}
+                                  {__("It's complicated")}
+                                {else}
+                                  {__($profile['user_relationship']|ucfirst)}
+                                {/if}
+                              </div>
+                            </li>
+                          {/if}
+                        {/if}
+                      {/if}
+
+                      {if $profile['user_birthdate'] != null}
+                        {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_birthdate'] == "public" || ($profile['user_privacy_birthdate'] == "friends" && $profile['we_friends'])}
+                          <li>
+                            <div class="about-list-item">
+                              {include file='__svg_icons.tpl' icon="birthday" class="main-icon" width="24px" height="24px"}
+                              {$profile['user_birthdate']|date_format:$system['system_date_format']}
+                            </div>
+                          </li>
+                        {/if}
+                      {/if}
+
+                      {if $system['website_info_enabled']}
+                        {if $profile['user_website']}
+                          <li>
+                            <div class="about-list-item">
+                              {include file='__svg_icons.tpl' icon="website" class="main-icon" width="24px" height="24px"}
+                              <a target="_blank" href="{$profile['user_website']}">{$profile['user_website']}</a>
+                            </div>
+                          </li>
+                        {/if}
+                      {/if}
+
+                      <li>
+                        <div class="about-list-item">
+                          {include file='__svg_icons.tpl' icon="friends" class="main-icon" width="24px" height="24px"}
+                          {__("Followed by")}
+                          <a href="{$system['system_url']}/{$profile['user_name']}/followers">{$profile['followers_count']} {__("people")}</a>
+                        </div>
+                      </li>
+                      <!-- info -->
+                    </ul>
                   </div>
-                  {if $system['biography_info_enabled']}
+                  <div class="add-about-box">
                     <div class="mb5">
-                      {if !$profile['user_biography']}
+                      {if $profile['user_picture_default']}
+                        <span class="text-link js_profile-image-trigger">
+                          <i class="fas fa-plus-circle mr5"></i>{__("Add your profile picture")}
+                          </a>
+                        {else}
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span>{__("Add your profile picture")}</span>
+                        {/if}
+                    </div>
+
+                    <div class="mb5">
+                      {if $profile['user_cover_default']}
+                        <span class="text-link js_profile-cover-trigger">
+                          <i class="fas fa-plus-circle mr5"></i>{__("Add your profile cover")}
+                          </a>
+                        {else}
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span>{__("Add your profile cover")}</span>
+                        {/if}
+                    </div>
+                    {if $system['biography_info_enabled']}
+                      <div class="mb5">
+                        {if !$profile['user_biography']}
+                          <a href="{$system['system_url']}/settings/profile">
+                            <i class="fas fa-plus-circle mr5"></i>{__("Add your biography")}
+                          </a>
+                        {else}
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span>{__("Add your biography")}</span>
+                        {/if}
+                      </div>
+                    {/if}
+                    <div class="mb5">
+                      {if !$profile['user_birthdate']}
                         <a href="{$system['system_url']}/settings/profile">
-                          <i class="fas fa-plus-circle mr5"></i>{__("Add your biography")}
+                          <i class="fas fa-plus-circle mr5"></i>{__("Add your birthdate")}
                         </a>
                       {else}
                         <i class="fas fa-check-circle green mr5"></i>
-                        <span>{__("Add your biography")}</span>
+                        <span>{__("Add your birthdate")}</span>
                       {/if}
                     </div>
-                  {/if}
-                  <div class="mb5">
-                    {if !$profile['user_birthdate']}
-                      <a href="{$system['system_url']}/settings/profile">
-                        <i class="fas fa-plus-circle mr5"></i>{__("Add your birthdate")}
-                      </a>
-                    {else}
-                      <i class="fas fa-check-circle green mr5"></i>
-                      <span>{__("Add your birthdate")}</span>
+                    {if $system['relationship_info_enabled']}
+                      <div class="mb5">
+                        {if !$profile['user_relationship']}
+                          <a href="{$system['system_url']}/settings/profile">
+                            <i class="fas fa-plus-circle mr5"></i>{__("Add your relationship")}
+                          </a>
+                        {else}
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span>{__("Add your relationship")}</span>
+                        {/if}
+                      </div>
+                    {/if}
+                    {if $system['work_info_enabled']}
+                      <div class="mb5">
+                        {if !$profile['user_work_title'] || !$profile['user_work_place']}
+                          <a href="{$system['system_url']}/settings/profile/work">
+                            <i class="fas fa-plus-circle mr5"></i>{__("Add your work info")}
+                          </a>
+                        {else}
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span>{__("Add your work info")}</span>
+                        {/if}
+                      </div>
+                    {/if}
+                    {if $system['location_info_enabled']}
+                      <div class="mb5">
+                        {if !$profile['user_current_city'] || !$profile['user_hometown']}
+                          <a href="{$system['system_url']}/settings/profile/location">
+                            <i class="fas fa-plus-circle mr5"></i>{__("Add your location info")}
+                          </a>
+                        {else}
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span>{__("Add your location info")}</span>
+                        {/if}
+                      </div>
+                    {/if}
+                    {if $system['education_info_enabled']}
+                      <div class="mb5">
+                        {if !$profile['user_edu_major'] || !$profile['user_edu_school']}
+                          <a href="{$system['system_url']}/settings/profile/education">
+                            <i class="fas fa-plus-circle mr5"></i>{__("Add your education info")}
+                          </a>
+                        {else}
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span>{__("Add your education info")}</span>
+                        {/if}
+                      </div>
                     {/if}
                   </div>
-                  {if $system['relationship_info_enabled']}
-                    <div class="mb5">
-                      {if !$profile['user_relationship']}
-                        <a href="{$system['system_url']}/settings/profile">
-                          <i class="fas fa-plus-circle mr5"></i>{__("Add your relationship")}
-                        </a>
-                      {else}
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span>{__("Add your relationship")}</span>
-                      {/if}
-                    </div>
-                  {/if}
-                  {if $system['work_info_enabled']}
-                    <div class="mb5">
-                      {if !$profile['user_work_title'] || !$profile['user_work_place']}
-                        <a href="{$system['system_url']}/settings/profile/work">
-                          <i class="fas fa-plus-circle mr5"></i>{__("Add your work info")}
-                        </a>
-                      {else}
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span>{__("Add your work info")}</span>
-                      {/if}
-                    </div>
-                  {/if}
-                  {if $system['location_info_enabled']}
-                    <div class="mb5">
-                      {if !$profile['user_current_city'] || !$profile['user_hometown']}
-                        <a href="{$system['system_url']}/settings/profile/location">
-                          <i class="fas fa-plus-circle mr5"></i>{__("Add your location info")}
-                        </a>
-                      {else}
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span>{__("Add your location info")}</span>
-                      {/if}
-                    </div>
-                  {/if}
-                  {if $system['education_info_enabled']}
-                    <div class="mb5">
-                      {if !$profile['user_edu_major'] || !$profile['user_edu_school']}
-                        <a href="{$system['system_url']}/settings/profile/education">
-                          <i class="fas fa-plus-circle mr5"></i>{__("Add your education info")}
-                        </a>
-                      {else}
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span>{__("Add your education info")}</span>
-                      {/if}
-                    </div>
-                  {/if}
                 </div>
               </div>
             {/if}
@@ -458,174 +619,7 @@
          
             <!-- gifts -->
 
-            <!-- panel [about] -->
-            <div class="card">
-              <div class="card-body">
-                {if $system['biography_info_enabled']}
-                  {if !is_empty($profile['user_biography'])}
-                    <div class="about-bio">
-                      <div class="js_readmore overflow-hidden">
-                        {$profile['user_biography']|nl2br}
-                      </div>
-                    </div>
-                  {/if}
-                {/if}
-
-                <ul class="about-list">
-                  <!-- posts -->
-                  <li>
-                    <div class="about-list-item">
-                      {include file='__svg_icons.tpl' icon="newsfeed" class="main-icon" width="24px" height="24px"}
-                      {__($profile['posts_count'])} {__("Posts")}
-                    </div>
-                  </li>
-                  <!-- posts -->
-
-                  <!-- photos -->
-                  <li>
-                    <div class="about-list-item">
-                      {include file='__svg_icons.tpl' icon="photos" class="main-icon" width="24px" height="24px"}
-                      {__($profile['photos_count'])} {__("Photos")}
-                    </div>
-                  </li>
-                  <!-- photos -->
-
-                  <!-- videos -->
-                  <li>
-                    <div class="about-list-item">
-                      {include file='__svg_icons.tpl' icon="videos" class="main-icon" width="24px" height="24px"}
-                      {__($profile['videos_count'])} {__("Videos")}
-                    </div>
-                  </li>
-                  <!-- videos -->
-
-                  <!-- info -->
-                  {if $system['work_info_enabled']}
-                    {if $profile['user_work_title']}
-                      {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_work'] == "public" || ($profile['user_privacy_work'] == "friends" && $profile['we_friends'])}
-                        <li>
-                          <div class="about-list-item">
-                            {include file='__svg_icons.tpl' icon="jobs" class="main-icon" width="24px" height="24px"}
-                            {$profile['user_work_title']}
-                            {if $profile['user_work_place']}
-                              {__("at")}
-                              {if $profile['user_work_url']}
-                                <a target="_blank" href="{$profile['user_work_url']}">{$profile['user_work_place']}</a>
-                              {else}
-                                <span>{$profile['user_work_place']}</span>
-                              {/if}
-                            {/if}
-                          </div>
-                        </li>
-                      {/if}
-                    {/if}
-                  {/if}
-
-                  {if $system['location_info_enabled']}
-                    {if $profile['user_current_city']}
-                      {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_location'] == "public" || ($profile['user_privacy_location'] == "friends" && $profile['we_friends'])}
-                        <li>
-                          <div class="about-list-item">
-                            {include file='__svg_icons.tpl' icon="home" class="main-icon" width="24px" height="24px"}
-                            {__("Lives in")} <span class="text-info">{$profile['user_current_city']}</span>
-                          </div>
-                        </li>
-                      {/if}
-                    {/if}
-
-                    {if $profile['user_hometown']}
-                      {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_location'] == "public" || ($profile['user_privacy_location'] == "friends" && $profile['we_friends'])}
-                        <li>
-                          <div class="about-list-item">
-                            {include file='__svg_icons.tpl' icon="map" class="main-icon" width="24px" height="24px"}
-                            {__("From")} <span class="text-info">{$profile['user_hometown']}</span>
-                          </div>
-                        </li>
-                      {/if}
-                    {/if}
-                  {/if}
-
-                  {if $system['education_info_enabled']}
-                    {if $profile['user_edu_major']}
-                      {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_education'] == "public" || ($profile['user_privacy_education'] == "friends" && $profile['we_friends'])}
-                        <li>
-                          <div class="about-list-item">
-                            {include file='__svg_icons.tpl' icon="education" class="main-icon" width="24px" height="24px"}
-                            {__("Studied")} {$profile['user_edu_major']}
-                            {__("at")} <span class="text-info">{$profile['user_edu_school']}</span>
-                            {if $profile['user_edu_class']}
-                              <div class="details">
-                                {__("Class of")} {$profile['user_edu_class']}
-                              </div>
-                            {/if}
-                          </div>
-                        </li>
-                      {/if}
-                    {/if}
-                  {/if}
-
-                  {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_gender'] == "public" || ($profile['user_privacy_gender'] == "friends" && $profile['we_friends'])}
-                    <li>
-                      <div class="about-list-item">
-                        {include file='__svg_icons.tpl' icon="genders" class="main-icon" width="24px" height="24px"}
-                        {$profile['user_gender']}
-                      </div>
-                    </li>
-                  {/if}
-
-                  {if $system['relationship_info_enabled']}
-                    {if $profile['user_relationship']}
-                      {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_relationship'] == "public" || ($profile['user_privacy_relationship'] == "friends" && $profile['we_friends'])}
-                        <li>
-                          <div class="about-list-item">
-                            {include file='__svg_icons.tpl' icon="relationship" class="main-icon" width="24px" height="24px"}
-                            {if $profile['user_relationship'] == "relationship"}
-                              {__("In a relationship")}
-                            {elseif $profile['user_relationship'] == "complicated"}
-                              {__("It's complicated")}
-                            {else}
-                              {__($profile['user_relationship']|ucfirst)}
-                            {/if}
-                          </div>
-                        </li>
-                      {/if}
-                    {/if}
-                  {/if}
-
-                  {if $profile['user_birthdate'] != null}
-                    {if $profile['user_id'] == $user->_data['user_id'] || $profile['user_privacy_birthdate'] == "public" || ($profile['user_privacy_birthdate'] == "friends" && $profile['we_friends'])}
-                      <li>
-                        <div class="about-list-item">
-                          {include file='__svg_icons.tpl' icon="birthday" class="main-icon" width="24px" height="24px"}
-                          {$profile['user_birthdate']|date_format:$system['system_date_format']}
-                        </div>
-                      </li>
-                    {/if}
-                  {/if}
-
-                  {if $system['website_info_enabled']}
-                    {if $profile['user_website']}
-                      <li>
-                        <div class="about-list-item">
-                          {include file='__svg_icons.tpl' icon="website" class="main-icon" width="24px" height="24px"}
-                          <a target="_blank" href="{$profile['user_website']}">{$profile['user_website']}</a>
-                        </div>
-                      </li>
-                    {/if}
-                  {/if}
-
-                  <li>
-                    <div class="about-list-item">
-                      {include file='__svg_icons.tpl' icon="friends" class="main-icon" width="24px" height="24px"}
-                      {__("Followed by")}
-                      <a href="{$system['system_url']}/{$profile['user_name']}/followers">{$profile['followers_count']} {__("people")}</a>
-                    </div>
-                  </li>
-                  <!-- info -->
-                </ul>
-              </div>
-            </div>
-            <!-- panel [about] -->
+      
 
             <!-- custom fields [basic] -->
             {if $custom_fields['basic']}
@@ -1629,6 +1623,6 @@
 <style>
 
 .svg-container svg{
-  fill:#fa8622 !important;
+  fill:#fa8622;
 }
 </style>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-22 13:18:31
+/* Smarty version 4.3.2, created on 2023-10-23 21:25:13
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65352127042833_63783858',
+  'unifunc' => 'content_6536e4b9a9a3a0_08665914',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a5091781dd27abba0149b56cf596c390d9c2341' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/profile.tpl',
-      1 => 1697980704,
+      1 => 1698096312,
       2 => 'file',
     ),
   ),
@@ -41,7 +41,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_65352127042833_63783858 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6536e4b9a9a3a0_08665914 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Users/tjthouhid/Desktop/Wplocal/app/public/vendor/smarty/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -505,6 +505,12 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
             <?php if ((isset($_smarty_tpl->tpl_vars['profile']->value['profile_completion'])) && $_smarty_tpl->tpl_vars['profile']->value['profile_completion'] < 100) {?>
               <div class="card">
                 <div class="card-header bg-transparent">
+                  <strong><?php echo __("Intro");?>
+</strong>
+                  <div class="intro-profile-pic">
+                    <img src="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_cover'];?>
+" alt="Cover Picture" />
+                  </div>
                   <span class="float-end"><?php echo $_smarty_tpl->tpl_vars['profile']->value['profile_completion'];?>
 %</span>
                   <strong><?php echo __("Profile Completion");?>
@@ -517,117 +523,319 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
                 </div>
                 <div class="card-body">
                   <div class="mb5">
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_picture_default']) {?>
-                      <span class="text-link js_profile-image-trigger">
-                        <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your profile picture");?>
+                    <ul class="about-list">
+                      <!-- posts -->
+                      <li>
+                        <div class="about-list-item">
+                          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"newsfeed",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                          <?php echo __($_smarty_tpl->tpl_vars['profile']->value['posts_count']);?>
+ <?php echo __("Posts");?>
 
-                        </a>
-                      <?php } else { ?>
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span><?php echo __("Add your profile picture");?>
-</span>
-                      <?php }?>
-                  </div>
-                  <div class="mb5">
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_cover_default']) {?>
-                      <span class="text-link js_profile-cover-trigger">
-                        <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your profile cover");?>
+                        </div>
+                      </li>
+                      <!-- posts -->
 
-                        </a>
-                      <?php } else { ?>
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span><?php echo __("Add your profile cover");?>
+                      <!-- photos -->
+                      <li>
+                        <div class="about-list-item">
+                          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                          <?php echo __($_smarty_tpl->tpl_vars['profile']->value['photos_count']);?>
+ <?php echo __("Photos");?>
+
+                        </div>
+                      </li>
+                      <!-- photos -->
+
+                      <!-- videos -->
+                      <li>
+                        <div class="about-list-item">
+                          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"videos",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                          <?php echo __($_smarty_tpl->tpl_vars['profile']->value['videos_count']);?>
+ <?php echo __("Videos");?>
+
+                        </div>
+                      </li>
+                      <!-- videos -->
+
+                      <!-- info -->
+                      <?php if ($_smarty_tpl->tpl_vars['system']->value['work_info_enabled']) {?>
+                        <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_work_title']) {?>
+                          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_work'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_work'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
+                            <li>
+                              <div class="about-list-item">
+                                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"jobs",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                                <?php echo $_smarty_tpl->tpl_vars['profile']->value['user_work_title'];?>
+
+                                <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_work_place']) {?>
+                                  <?php echo __("at");?>
+
+                                  <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_work_url']) {?>
+                                    <a target="_blank" href="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_work_url'];?>
+"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_work_place'];?>
+</a>
+                                  <?php } else { ?>
+                                    <span><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_work_place'];?>
 </span>
+                                  <?php }?>
+                                <?php }?>
+                              </div>
+                            </li>
+                          <?php }?>
+                        <?php }?>
                       <?php }?>
+
+                      <?php if ($_smarty_tpl->tpl_vars['system']->value['location_info_enabled']) {?>
+                        <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_current_city']) {?>
+                          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_location'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_location'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
+                            <li>
+                              <div class="about-list-item">
+                                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"home",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                                <?php echo __("Lives in");?>
+ <span class="text-info"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_current_city'];?>
+</span>
+                              </div>
+                            </li>
+                          <?php }?>
+                        <?php }?>
+
+                        <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_hometown']) {?>
+                          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_location'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_location'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
+                            <li>
+                              <div class="about-list-item">
+                                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"map",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                                <?php echo __("From");?>
+ <span class="text-info"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_hometown'];?>
+</span>
+                              </div>
+                            </li>
+                          <?php }?>
+                        <?php }?>
+                      <?php }?>
+
+                      <?php if ($_smarty_tpl->tpl_vars['system']->value['education_info_enabled']) {?>
+                        <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_edu_major']) {?>
+                          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_education'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_education'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
+                            <li>
+                              <div class="about-list-item">
+                                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"education",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                                <?php echo __("Studied");?>
+ <?php echo $_smarty_tpl->tpl_vars['profile']->value['user_edu_major'];?>
+
+                                <?php echo __("at");?>
+ <span class="text-info"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_edu_school'];?>
+</span>
+                                <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_edu_class']) {?>
+                                  <div class="details">
+                                    <?php echo __("Class of");?>
+ <?php echo $_smarty_tpl->tpl_vars['profile']->value['user_edu_class'];?>
+
+                                  </div>
+                                <?php }?>
+                              </div>
+                            </li>
+                          <?php }?>
+                        <?php }?>
+                      <?php }?>
+
+                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_gender'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_gender'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
+                        <li>
+                          <div class="about-list-item">
+                            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"genders",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                            <?php echo $_smarty_tpl->tpl_vars['profile']->value['user_gender'];?>
+
+                          </div>
+                        </li>
+                      <?php }?>
+
+                      <?php if ($_smarty_tpl->tpl_vars['system']->value['relationship_info_enabled']) {?>
+                        <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_relationship']) {?>
+                          <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_relationship'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_relationship'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
+                            <li>
+                              <div class="about-list-item">
+                                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"relationship",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                                <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_relationship'] == "relationship") {?>
+                                  <?php echo __("In a relationship");?>
+
+                                <?php } elseif ($_smarty_tpl->tpl_vars['profile']->value['user_relationship'] == "complicated") {?>
+                                  <?php echo __("It's complicated");?>
+
+                                <?php } else { ?>
+                                  <?php echo __(call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'ucfirst' ][ 0 ], array( $_smarty_tpl->tpl_vars['profile']->value['user_relationship'] )));?>
+
+                                <?php }?>
+                              </div>
+                            </li>
+                          <?php }?>
+                        <?php }?>
+                      <?php }?>
+
+                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_birthdate'] != null) {?>
+                        <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_birthdate'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_birthdate'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
+                          <li>
+                            <div class="about-list-item">
+                              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"birthday",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                              <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['profile']->value['user_birthdate'],$_smarty_tpl->tpl_vars['system']->value['system_date_format']);?>
+
+                            </div>
+                          </li>
+                        <?php }?>
+                      <?php }?>
+
+                      <?php if ($_smarty_tpl->tpl_vars['system']->value['website_info_enabled']) {?>
+                        <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_website']) {?>
+                          <li>
+                            <div class="about-list-item">
+                              <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"website",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                              <a target="_blank" href="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_website'];?>
+"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_website'];?>
+</a>
+                            </div>
+                          </li>
+                        <?php }?>
+                      <?php }?>
+
+                      <li>
+                        <div class="about-list-item">
+                          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"friends",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+                          <?php echo __("Followed by");?>
+
+                          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
+/followers"><?php echo $_smarty_tpl->tpl_vars['profile']->value['followers_count'];?>
+ <?php echo __("people");?>
+</a>
+                        </div>
+                      </li>
+                      <!-- info -->
+                    </ul>
                   </div>
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['biography_info_enabled']) {?>
+                  <div class="add-about-box">
                     <div class="mb5">
-                      <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_biography']) {?>
+                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_picture_default']) {?>
+                        <span class="text-link js_profile-image-trigger">
+                          <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your profile picture");?>
+
+                          </a>
+                        <?php } else { ?>
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span><?php echo __("Add your profile picture");?>
+</span>
+                        <?php }?>
+                    </div>
+
+                    <div class="mb5">
+                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_cover_default']) {?>
+                        <span class="text-link js_profile-cover-trigger">
+                          <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your profile cover");?>
+
+                          </a>
+                        <?php } else { ?>
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span><?php echo __("Add your profile cover");?>
+</span>
+                        <?php }?>
+                    </div>
+                    <?php if ($_smarty_tpl->tpl_vars['system']->value['biography_info_enabled']) {?>
+                      <div class="mb5">
+                        <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_biography']) {?>
+                          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/settings/profile">
+                            <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your biography");?>
+
+                          </a>
+                        <?php } else { ?>
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span><?php echo __("Add your biography");?>
+</span>
+                        <?php }?>
+                      </div>
+                    <?php }?>
+                    <div class="mb5">
+                      <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_birthdate']) {?>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /settings/profile">
-                          <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your biography");?>
+                          <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your birthdate");?>
 
                         </a>
                       <?php } else { ?>
                         <i class="fas fa-check-circle green mr5"></i>
-                        <span><?php echo __("Add your biography");?>
+                        <span><?php echo __("Add your birthdate");?>
 </span>
                       <?php }?>
                     </div>
-                  <?php }?>
-                  <div class="mb5">
-                    <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_birthdate']) {?>
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+                    <?php if ($_smarty_tpl->tpl_vars['system']->value['relationship_info_enabled']) {?>
+                      <div class="mb5">
+                        <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_relationship']) {?>
+                          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /settings/profile">
-                        <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your birthdate");?>
+                            <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your relationship");?>
 
-                      </a>
-                    <?php } else { ?>
-                      <i class="fas fa-check-circle green mr5"></i>
-                      <span><?php echo __("Add your birthdate");?>
+                          </a>
+                        <?php } else { ?>
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span><?php echo __("Add your relationship");?>
 </span>
+                        <?php }?>
+                      </div>
+                    <?php }?>
+                    <?php if ($_smarty_tpl->tpl_vars['system']->value['work_info_enabled']) {?>
+                      <div class="mb5">
+                        <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_work_title'] || !$_smarty_tpl->tpl_vars['profile']->value['user_work_place']) {?>
+                          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/settings/profile/work">
+                            <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your work info");?>
+
+                          </a>
+                        <?php } else { ?>
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span><?php echo __("Add your work info");?>
+</span>
+                        <?php }?>
+                      </div>
+                    <?php }?>
+                    <?php if ($_smarty_tpl->tpl_vars['system']->value['location_info_enabled']) {?>
+                      <div class="mb5">
+                        <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_current_city'] || !$_smarty_tpl->tpl_vars['profile']->value['user_hometown']) {?>
+                          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/settings/profile/location">
+                            <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your location info");?>
+
+                          </a>
+                        <?php } else { ?>
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span><?php echo __("Add your location info");?>
+</span>
+                        <?php }?>
+                      </div>
+                    <?php }?>
+                    <?php if ($_smarty_tpl->tpl_vars['system']->value['education_info_enabled']) {?>
+                      <div class="mb5">
+                        <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_edu_major'] || !$_smarty_tpl->tpl_vars['profile']->value['user_edu_school']) {?>
+                          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/settings/profile/education">
+                            <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your education info");?>
+
+                          </a>
+                        <?php } else { ?>
+                          <i class="fas fa-check-circle green mr5"></i>
+                          <span><?php echo __("Add your education info");?>
+</span>
+                        <?php }?>
+                      </div>
                     <?php }?>
                   </div>
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['relationship_info_enabled']) {?>
-                    <div class="mb5">
-                      <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_relationship']) {?>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/settings/profile">
-                          <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your relationship");?>
-
-                        </a>
-                      <?php } else { ?>
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span><?php echo __("Add your relationship");?>
-</span>
-                      <?php }?>
-                    </div>
-                  <?php }?>
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['work_info_enabled']) {?>
-                    <div class="mb5">
-                      <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_work_title'] || !$_smarty_tpl->tpl_vars['profile']->value['user_work_place']) {?>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/settings/profile/work">
-                          <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your work info");?>
-
-                        </a>
-                      <?php } else { ?>
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span><?php echo __("Add your work info");?>
-</span>
-                      <?php }?>
-                    </div>
-                  <?php }?>
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['location_info_enabled']) {?>
-                    <div class="mb5">
-                      <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_current_city'] || !$_smarty_tpl->tpl_vars['profile']->value['user_hometown']) {?>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/settings/profile/location">
-                          <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your location info");?>
-
-                        </a>
-                      <?php } else { ?>
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span><?php echo __("Add your location info");?>
-</span>
-                      <?php }?>
-                    </div>
-                  <?php }?>
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['education_info_enabled']) {?>
-                    <div class="mb5">
-                      <?php if (!$_smarty_tpl->tpl_vars['profile']->value['user_edu_major'] || !$_smarty_tpl->tpl_vars['profile']->value['user_edu_school']) {?>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/settings/profile/education">
-                          <i class="fas fa-plus-circle mr5"></i><?php echo __("Add your education info");?>
-
-                        </a>
-                      <?php } else { ?>
-                        <i class="fas fa-check-circle green mr5"></i>
-                        <span><?php echo __("Add your education info");?>
-</span>
-                      <?php }?>
-                    </div>
-                  <?php }?>
                 </div>
               </div>
             <?php }?>
@@ -639,220 +847,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
          
             <!-- gifts -->
 
-            <!-- panel [about] -->
-            <div class="card">
-              <div class="card-body">
-                <?php if ($_smarty_tpl->tpl_vars['system']->value['biography_info_enabled']) {?>
-                  <?php if (!is_empty($_smarty_tpl->tpl_vars['profile']->value['user_biography'])) {?>
-                    <div class="about-bio">
-                      <div class="js_readmore overflow-hidden">
-                        <?php echo nl2br((string) $_smarty_tpl->tpl_vars['profile']->value['user_biography'], (bool) 1);?>
-
-                      </div>
-                    </div>
-                  <?php }?>
-                <?php }?>
-
-                <ul class="about-list">
-                  <!-- posts -->
-                  <li>
-                    <div class="about-list-item">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"newsfeed",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                      <?php echo __($_smarty_tpl->tpl_vars['profile']->value['posts_count']);?>
- <?php echo __("Posts");?>
-
-                    </div>
-                  </li>
-                  <!-- posts -->
-
-                  <!-- photos -->
-                  <li>
-                    <div class="about-list-item">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"photos",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                      <?php echo __($_smarty_tpl->tpl_vars['profile']->value['photos_count']);?>
- <?php echo __("Photos");?>
-
-                    </div>
-                  </li>
-                  <!-- photos -->
-
-                  <!-- videos -->
-                  <li>
-                    <div class="about-list-item">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"videos",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                      <?php echo __($_smarty_tpl->tpl_vars['profile']->value['videos_count']);?>
- <?php echo __("Videos");?>
-
-                    </div>
-                  </li>
-                  <!-- videos -->
-
-                  <!-- info -->
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['work_info_enabled']) {?>
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_work_title']) {?>
-                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_work'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_work'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
-                        <li>
-                          <div class="about-list-item">
-                            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"jobs",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                            <?php echo $_smarty_tpl->tpl_vars['profile']->value['user_work_title'];?>
-
-                            <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_work_place']) {?>
-                              <?php echo __("at");?>
-
-                              <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_work_url']) {?>
-                                <a target="_blank" href="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_work_url'];?>
-"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_work_place'];?>
-</a>
-                              <?php } else { ?>
-                                <span><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_work_place'];?>
-</span>
-                              <?php }?>
-                            <?php }?>
-                          </div>
-                        </li>
-                      <?php }?>
-                    <?php }?>
-                  <?php }?>
-
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['location_info_enabled']) {?>
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_current_city']) {?>
-                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_location'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_location'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
-                        <li>
-                          <div class="about-list-item">
-                            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"home",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                            <?php echo __("Lives in");?>
- <span class="text-info"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_current_city'];?>
-</span>
-                          </div>
-                        </li>
-                      <?php }?>
-                    <?php }?>
-
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_hometown']) {?>
-                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_location'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_location'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
-                        <li>
-                          <div class="about-list-item">
-                            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"map",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                            <?php echo __("From");?>
- <span class="text-info"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_hometown'];?>
-</span>
-                          </div>
-                        </li>
-                      <?php }?>
-                    <?php }?>
-                  <?php }?>
-
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['education_info_enabled']) {?>
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_edu_major']) {?>
-                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_education'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_education'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
-                        <li>
-                          <div class="about-list-item">
-                            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"education",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                            <?php echo __("Studied");?>
- <?php echo $_smarty_tpl->tpl_vars['profile']->value['user_edu_major'];?>
-
-                            <?php echo __("at");?>
- <span class="text-info"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_edu_school'];?>
-</span>
-                            <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_edu_class']) {?>
-                              <div class="details">
-                                <?php echo __("Class of");?>
- <?php echo $_smarty_tpl->tpl_vars['profile']->value['user_edu_class'];?>
-
-                              </div>
-                            <?php }?>
-                          </div>
-                        </li>
-                      <?php }?>
-                    <?php }?>
-                  <?php }?>
-
-                  <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_gender'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_gender'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
-                    <li>
-                      <div class="about-list-item">
-                        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"genders",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                        <?php echo $_smarty_tpl->tpl_vars['profile']->value['user_gender'];?>
-
-                      </div>
-                    </li>
-                  <?php }?>
-
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['relationship_info_enabled']) {?>
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_relationship']) {?>
-                      <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_relationship'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_relationship'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
-                        <li>
-                          <div class="about-list-item">
-                            <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"relationship",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                            <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_relationship'] == "relationship") {?>
-                              <?php echo __("In a relationship");?>
-
-                            <?php } elseif ($_smarty_tpl->tpl_vars['profile']->value['user_relationship'] == "complicated") {?>
-                              <?php echo __("It's complicated");?>
-
-                            <?php } else { ?>
-                              <?php echo __(call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'ucfirst' ][ 0 ], array( $_smarty_tpl->tpl_vars['profile']->value['user_relationship'] )));?>
-
-                            <?php }?>
-                          </div>
-                        </li>
-                      <?php }?>
-                    <?php }?>
-                  <?php }?>
-
-                  <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_birthdate'] != null) {?>
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_id'] == $_smarty_tpl->tpl_vars['user']->value->_data['user_id'] || $_smarty_tpl->tpl_vars['profile']->value['user_privacy_birthdate'] == "public" || ($_smarty_tpl->tpl_vars['profile']->value['user_privacy_birthdate'] == "friends" && $_smarty_tpl->tpl_vars['profile']->value['we_friends'])) {?>
-                      <li>
-                        <div class="about-list-item">
-                          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"birthday",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                          <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['profile']->value['user_birthdate'],$_smarty_tpl->tpl_vars['system']->value['system_date_format']);?>
-
-                        </div>
-                      </li>
-                    <?php }?>
-                  <?php }?>
-
-                  <?php if ($_smarty_tpl->tpl_vars['system']->value['website_info_enabled']) {?>
-                    <?php if ($_smarty_tpl->tpl_vars['profile']->value['user_website']) {?>
-                      <li>
-                        <div class="about-list-item">
-                          <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"website",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                          <a target="_blank" href="<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_website'];?>
-"><?php echo $_smarty_tpl->tpl_vars['profile']->value['user_website'];?>
-</a>
-                        </div>
-                      </li>
-                    <?php }?>
-                  <?php }?>
-
-                  <li>
-                    <div class="about-list-item">
-                      <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"friends",'class'=>"main-icon",'width'=>"24px",'height'=>"24px"), 0, true);
-?>
-                      <?php echo __("Followed by");?>
-
-                      <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-/<?php echo $_smarty_tpl->tpl_vars['profile']->value['user_name'];?>
-/followers"><?php echo $_smarty_tpl->tpl_vars['profile']->value['followers_count'];?>
- <?php echo __("people");?>
-</a>
-                    </div>
-                  </li>
-                  <!-- info -->
-                </ul>
-              </div>
-            </div>
-            <!-- panel [about] -->
+      
 
             <!-- custom fields [basic] -->
             <?php if ($_smarty_tpl->tpl_vars['custom_fields']->value['basic']) {?>
@@ -2289,7 +2284,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 <style>
 
 .svg-container svg{
-  fill:#fa8622 !important;
+  fill:#fa8622;
 }
 </style><?php }
 }
