@@ -353,54 +353,54 @@ $(function () {
 
   // run publisher
   /* publisher focus */
-  $('body').on('click', function (e) {
-    /* check if there is a publisher in the page */
-    if ($(".publisher:not(.mini)").length > 0) {
-      if ($(e.target).parents(".publisher:not(.mini)").length > 0 || $(e.target).parents(".js_publisher-attachment-image-remover").length > 0 || $(e.target).parents(".js_publisher-gif-remover").length > 0 || $(e.target).parents(".js_publisher-scraper-remover").length > 0) {
-        $('body').addClass('publisher-focus');
-        $('.publisher-slider').slideDown();
-        $('.publisher-emojis').fadeIn();
-        /* check if publisher colored tab activated */
-        if ($('.js_publisher-tab[data-tab="colored"]').hasClass('activated')) {
-          var publisher = $('.publisher');
-          var publisher_message = publisher.find(".publisher-message");
-          var publisher_textarea = publisher_message.find('textarea');
-          /* check if publisher_message already colored */
-          if (!publisher_message.hasClass("colored")) {
-            var active_pattern = $(".colored-pattern-item.active");
-            /* [1] add colored class */
-            publisher_message.addClass("colored");
-            /* [2] add pattern background-image */
-            if (active_pattern.data("type") == "color") {
-              publisher_message.css("backgroundImage", "linear-gradient(45deg, " + active_pattern.data('background-color-1') + ", " + active_pattern.data('background-color-2') + ")");
-            } else {
-              publisher_message.css("backgroundImage", "url(" + uploads_path + "/" + active_pattern.data('background-image') + ")");
-            }
-            /* [3] add pattern text-color */
-            publisher_textarea.css("color", active_pattern.data('text-color'));
-            autosize.update(publisher_textarea);
-          }
-        }
-      } else {
-        $('body').removeClass('publisher-focus');
-        $('.publisher-slider').slideUp();
-        $('.publisher-emojis').fadeOut();
-        /* check if publisher colored tab activated */
-        if ($('.js_publisher-tab[data-tab="colored"]').hasClass('activated')) {
-          var publisher = $('.publisher');
-          var publisher_message = publisher.find(".publisher-message");
-          var publisher_textarea = publisher_message.find('textarea');
-          /* [1] remove colored class */
-          publisher_message.removeClass("colored");
-          /* [2] remove pattern background-image */
-          publisher_message.css("backgroundImage", "");
-          /* [3] remove pattern text-color */
-          publisher_textarea.css("color", "");
-          autosize.update(publisher_textarea);
-        }
-      }
-    }
-  });
+  // $('body').on('click', function (e) {
+  //   /* check if there is a publisher in the page */
+  //   if ($(".publisher:not(.mini)").length > 0) {
+  //     if ($(e.target).parents(".publisher:not(.mini)").length > 0 || $(e.target).parents(".js_publisher-attachment-image-remover").length > 0 || $(e.target).parents(".js_publisher-gif-remover").length > 0 || $(e.target).parents(".js_publisher-scraper-remover").length > 0) {
+  //       $('body').addClass('publisher-focus');
+  //       $('.publisher-slider').slideDown();
+  //       $('.publisher-emojis').fadeIn();
+  //       /* check if publisher colored tab activated */
+  //       if ($('.js_publisher-tab[data-tab="colored"]').hasClass('activated')) {
+  //         var publisher = $('.publisher');
+  //         var publisher_message = publisher.find(".publisher-message");
+  //         var publisher_textarea = publisher_message.find('textarea');
+  //         /* check if publisher_message already colored */
+  //         if (!publisher_message.hasClass("colored")) {
+  //           var active_pattern = $(".colored-pattern-item.active");
+  //           /* [1] add colored class */
+  //           publisher_message.addClass("colored");
+  //           /* [2] add pattern background-image */
+  //           if (active_pattern.data("type") == "color") {
+  //             publisher_message.css("backgroundImage", "linear-gradient(45deg, " + active_pattern.data('background-color-1') + ", " + active_pattern.data('background-color-2') + ")");
+  //           } else {
+  //             publisher_message.css("backgroundImage", "url(" + uploads_path + "/" + active_pattern.data('background-image') + ")");
+  //           }
+  //           /* [3] add pattern text-color */
+  //           publisher_textarea.css("color", active_pattern.data('text-color'));
+  //           autosize.update(publisher_textarea);
+  //         }
+  //       }
+  //     } else {
+  //       $('body').removeClass('publisher-focus');
+  //       $('.publisher-slider').slideUp();
+  //       $('.publisher-emojis').fadeOut();
+  //       /* check if publisher colored tab activated */
+  //       if ($('.js_publisher-tab[data-tab="colored"]').hasClass('activated')) {
+  //         var publisher = $('.publisher');
+  //         var publisher_message = publisher.find(".publisher-message");
+  //         var publisher_textarea = publisher_message.find('textarea');
+  //         /* [1] remove colored class */
+  //         publisher_message.removeClass("colored");
+  //         /* [2] remove pattern background-image */
+  //         publisher_message.css("backgroundImage", "");
+  //         /* [3] remove pattern text-color */
+  //         publisher_textarea.css("color", "");
+  //         autosize.update(publisher_textarea);
+  //       }
+  //     }
+  //   }
+  // });
   /* publisher tabs */
   $('body').on('click', '.js_publisher-tab', function () {
     var _this = $(this);
@@ -890,8 +890,8 @@ $(function () {
         publisher.removeData('scraping');
         /* collapse the publisher */
         $('body').removeClass('publisher-focus');
-        publisher.find('.publisher-slider').slideUp();
-        publisher.find('.publisher-emojis').fadeOut();
+        //publisher.find('.publisher-slider').slideUp();
+        //publisher.find('.publisher-emojis').fadeOut();
         /* release the loading status */
         posts_stream.removeData('loading');
         if (response.processing) {
