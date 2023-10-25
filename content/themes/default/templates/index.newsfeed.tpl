@@ -18,7 +18,7 @@
               {if $user->_logged_in}
                 <!-- stories -->
                 {if $user->_data['can_add_stories'] || ($system['stories_enabled'] && !empty($stories['array']))}
-                  <div class="card">
+                  <div class="card story-board">
                     <div class="card-header bg-transparent border-bottom-0">
                       <strong class="text-muted">{__("Moments")}</strong>
                       {if $has_story}

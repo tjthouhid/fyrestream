@@ -162,8 +162,21 @@
         position: absolute;
         inset: 0px 0px auto auto;
         margin: 0px;
-        transform: translate3d(0px, 44px, 0px);
+        transform: translate3d(0px, 67px, 0px);
       }
     }
   }
+}
+.stories.carousel .story > .item-link > .info .name {
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.story-board {
+  background-color: transparent;
+}
+.js_story-deleter {
+  width: 30px;
+  height: 30px;
+  padding: 0px 0px;
 }

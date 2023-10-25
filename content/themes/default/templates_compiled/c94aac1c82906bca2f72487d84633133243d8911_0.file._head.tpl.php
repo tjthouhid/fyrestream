@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-22 20:26:44
+/* Smarty version 4.3.2, created on 2023-10-24 19:22:14
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/_head.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65358584235861_26209500',
+  'unifunc' => 'content_65381966719bf2_42820447',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c94aac1c82906bca2f72487d84633133243d8911' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/_head.tpl',
-      1 => 1698006390,
+      1 => 1698103200,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_head.css.tpl' => 1,
   ),
 ),false)) {
-function content_65358584235861_26209500 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65381966719bf2_42820447 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Users/tjthouhid/Desktop/Wplocal/app/public/vendor/smarty/smarty/libs/plugins/modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 ?>
 <!doctype html>
@@ -91,11 +91,11 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Users/tjthouhid/Desktop/Wpl
   <link rel="stylesheet" type='text/css'
     href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /content/themes/<?php echo $_smarty_tpl->tpl_vars['system']->value['theme'];?>
-/css/new-css/app.css?ver=1.0.0">
+/css/new-css/app.css?ver=1.0.1">
   <link rel="stylesheet" type='text/css'
     href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /content/themes/<?php echo $_smarty_tpl->tpl_vars['system']->value['theme'];?>
-/css/style.min.css?ver=1.0.0">
+/css/style.min.css?ver=1.0.1">
   <link rel="stylesheet" type='text/css' href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /content/themes/<?php echo $_smarty_tpl->tpl_vars['system']->value['theme'];?>
 /css/login.css">

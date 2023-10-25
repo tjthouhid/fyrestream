@@ -49,9 +49,9 @@
     {if $system['language']['dir'] == "LTR"}
   <link href="{$system['system_url']}/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type='text/css'
-    href="{$system['system_url']}/content/themes/{$system['theme']}/css/new-css/app.css?ver=1.0.0">
+    href="{$system['system_url']}/content/themes/{$system['theme']}/css/new-css/app.css?ver=1.0.1">
   <link rel="stylesheet" type='text/css'
-    href="{$system['system_url']}/content/themes/{$system['theme']}/css/style.min.css?ver=1.0.0">
+    href="{$system['system_url']}/content/themes/{$system['theme']}/css/style.min.css?ver=1.0.1">
   <link rel="stylesheet" type='text/css' href="{$system['system_url']}/content/themes/{$system['theme']}/css/login.css">
   <link rel="stylesheet" type='text/css'
     href="{$system['system_url']}/content/themes/{$system['theme']}/css/style_attached.css">

@@ -5489,8 +5489,33 @@ class User
           $story['items'][] = $story_item;
         }
         $stories[] = $story;
+        
       }
     }
+    if(count($stories)<5){
+      $demoTotal = 5-count($stories);
+      for($i=0;$i<$demoTotal;$i++){
+        $story_demo = array();
+        $story_demo['id'] = "demo_user_0" . $i;
+        $story_demo['photo'] = $system['system_uploads'].'/demo/demo-pic-1.png';
+        $story_demo['name'] = "Demo ".($i+1);
+        $story_demo['lastUpdated'] = strtotime(date('Y-m-d H:i:s', time()));
+        $story_demo['items'] = [];
+        $story_demo['items'][0]['id'] = "demo_media_0" . $i;
+        $story_demo['items'][0]['type'] = 'photo';
+        $story_demo['items'][0]['src'] = $system['system_uploads'].'/demo/demo-img-'.($i+1).'.jpg';
+        $story_demo['items'][0]['preview'] = $system['system_uploads'].'/demo/demo-img-'.($i+1).'.jpg';
+        $story_demo['items'][0]['link'] = '.';
+        $story_demo['items'][0]['linkText'] = '';
+        $story_demo['items'][0]['time'] = '';
+        $story_demo['items'][0]['time'] = strtotime(date('Y-m-d H:i:s', time()));
+        $story_demo['items'][0]['length'] = 3;
+
+        $stories[] = $story_demo;
+      }
+      
+    }
+   
     return array("array" => $stories, "json" => json_encode($stories));
   }
 

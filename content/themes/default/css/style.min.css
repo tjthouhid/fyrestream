@@ -3328,7 +3328,7 @@ body.night-mode .lightbox-data {
   height: 220px;
   margin-bottom: 25px;
   position: relative;
-  width: 140px;
+  width: 150px;
 }
 .add-story .img {
   background-position: 50%;
@@ -3363,7 +3363,7 @@ body.night-mode .add-story .add {
 }
 .stories.sngine.carousel .story {
   max-width: 100%;
-  width: 140px;
+  width: 150px;
 }
 .stories.sngine.carousel .story > .item-link > .item-preview {
   height: 220px;

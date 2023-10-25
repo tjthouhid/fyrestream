@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-23 22:52:12
+/* Smarty version 4.3.2, created on 2023-10-24 20:28:17
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/index.newsfeed.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6536f91cf23913_54093402',
+  'unifunc' => 'content_653828e12bfea6_19532284',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '13fa8dd08c15da9d4eb7ba83ffcb537bbe5fb287' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/index.newsfeed.tpl',
-      1 => 1698101530,
+      1 => 1698179286,
       2 => 'file',
     ),
   ),
@@ -38,7 +38,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_6536f91cf23913_54093402 (Smarty_Internal_Template $_smarty_tpl) {
+function content_653828e12bfea6_19532284 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -61,7 +61,7 @@ $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_s
               <?php if ($_smarty_tpl->tpl_vars['user']->value->_logged_in) {?>
                 <!-- stories -->
                 <?php if ($_smarty_tpl->tpl_vars['user']->value->_data['can_add_stories'] || ($_smarty_tpl->tpl_vars['system']->value['stories_enabled'] && !empty($_smarty_tpl->tpl_vars['stories']->value['array']))) {?>
-                  <div class="card">
+                  <div class="card story-board">
                     <div class="card-header bg-transparent border-bottom-0">
                       <strong class="text-muted"><?php echo __("Moments");?>
 </strong>
