@@ -880,6 +880,22 @@
 
     {include file='../images/svg/edit-2.svg'}
 
+  {elseif $icon == "video-call"}
+
+    {include file='../images/svg/video-call.svg'}
+
+  {elseif $icon == "p-photo"}
+
+    {include file='../images/svg/p-photo.svg'}
+
+  {elseif $icon == "p-emoji"}
+
+    {include file='../images/svg/p-emoji.svg'}
+
+  {elseif $icon == "p-more-icon"}
+
+    {include file='../images/svg/p-more-icon.svg'}
+
   {elseif $icon == "fluid"}
 
     {include file='../images/svg/fluid.svg'}

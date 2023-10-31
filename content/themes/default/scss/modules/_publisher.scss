@@ -51,6 +51,23 @@
       }
     }
   }
+  .publisher-action-bar{
+    border-top: 1px solid #E6E8EE;
+    padding: 20px 0px;
+    margin: 10px 30px;
+    ul{
+      list-style: none;
+      display: flex;
+      margin: 0px 20px;
+      justify-content: space-between;
+      li{
+        .publisher-action-bar--icon{
+          cursor: ;
+        }
+
+      }
+    }
+  }
   &.active {
     .publisher-head {
       display: flex;

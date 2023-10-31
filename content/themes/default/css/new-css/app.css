@@ -247,6 +247,20 @@
 .publisher .publisher-message .publisher-camicon .svg-container {
   margin-right: 0px !important;
 }
+.publisher .publisher-action-bar {
+  border-top: 1px solid #E6E8EE;
+  padding: 20px 0px;
+  margin: 10px 30px;
+}
+.publisher .publisher-action-bar ul {
+  list-style: none;
+  display: flex;
+  margin: 0px 20px;
+  justify-content: space-between;
+}
+.publisher .publisher-action-bar ul li .publisher-action-bar--icon {
+  cursor: pointer;
+}
 .publisher.active .publisher-head {
   display: flex;
   padding: 10px 20px;

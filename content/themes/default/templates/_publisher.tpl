@@ -107,6 +107,34 @@
     </div>
   </div>
   <!-- publisher-message -->
+  <div class="publisher-action-bar">
+    <ul>
+      <li>
+        <div class="publisher-action-bar--icon">
+          {include file='__svg_icons.tpl' icon="video-call" class="main-icon" width="32px" height="32px"}
+          Live video
+        </div>
+      </li>
+      <li>
+        <div class="publisher-action-bar--icon">
+          {include file='__svg_icons.tpl' icon="p-photo" class="main-icon" width="32px" height="32px"}
+          Photo/video
+        </div>
+      </li>
+      <li>
+        <div class="publisher-action-bar--icon">
+          {include file='__svg_icons.tpl' icon="p-emoji" class="main-icon" width="32px" height="32px"}
+          Feeling/activity
+        </div>
+      </li>
+      <li>
+        <div class="publisher-action-bar--icon">
+          {include file='__svg_icons.tpl' icon="p-more-icon" class="main-icon" width="32px" height="32px"}
+          More
+        </div>
+      </li>
+    </li>
+  </div>
 
   <!-- publisher-slider -->
   <div class="publisher-slider">
