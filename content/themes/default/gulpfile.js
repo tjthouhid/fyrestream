@@ -55,7 +55,8 @@ gulp.task('compileScss', function() {
 // Configure the browserSync task and watch file path for change
 gulp.task('dev', function browserDev(done) {
   browserSync.init({
-    proxy: 'fyrestream.local',
+    proxy: 'fyrestream.local/index.php',
+    //port: 8000,
     serveStatic: ['.'],
     files: ['**/*.css', '**/*.js', '**/*.php'],
     // server: {

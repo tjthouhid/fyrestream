@@ -1,28 +1,28 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-10-23 22:27:35
+/* Smarty version 4.3.2, created on 2023-10-30 20:00:44
   from '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/_publisher.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6536f35724f762_08796799',
+  'unifunc' => 'content_65400b6c592465_70944425',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7432d2e058b3eeba0dffdea20e4630210dc0a6a0' => 
     array (
       0 => '/Users/tjthouhid/Desktop/Wplocal/app/public/content/themes/default/templates/_publisher.tpl',
-      1 => 1698100054,
+      1 => 1698696042,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:__svg_icons.tpl' => 30,
+    'file:__svg_icons.tpl' => 31,
     'file:__categories.recursive_options.tpl' => 1,
   ),
 ),false)) {
-function content_6536f35724f762_08796799 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65400b6c592465_70944425 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="publisher-overlay"></div>
 
 <div class="x-form publisher" data-handle="<?php echo $_smarty_tpl->tpl_vars['_handle']->value;?>
@@ -146,6 +146,12 @@ echo $_smarty_tpl->tpl_vars['url']->value;
       <div class="position-relative">
         <i class="far fa-smile-wink fa-lg js_emoji-menu-toggle"></i>
       </div>
+    </div>
+    <div class="publisher-camicon">
+      <span class="js_x-uploader" data-handle="publisher" data-multiple="true">
+        <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"camera",'class'=>"main-icon mr5",'width'=>"24px",'height'=>"24px"), 0, true);
+?>
+      </span>
     </div>
   </div>
   <!-- publisher-message -->

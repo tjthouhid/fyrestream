@@ -100,6 +100,11 @@
         <i class="far fa-smile-wink fa-lg js_emoji-menu-toggle"></i>
       </div>
     </div>
+    <div class="publisher-camicon">
+      <span class="js_x-uploader" data-handle="publisher" data-multiple="true">
+        {include file='__svg_icons.tpl' icon="camera" class="main-icon mr5" width="24px" height="24px"}
+      </span>
+    </div>
   </div>
   <!-- publisher-message -->
 
